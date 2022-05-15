@@ -1,0 +1,293 @@
+/* ===================
+BORDER RADIUS LIST
+======================= */
+$radius: 1,
+3,
+5,
+7,
+8,
+10,
+12,
+15,
+18,
+20,
+25,
+30,
+35,
+40,
+45,
+50,
+55;
+
+@each $value in $radius {
+  .rounded-#{$value} {
+    border-radius: toRem($value) !important;
+  }
+
+  .rounded-top-#{$value} {
+    border-radius: toRem($value) toRem($value) 0 0 !important;
+  }
+
+  .rounded-bottom-#{$value} {
+    border-radius: 0 0 toRem($value) toRem($value) !important;
+  }
+
+  .rounded-top-left-#{$value} {
+    border-top-left-radius: toRem($value) !important;
+  }
+
+  .rounded-top-right-#{$value} {
+    border-top-right-radius: toRem($value) !important;
+  }
+
+  .rounded-bottom-left-#{$value} {
+    border-bottom-left-radius: toRem($value) !important;
+  }
+
+  .rounded-bottom-right-#{$value} {
+    border-bottom-right-radius: toRem($value) !important;
+  }
+}
+
+
+/* ===================
+Z-INDEXING
+======================= */
+$indexes: 1,
+9,
+49,
+99,
+999,
+2000;
+
+@each $index in $indexes {
+  .index-#{$index} {
+    z-index: #{$index};
+  }
+
+  .index--#{$index} {
+    z-index: -#{$index};
+  }
+}
+
+/* ====================================
+Cursor, Selection, Link and Transition
+======================================= */
+.pointer {
+  cursor: pointer;
+}
+
+.select-none {
+  user-select: none;
+}
+
+.resize-none {
+  resize: none;
+}
+
+.link-underline {
+  text-decoration: underline;
+}
+
+.link-no-underline {
+  text-decoration: none !important;
+}
+
+.smooth-transition {
+  transition: all 0.4s ease-in-out;
+}
+
+.smooth-animation {
+  transition: top 0.5s ease-in-out;
+  animation: panel-slide-down 0.6s ease-in-out;
+}
+
+/* ========================
+BORDER SHADOW EFFECT
+============================ */
+.box-shadow-effect {
+  box-shadow: 0 toRem(1) toRem(4) rgba(#07374b, 0.15);
+}
+
+.navigation-shadow-effect {
+  box-shadow: toRem(2) toRem(5) toRem(10) rgba(137, 138, 141, 0.051);
+}
+
+.no-shadow {
+  box-shadow: unset !important;
+}
+
+/* ===================
+MARGINS
+======================= */
+@for $i from 100 through 0 {
+  .mg-#{$i} {
+    margin: toRem($i) !important;
+  }
+
+  .mgt-#{$i} {
+    margin-top: toRem($i) !important;
+  }
+
+  .mgt--#{$i} {
+    margin-top: -toRem($i) !important;
+  }
+
+  .mgb-#{$i} {
+    margin-bottom: toRem($i) !important;
+  }
+
+  .mgb--#{$i} {
+    margin-bottom: -toRem($i) !important;
+  }
+
+  .mgl-#{$i} {
+    margin-left: toRem($i) !important;
+  }
+
+  .mgl--#{$i} {
+    margin-left: -toRem($i) !important;
+  }
+
+  .mgr-#{$i} {
+    margin-right: toRem($i) !important;
+  }
+
+  .mgr--#{$i} {
+    margin-right: -toRem($i) !important;
+  }
+
+  .mgy-#{$i} {
+    margin-top: -toRem($i) !important;
+    margin-bottom: -toRem($i) !important;
+  }
+
+  .mgx-#{$i} {
+    margin-left: -toRem($i) !important;
+    margin-right: -toRem($i) !important;
+  }
+}
+
+/* ===================
+PADDINGS
+======================= */
+@for $i from 70 through 0 {
+  .pd-#{$i} {
+    padding: toRem($i) !important;
+  }
+
+  .pdt-#{$i} {
+    padding-top: toRem($i) !important;
+  }
+
+  .pdb-#{$i} {
+    padding-bottom: toRem($i) !important;
+  }
+
+  .pdl-#{$i} {
+    padding-left: toRem($i) !important;
+  }
+
+  .pdr-#{$i} {
+    padding-right: toRem($i) !important;
+  }
+
+  .pdy-#{$i} {
+    padding-top: toRem($i) !important;
+    padding-bottom: toRem($i) !important;
+  }
+
+  .pdx-#{$i} {
+    padding-left: toRem($i) !important;
+    padding-right: toRem($i) !important;
+  }
+}
+
+/* ===============================
+FONT SIZE LIST ACROSS BREAKPOINTS
+================================== */
+@for $i from 70 through 4 {
+  .f-size-#{$i} {
+    font-size: toRem($i) !important;
+    line-height: #{calc($i + 4.5) / 16}rem !important;
+  }
+
+  .f-size-#{$i}-5 {
+    font-size: #{calc($i + 0.5) / 16}rem !important;
+    line-height: #{calc($i + 4.5) / 16}rem !important;
+  }
+}
+
+/* ===================
+FONT STYLING
+======================= */
+.font-normal {
+  font-style: normal !important;
+}
+
+.font-italics {
+  font-style: italic !important;
+}
+
+.font-oblique {
+  font-style: oblique !important;
+}
+
+// LEFT ALIGNMENT
+.align-left {
+  text-align: left;
+}
+
+// RIGHT ALIGNMENT
+.align-right {
+  text-align: right;
+}
+
+// JUSTIFY ALIGNMENT
+.align-justify {
+  text-align: justify;
+}
+
+.vertical-text {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+/* ===================
+FONT WEIGHT LIST
+======================= */
+$weights: 400,
+500,
+600,
+700,
+800,
+900;
+
+@each $weight in $weights {
+  .fw-#{$weight} {
+    font-weight: #{$weight} !important;
+  }
+}
+
+/* ===================
+ORIENTATION
+======================= */
+.rotate-180 {
+  transform: rotate(180deg);
+}
+
+.rotate-0 {
+  transform: rotate(0deg);
+}
+
+.rotate-90 {
+  transform: rotate(90deg);
+}
+
+.rotate--90 {
+  transform: rotate(-90deg);
+}
+
+.rotate-45 {
+  transform: rotate(45deg);
+}

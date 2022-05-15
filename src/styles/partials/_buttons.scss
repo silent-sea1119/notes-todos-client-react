@@ -1,0 +1,100 @@
+a {
+    text-decoration: none;
+    transition: all 0.6s ease-in-out;
+    color: inherit;
+  
+    &:hover,
+    &:focus {
+    //   color: $brand-accent;
+      text-decoration: none;
+    }
+  
+    &:focus {
+      .no-touch & {
+        outline: none;
+      }
+    }
+  }
+  
+//   a:link,
+//   button {
+//     -webkit-tap-highlight-color: rgba($brand-accent, 0.35);
+//     -moz-tap-highlight-color: rgba($brand-accent, 0.35);
+//   }
+  
+  button {
+    outline: 0;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+    width: auto;
+    height: auto;
+    color: inherit;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.6s ease-in-out;
+  
+    &:focus,
+    &:visited {
+      outline: none;
+    }
+  }
+  
+  button[disabled] {
+    cursor: not-allowed;
+    user-select: none;
+    pointer-events: none;
+    // color: $color-text !important;
+    // background: darken($border-grey, 3%) !important;
+  }
+  
+  .btn {
+    position: relative;
+    border-radius: toRem(40);
+    padding: toRem(12) toRem(30);
+    letter-spacing: 0.05em;
+    font-weight: 600 !important;
+    background-color: transparent;
+    // color: $color-white;
+    // fill: $border-grey-light;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    max-width: 100%;
+    box-shadow: toRem(0) toRem(0) toRem(0) transparent;
+    text-decoration: none !important;
+    white-space: nowrap;
+    font-size: toRem(11.5);
+    @include flex-row-center-nowrap;
+    @include transition(0.6s);
+  
+  
+    @include breakpoint-down(md) {
+      font-size: toRem(11.25);
+    }
+  
+    @include breakpoint-down(sm) {
+      @include font-height(11, 15);
+      padding: toRem(13) toRem(25);
+    }
+  
+    @include breakpoint-down(xs) {
+      @include font-height(10.75, 14);
+      padding: toRem(12.5) toRem(25);
+    }
+  
+    &:hover,
+    &:focus {
+      text-decoration: none !important;
+    //   box-shadow: toRem(1) toRem(3) toRem(6) 0 rgba($brand-black, 0.4);
+  
+      .no-touch & {
+        outline: none;
+      }
+    }
+  }
+  
+  .btn-md {
+    padding: toRem(12) toRem(30);
+    @include font-height(11, 15);
+  }

@@ -1,0 +1,97 @@
+.base-layout {
+  @include flex-row-between-nowrap;
+  align-items: flex-start;
+  width: 100%;
+
+  .sidebar-build-cover {
+    @include fixed-display-area;
+    width: 18%;
+
+    @include breakpoint-down(lg) {
+      width: 25%;
+    }
+
+    @include breakpoint-down(md) {
+      background: rgba(#acacac, 0.65);
+      z-index: 11;
+      width: 100%;
+    }
+
+    .sidebar-build {
+      border-right: 1px solid rgba($brand-grey, 0.35);
+      @include stretch-area;
+      bottom: 0;
+
+      @include breakpoint-down(md) {
+        width: 66%;
+      }
+
+      @include breakpoint-custom-down(380) {
+        width: 70%;
+      }
+    }
+  }
+
+  .body-build {
+    background: $brand-grey-light;
+    position: relative;
+    min-height: 100vh;
+    height: 100%;
+    width: 82%;
+    left: 18%;
+
+    @include breakpoint-down(lg) {
+      left: 25%;
+      width: 75%;
+    }
+
+    @include breakpoint-down(md) {
+      width: 100%;
+      left: 0;
+    }
+
+    .topbar-build {
+      @include flex-row-between-wrap;
+      padding: toRem(18) toRem(28);
+      position: fixed;
+      z-index: 999;
+      width: 82%;
+      top: 0;
+
+      @include breakpoint-down(lg) {
+        padding: toRem(14) toRem(18);
+        width: 75%;
+      }
+
+      @include breakpoint-custom-down(820) {
+        padding: toRem(14);
+      }
+
+      @include breakpoint-down(md) {
+        width: 100%;
+        z-index: 9;
+      }
+    }
+
+    .content-build {
+      background: $brand-grey-light;
+      position: relative;
+      padding: toRem(25);
+      top: toRem(56);
+      width: 100%;
+
+      @include breakpoint-down(lg) {
+        padding: toRem(20) toRem(14);
+      }
+
+      @include breakpoint-custom-down(820) {
+        padding: toRem(14) toRem(14);
+        top: toRem(60);
+      }
+
+      @include breakpoint-down(sm) {
+        padding: toRem(11);
+      }
+    }
+  }
+}

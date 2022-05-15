@@ -1,0 +1,10 @@
+.sidebar-build {
+  @include flex-column-start-start;
+
+  .brand-row {
+    margin-top: 6px;
+    margin-bottom: 2px;
+    margin-left: 12.5px;
+    padding: 5px 25px 4px;
+  }
+}

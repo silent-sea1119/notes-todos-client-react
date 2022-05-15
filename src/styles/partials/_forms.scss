@@ -1,0 +1,312 @@
+/* =================
+    FORM STYLING
+==================== */
+
+// INPUT PLACEHOLDER
+input {
+    &::placeholder {
+        // color: $color-ash-lighter !important;
+    }
+
+    &:focus {
+        outline: none;
+    }
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}   
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+// FORM GROUP
+.form-group {
+    position: relative;
+    margin-bottom: toRem(25);
+}
+
+// FORM LABEL
+.control-label {
+    text-transform: none;
+    font-size: 1em;
+    padding-top: 0;
+    margin-bottom: 0;
+    padding-bottom: toRem(8);
+    line-height: toRem(22);
+    // color: $color-grey-dark;
+
+    [class*="checkbox"] &,
+    [class*="radio"] & {
+        color: inherit;
+    }
+
+    @include breakpoint-down(sm) {
+        font-size: toRem(12) !important;
+    }
+
+    @include breakpoint-down(xs) {
+        font-size: toRem(11) !important;
+    }
+}
+
+// INPUT DISABLED
+input[disabled] {
+    // background-color: $color-grey-light;
+}
+
+// FORM INPUT STYLING
+.form-control {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    line-height: normal;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    margin: 0;
+    outline: 0;
+    width: 100%;
+    min-height: 2.8125rem;
+    position: relative;
+    // border: 0.0625rem solid $border-grey;
+    border-radius: 0.3125rem;
+    overflow: hidden;
+    // color: $color-text;
+    text-indent: 0.0006rem;
+    appearance: none;
+    box-shadow: 0 0 0 transparent;
+    box-shadow: unset;
+    vertical-align: middle;
+
+    @include breakpoint-down(lg) {
+        font-size: 0.8125rem;
+    }
+
+    @include breakpoint-down(sm) {
+        font-size: toRem(12);
+    }
+
+    @include breakpoint-down(xs) {
+        font-size: toRem(11);
+    }
+
+    &.width_auto {
+        width: auto;
+        min-width: 15.625rem;
+    }
+
+    &.input-rounded {
+        border-radius: 1.875rem;
+        padding-left: 0.9375rem;
+    }
+
+    &:focus {
+        outline: 0;
+        // border-color: $brand-accent;
+        box-shadow: none;
+    }
+}
+
+// SELECT FORM STYLING 
+// select.form-control {
+//     background: $white-text url(../img/arrow-down.png) right center no-repeat;
+
+//     &:focus {
+//         outline: none;
+//         background: $white-text url(../img/arrow-down.png) right center no-repeat;
+//     }
+// }
+
+// INPUT RADIO STYLING
+input[type="radio"],
+.radio input[type="radio"],
+.radio-inline input[type="radio"] {
+    position: relative;
+    margin-top: 0.1875rem;
+    margin-right: 0.468rem;
+    vertical-align: top;
+    appearance: none;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+
+    .controlSummary & {
+        margin-top: 0.375rem;
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+    &:before,
+    &:after {
+        content: "";
+        display: block;
+        @include square-shape(20);
+        border-radius: 50%;
+        transition: all 240ms;
+
+        @include breakpoint-down(sm) {
+            @include square-shape(18);
+        }
+    }
+
+    &:before {
+        position: absolute;
+        left: 0;
+        top: -0.1875rem;
+        // background-color: $brand-accent;
+        transform: scale(0);
+    }
+
+    &:after {
+        position: relative;
+        top: -0.1875rem;
+        // border: 0.125rem solid $border-grey-dark;
+    }
+
+    &:checked:before {
+        transform: scale(.5);
+    }
+
+    &:checked:after {
+        // border-color: $brand-accent;
+    }
+
+    &:disabled:after,
+    &:disabled:checked:after,
+    &:disabled:checked:before {
+        // border-color: $border-grey-dark;
+    }
+}
+
+// INPUT CHECKBOX STYLING
+input[type="checkbox"],
+.checkbox input[type="checkbox"],
+.checkbox-inline input[type="checkbox"] {
+    position: relative;
+    border: none;
+    margin-bottom: -0.375rem;
+    cursor: pointer;
+    appearance: none;
+
+    &:focus {
+        outline: none;
+    }
+
+    &:disabled {
+        // background-color: $border-grey-light;
+        border-color: transparent;
+        @include square-shape(19);
+        margin-right: 0.25rem;
+    }
+
+    &:after {
+        content: "";
+        display: block;
+        @include square-shape(19);
+        margin-top: -0.125rem;
+        margin-right: 0.4688rem;
+        // border: 0.0625rem solid $border-grey-dark;
+        border-radius: 0.1875rem;
+        transition: all 240ms;
+        overflow: hidden;
+    }
+
+    &:checked:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0.390rem;
+        display: table;
+        @include rectangle-shape(6, 12);
+        // border: toRem(2) solid $color-white;
+        border-top-width: 0;
+        border-left-width: 0;
+        transform: rotate(45deg);
+    }
+
+    &:checked:after {
+        // background-color: $brand-accent;
+        // border-color: $brand-accent;
+    }
+
+    &:disabled:after {
+        // border-color: $border-grey-dark;
+    }
+
+    &:disabled:checked:after {
+        // background-color: $border-grey-light;
+        border-color: transparent;
+    }
+
+    &:disabled:checked:before {
+        // border-color: $border-grey-dark;
+    }
+
+    .checkbox-md & {
+
+        &:before,
+        &:after {
+            @include square-shape(19);
+
+            @include breakpoint-down(sm) {
+                @include square-shape(18);
+            }
+        }
+
+        &:checked:before {
+            top: 0.0625rem;
+            left: 0.5625rem;
+
+            @include breakpoint-down(sm) {
+                left: 0.5rem;
+            }
+
+            @include breakpoint-down(xs) {
+                top: 0rem;
+                left: 0.4375rem;
+            }
+        }
+    }
+}
+
+// CHECK BOX AND RADIO INLINE STYLING
+.radio-inline,
+.checkbox-inline {
+    padding: 0.625rem 0 0.3125rem;
+    display: inline-flex;
+    align-items: center;
+
+    +.radio-inline,
+    +.checkbox-inline {
+        margin-left: 1.875rem;
+    }
+}
+
+label {
+    font-weight: normal;
+
+    &.radio-inline {
+        +label {
+            margin-left: 1.875rem;
+        }
+    }
+
+    &.checkbox-inline {
+        margin: 0.3125rem 0;
+        margin-bottom: 0 !important;
+        font-size: 0.875rem;
+        display: inline-block;
+        vertical-align: top;
+
+        @include breakpoint-down(sm) {
+            font-size: 0.75rem;
+        }
+    }
+}

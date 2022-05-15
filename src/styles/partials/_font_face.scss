@@ -1,0 +1,31 @@
+@font-face {
+    font-family: 'Poppins';
+    src: local(Poppins);
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: local(Inter);
+}
+
+$header_font: 'Poppins',
+Roboto,
+Segoe UI,
+Open Sans,
+sans-serif;
+
+$body_font: 'Inter',
+Roboto,
+Segoe UI,
+Open Sans,
+sans-serif;
+
+body {
+    font-family: $body_font;
+    font-display: fallback;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: $header_font;
+    font-display: fallback;
+}
