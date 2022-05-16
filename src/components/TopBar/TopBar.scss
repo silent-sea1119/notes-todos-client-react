@@ -1,6 +1,4 @@
-@import "styles/partials/_colors.scss";
-@import "styles/partials/_breakpoints.scss";
-@import "styles/partials/_mixins.scss";
+@import "styles/variables.scss";
 
 .topbar-build {
   @include flex-row-between-nowrap;

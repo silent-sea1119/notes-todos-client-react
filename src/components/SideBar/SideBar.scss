@@ -1,10 +1,31 @@
+@import "styles/variables.scss";
+
 .sidebar-build {
   @include flex-column-start-start;
 
   .brand-row {
-    margin-top: 6px;
-    margin-bottom: 2px;
-    margin-left: 12.5px;
-    padding: 5px 25px 4px;
+    @include flex-row-start-nowrap;
+    padding: toRem(18) toRem(25);
+
+    .brand-icon {
+      font-size: toRem(28);
+      margin-right: toRem(10);
+    }
+
+    .brand-name {
+      position: relative;
+      font-size: toRem(22);
+      top: toRem(4);
+    }
+  }
+
+  .nav-item-area {
+    margin-top: toRem(18);
+
+    .nav-category {
+      margin-bottom: toRem(7);
+      font-size: toRem(14.25);
+      padding: 0 toRem(25);
+    }
   }
 }
