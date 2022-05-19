@@ -9,8 +9,6 @@ type NavItemTypes = {
 };
 
 const NavItem = ({ title, icon, link }: NavItemTypes) => {
-  //   const isActiveLink = () => {};
-
   return (
     <NavLink to={`${link}`} className="nav-item w-100">
       <div className={`nav-icon icon-${icon}`}></div>

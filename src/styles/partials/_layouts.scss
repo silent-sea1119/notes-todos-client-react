@@ -52,7 +52,7 @@
 
     .topbar-build {
       @include flex-row-between-wrap;
-      padding: toRem(18) toRem(28);
+      padding: toRem(11) toRem(28);
       position: fixed;
       z-index: 999;
       width: 82%;

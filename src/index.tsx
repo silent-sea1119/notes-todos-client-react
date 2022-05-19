@@ -5,7 +5,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
 // GLOBAL STYLES
-import "bootstrap/scss/bootstrap.scss"
+import "bootstrap/scss/bootstrap.scss";
 import "./styles/styles.scss";
 
 const root = ReactDOM.createRoot(
@@ -13,11 +13,11 @@ const root = ReactDOM.createRoot(
 );
 
 root.render(
-  <React.StrictMode>
-    <Router>
-      <App />
-    </Router>
-  </React.StrictMode>
+  <Router>
+    <App />
+  </Router>
+  // <React.StrictMode>
+  // </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

@@ -1,0 +1,9 @@
+@import "styles/variables.scss";
+
+.title-row {
+  margin: toRem(26) 0 toRem(23);
+
+  .title-text {
+    @include font-height(28, 38);
+  }
+}

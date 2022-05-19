@@ -1,0 +1,31 @@
+@import "styles/variables.scss";
+
+.selection-item {
+  @include flex-row-center-nowrap;
+  padding: toRem(10) toRem(15);
+  color: $brand-grey;
+
+  &:first-of-type {
+    margin-right: toRem(20);
+  }
+
+  .selection-counter {
+    background: rgba($brand-blue, 0.25);
+    @include square-shape(23);
+    position: relative;
+  }
+
+  .selection-text {
+    font-size: toRem(14.45);
+  }
+
+  &-active {
+    border-bottom: toRem(2) solid $brand-blue;
+    color: $brand-black;
+    font-weight: 600;
+  }
+
+  &:hover {
+    color: $brand-black;
+  }
+}

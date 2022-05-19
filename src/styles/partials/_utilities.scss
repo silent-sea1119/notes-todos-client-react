@@ -1,23 +1,7 @@
 /* ===================
 BORDER RADIUS LIST
 ======================= */
-$radius: 1,
-3,
-5,
-7,
-8,
-10,
-12,
-15,
-18,
-20,
-25,
-30,
-35,
-40,
-45,
-50,
-55;
+$radius: 1, 3, 5, 7, 8, 10, 12, 15, 18, 20, 25, 30, 35, 40, 45, 50, 55;
 
 @each $value in $radius {
   .rounded-#{$value} {
@@ -49,16 +33,10 @@ $radius: 1,
   }
 }
 
-
 /* ===================
 Z-INDEXING
 ======================= */
-$indexes: 1,
-9,
-49,
-99,
-999,
-2000;
+$indexes: 1, 9, 49, 99, 999, 2000;
 
 @each $index in $indexes {
   .index-#{$index} {
@@ -253,15 +231,22 @@ FONT STYLING
   text-orientation: mixed;
 }
 
+.place-center {
+  @include center-placement;
+}
+
+.place-center-x {
+  @include center-x;
+}
+
+.place-center-y {
+  @include center-y;
+}
+
 /* ===================
 FONT WEIGHT LIST
 ======================= */
-$weights: 400,
-500,
-600,
-700,
-800,
-900;
+$weights: 400, 500, 600, 700, 800, 900;
 
 @each $weight in $weights {
   .fw-#{$weight} {

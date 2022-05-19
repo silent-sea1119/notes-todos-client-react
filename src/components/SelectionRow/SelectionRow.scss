@@ -1,0 +1,6 @@
+@import "styles/variables.scss";
+
+.selection-row {
+  @include flex-row-start-nowrap;
+  border-bottom: toRem(1) solid rgba($brand-grey, 0.5);
+}
