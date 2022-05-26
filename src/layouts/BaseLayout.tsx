@@ -1,14 +1,13 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import { Sidebar, TopBar } from "components";
+import { SideBar, TopBar } from "components";
+import "./BaseLayout.scss";
 
-type BaseLayoutTypes = {};
-
-const BaseLayout = (props: BaseLayoutTypes) => {
+const BaseLayout = () => {
   return (
     <div className="base-layout">
       {/* SIDE BAR BUILD */}
-      <Sidebar />
+      <SideBar />
 
       {/* BODY BUILD */}
       <div className="body-build">

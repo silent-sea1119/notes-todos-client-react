@@ -1,8 +1,24 @@
-export { default as Sidebar } from "./SideBar/SideBar";
-export { default as TopBar } from "./TopBar/TopBar";
-export { default as NavItem } from "./NavItem/NavItem";
-export { default as TopFilter } from "./TopFilter/TopFilter";
-export { default as UserInfo } from "./UserInfo/UserInfo";
-export { default as TitleRow } from "./TitleRow/TitleRow";
-export { default as SelectionRow } from "./SelectionRow/SelectionRow";
-export { default as SelectionItem } from "./SelectionItem/SelectionItem";
+// GLOBAL EXPORT
+export {
+  SideBar,
+  SideNavItem,
+  SideNewProject,
+  TopBar,
+  TopSearch,
+  TopUserInfo,
+} from "./global-comps/";
+
+// ACTIVITY EXPORT
+export {
+  TitleHolder,
+  SelectionItem,
+  SelectionRow,
+  TodoBlock,
+  TodoCategory,
+  TodoCard,
+  NotesBlock,
+  NotesBlockEmpty,
+  NotesBlockContent,
+  NoteCard,
+  RetrospectiveBlock,
+} from "./activity-comps/";

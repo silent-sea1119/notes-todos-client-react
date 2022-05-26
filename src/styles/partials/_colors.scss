@@ -1,27 +1,47 @@
-// Application color pallette //
-$brand-blue: #0989df;
-$brand-yellow: #e7d002;
-$brand-red: #e74949;
-$brand-green: #4dd091;
-$brand-black: #1a1d22;
-$brand-black-light: #30333c;
-$brand-white: #ffffff;
-$brand-grey: #a8a8a8;
-$brand-grey-light: #f5f5f5;
+// DARK THEMES
+$color-red: #e25252;
+$color-blue: #1764ac;
+$color-green: #2a8361;
+$color-brown: #8f6b1e;
+$color-black: #28352c;
+$color-grey: #757575;
+$color-grey-dark: #959595;
+$color-ash: #555555;
+
+// LIGHT THEMES
+$color-white: #ffffff;
+$color-ash-white: #f5f5f5;
+$color-grey-light: #d5d5d5;
+$color-red-light: #f7d7e0;
+$color-blue-light: #cee6f5;
+$color-green-light: #c3f7e5;
+$color-brown-light: #f5e6d6;
+
+// DARKENED THEME
+$color-red-light-dark: #f1b8c9;
+$color-blue-light-dark: #aad2eb;
+$color-green-light-dark: #8ee2c5;
+$color-brown-light-dark: #e9ccad;
 
 // App Color Pallete
 $app-color: () !default;
 $app-color: map-merge(
   (
-    "brand-blue": $brand-blue,
-    "brand-yellow": $brand-yellow,
-    "brand-red": $brand-red,
-    "brand-green": $brand-green,
-    "brand-black": $brand-black,
-    "brand-black-light": $brand-black-light,
-    "brand-white": $brand-white,
-    "brand-grey": $brand-grey,
-    "brand-grey-light": $brand-grey-light,
+    "color-red": $color-red,
+    "color-blue": $color-blue,
+    "color-green": $color-green,
+    "color-brown": $color-brown,
+    "color-black": $color-black,
+    "color-grey": $color-grey,
+    "color-white": $color-white,
+    "color-red-light": $color-red-light,
+    "color-blue-light": $color-blue-light,
+    "color-green-light": $color-green-light,
+    "color-brown-light": $color-brown-light,
+    "color-red-light-dark": $color-red-light-dark,
+    "color-blue-light-dark": $color-blue-light-dark,
+    "color-green-light-dark": $color-green-light-dark,
+    "color-brown-light-dark": $color-brown-light-dark,
   ),
   $app-color
 );

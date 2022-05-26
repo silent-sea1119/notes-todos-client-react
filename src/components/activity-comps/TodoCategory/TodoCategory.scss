@@ -1,0 +1,43 @@
+@import "styles/variables.scss";
+
+.todo-category {
+  border: toRem(1) solid rgba($color-grey-light, 0.25);
+  background: rgba($color-ash-white, 0.95);
+  width: 24.45%;
+
+  .category-top {
+    @include flex-row-between-nowrap;
+    padding: toRem(8) toRem(12);
+
+    .top-left {
+      @include flex-row-start-nowrap;
+
+      .dot {
+        @include square-shape(8);
+      }
+
+      .text {
+        font-size: toRem(13.75);
+      }
+    }
+
+    .top-right {
+      border: toRem(1) solid rgba($color-ash-white, 0.85);
+      background: rgba($color-ash-white, 0.75);
+      @include square-shape(28);
+      @include transition(0.4s);
+
+      .icon {
+        font-size: toRem(17);
+      }
+
+      &:hover {
+        background: $color-white;
+      }
+    }
+  }
+
+  .category-body {
+    padding: toRem(10) toRem(7);
+  }
+}

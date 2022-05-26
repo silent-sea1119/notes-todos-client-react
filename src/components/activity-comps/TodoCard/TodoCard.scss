@@ -1,0 +1,70 @@
+@import "styles/variables.scss";
+
+.todo-card {
+  @include transition(0.45s);
+  margin-bottom: toRem(10);
+  position: relative;
+  padding: toRem(10);
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+
+  .card-description {
+    @include font-height(14, 20);
+  }
+
+  .card-tags {
+    @include flex-row-start-nowrap;
+
+    .tag {
+      padding: toRem(3.5) toRem(8);
+      border-radius: toRem(5);
+      font-size: toRem(11.45);
+      margin-right: toRem(5);
+      font-weight: 600;
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+  }
+
+  .card-trash {
+    transition: all 0.35s ease-in-out;
+    opacity: 0;
+    @include square-shape(30);
+    background: $color-white;
+    border-radius: toRem(5);
+    position: absolute;
+    right: toRem(8);
+    bottom: toRem(9);
+    box-shadow: toRem(1.5) toRem(1.5) toRem(4) rgba($color-black, 0.25);
+
+    .wrapper {
+      position: relative;
+      height: 100%;
+      width: 100%;
+
+      .icon {
+        font-size: toRem(16);
+        color: $color-red;
+      }
+    }
+
+    &:hover {
+      background: lighten($color-red-light, 9%);
+      transform: scale(0.97);
+      box-shadow: toRem(0.5) toRem(0.5) toRem(3) rgba($color-black, 0.25);
+    }
+  }
+
+  &:hover {
+    box-shadow: toRem(3.75) toRem(3.75) toRem(10) rgba($color-black, 0.25);
+    transform: scale(1.017);
+
+    .card-trash {
+      opacity: 1;
+    }
+  }
+}

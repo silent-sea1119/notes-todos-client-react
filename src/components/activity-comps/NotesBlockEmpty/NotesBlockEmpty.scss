@@ -1,0 +1,24 @@
+@import "styles/variables.scss";
+
+.notes-block-empty {
+  @include flex-column-center;
+  background: rgba($color-green-light, 0.3);
+  height: 63vh;
+
+  img {
+    @include rectangle-shape(160, 140);
+  }
+
+  .title-text {
+    @include font-height(20, 32);
+  }
+
+  .text-description {
+    @include font-height(14.5, 26);
+    text-align: center;
+  }
+
+  .btn {
+    padding: toRem(13) toRem(40);
+  }
+}

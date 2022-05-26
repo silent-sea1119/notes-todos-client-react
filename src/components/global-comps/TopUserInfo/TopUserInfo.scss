@@ -1,0 +1,24 @@
+@import "styles/variables.scss";
+
+.user-profile {
+  @include flex-row-end-nowrap;
+  @include transition(0.4s);
+  position: relative;
+
+  .user-avatar {
+    font-size: toRem(26);
+  }
+
+  .user-name {
+    @include font-height(14.5, 20);
+
+    @include breakpoint-down(lg) {
+      @include font-height(14, 22);
+    }
+  }
+
+  .icon {
+    position: relative;
+    top: 1px;
+  }
+}

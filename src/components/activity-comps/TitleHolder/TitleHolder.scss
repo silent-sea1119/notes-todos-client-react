@@ -1,0 +1,21 @@
+@import "styles/variables.scss";
+
+.title-holder {
+  @include flex-row-between-nowrap;
+  margin: toRem(18) 0 toRem(23);
+
+  .title {
+    @include font-height(26, 36);
+  }
+
+  .meta {
+    @include font-height(13.75, 21);
+  }
+
+  .btn-wrapper {
+    .icon {
+      font-size: toRem(20);
+      margin-right: toRem(3);
+    }
+  }
+}

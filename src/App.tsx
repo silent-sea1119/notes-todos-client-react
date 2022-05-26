@@ -1,8 +1,8 @@
 import React from "react";
-import AppRouter from "./routes/AppRouter";
+import { PageRoutes } from "routes";
 
 function App() {
-  return <AppRouter />;
+  return <PageRoutes />;
 }
 
 export default App;

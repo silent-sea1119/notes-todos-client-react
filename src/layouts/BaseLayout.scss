@@ -1,0 +1,28 @@
+@import "styles/variables.scss";
+
+.base-layout {
+  @include flex-row-between-nowrap;
+  align-items: flex-start;
+  background: $color-green;
+  width: 100%;
+  height: 100vh;
+
+  .body-build {
+    position: relative;
+    margin: auto;
+    height: 98%;
+    width: 81%;
+    left: 8.95%;
+    background: $color-white;
+    border-radius: toRem(30);
+
+    .content-build {
+      position: relative;
+      padding: toRem(25);
+      top: toRem(56);
+      width: 100%;
+      overflow: auto;
+      height: 91%;
+    }
+  }
+}

@@ -1,0 +1,45 @@
+@import "styles/variables.scss";
+
+.sidebar-build-cover {
+  @include fixed-display-area;
+  width: 18%;
+
+  .sidebar-build {
+    @include flex-column-start-start;
+    @include stretch-area;
+
+    .brand-row {
+      margin: toRem(5.5) 0 toRem(15);
+      padding: 0 toRem(20);
+      width: 102.75%;
+
+      .wrapper {
+        border-bottom: toRem(0.5) solid rgba($color-brown-light, 0.65);
+        padding: toRem(24) toRem(5) toRem(14);
+        @include flex-row-start-nowrap;
+
+        .brand-icon {
+          margin-right: toRem(10);
+          font-size: toRem(28);
+        }
+
+        .brand-name {
+          font-size: toRem(21);
+          position: relative;
+          top: toRem(4);
+        }
+      }
+    }
+
+    .nav-item-area {
+      margin-top: toRem(20);
+
+      .nav-category {
+        margin-bottom: toRem(7);
+        font-size: toRem(14.25);
+        padding: 0 toRem(25);
+        color: rgba($color-grey-light, 0.8);
+      }
+    }
+  }
+}

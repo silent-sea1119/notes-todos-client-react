@@ -1,0 +1,46 @@
+@import "styles/variables.scss";
+
+.new-project {
+  position: absolute;
+  bottom: toRem(10);
+  padding: 0 toRem(10);
+
+  .wrapper {
+    width: 101.85%;
+    padding: toRem(12);
+    backdrop-filter: blur(7px);
+    background-clip: border-box;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: toRem(20) toRem(20) toRem(50) rgba($color-black, 0.65);
+
+    .top {
+      @include font-height(12.75, 18.5);
+    }
+
+    .bottom {
+      @include flex-row-start-nowrap;
+      @include transition(0.45s);
+      padding: toRem(6);
+
+      .add-btn {
+        @include square-shape(34);
+        background: darken($color-green, 6%);
+        position: relative;
+
+        .icon-plus {
+          color: $color-brown-light;
+          font-size: toRem(19);
+        }
+      }
+
+      .add-text {
+        font-size: toRem(13.75);
+      }
+
+      &:hover {
+        background: $color-green;
+        transform: scale(0.97);
+      }
+    }
+  }
+}
