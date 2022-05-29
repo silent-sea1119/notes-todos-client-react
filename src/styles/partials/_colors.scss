@@ -1,47 +1,79 @@
-// DARK THEMES
-$color-red: #e25252;
-$color-blue: #1764ac;
-$color-green: #2a8361;
-$color-brown: #8f6b1e;
+// APP BASE COLORS
 $color-black: #28352c;
 $color-grey: #757575;
 $color-grey-dark: #959595;
 $color-ash: #555555;
 
-// LIGHT THEMES
 $color-white: #ffffff;
 $color-ash-white: #f5f5f5;
 $color-grey-light: #d5d5d5;
-$color-red-light: #f7d7e0;
-$color-blue-light: #cee6f5;
-$color-green-light: #c3f7e5;
-$color-brown-light: #f5e6d6;
 
-// DARKENED THEME
+// APP THEME COLORS
+$color-red: #cf4545;
+$color-blue: #1764ac;
+$color-green: #207454;
+$color-brown: #8f6b1e;
+
+// LIGHT THEMES
+$color-red-light: #fcd0dc;
+$color-blue-light: #c7e8fd;
+$color-green-light: #bffce6;
+$color-brown-light: #fcddbd;
+
+// LIGHTER THEME
+$color-red-lighter: #fdd5e0;
+$color-blue-lighter: #c6e8ff;
+$color-green-lighter: #c8fde9;
+$color-brown-lighter: #ffead3;
+
+// DARK THEME
 $color-red-light-dark: #f1b8c9;
-$color-blue-light-dark: #aad2eb;
-$color-green-light-dark: #8ee2c5;
-$color-brown-light-dark: #e9ccad;
+$color-blue-light-dark: #a7d0e9;
+$color-green-light-dark: #abe0cd;
+$color-brown-light-dark: #e5ceb6;
+
+// DARKER THEME
+$color-red-dark: #f87b7b;
+$color-blue-dark: #4f93ec;
+$color-green-dark: #43e2a5;
+$color-brown-dark: #f3aa5c;
 
 // App Color Pallete
 $app-color: () !default;
 $app-color: map-merge(
   (
+    "color-black": $color-black,
+    "color-grey": $color-grey,
+    "color-ash": $color-ash,
+    "color-grey-light": $color-grey-light,
+    "color-grey-dark": $color-grey-dark,
+    "color-white": $color-white,
+    "color-ash-white": $color-ash-white,
+
     "color-red": $color-red,
     "color-blue": $color-blue,
     "color-green": $color-green,
     "color-brown": $color-brown,
-    "color-black": $color-black,
-    "color-grey": $color-grey,
-    "color-white": $color-white,
+
     "color-red-light": $color-red-light,
     "color-blue-light": $color-blue-light,
     "color-green-light": $color-green-light,
     "color-brown-light": $color-brown-light,
+
+    "color-red-lighter": $color-red-lighter,
+    "color-blue-lighter": $color-blue-lighter,
+    "color-green-lighter": $color-green-lighter,
+    "color-brown-lighter": $color-brown-lighter,
+
     "color-red-light-dark": $color-red-light-dark,
     "color-blue-light-dark": $color-blue-light-dark,
     "color-green-light-dark": $color-green-light-dark,
     "color-brown-light-dark": $color-brown-light-dark,
+
+    "color-red-dark": $color-red-dark,
+    "color-blue-dark": $color-blue-dark,
+    "color-green-dark": $color-green-dark,
+    "color-brown-dark": $color-brown-dark,
   ),
   $app-color
 );

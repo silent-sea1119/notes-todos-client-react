@@ -14,19 +14,19 @@ export const NotesContent: NoteTypes[] = [
     id: 2,
     title: "Where two or three are gathered",
     content:
-      "Notes Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid eius libero",
+      "Notes Lorem ipsum dolor sit amet consectetur adipisicing elit ipsum dolor sit amet consectetur adipisicing elit.",
     created_at: "May 11th, 2022",
     labels: ["Religion", "Spiritual"],
-    theme: "blue",
+    theme: "red",
   },
   {
     id: 3,
-    title: "The divergence of colors",
+    title: "The divergence of colors!!",
     content:
-      "Notes Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid eius libero",
+      "Notes Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid eius libero Notes Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid eius libero sit amet consectetur adipisicing elit",
     created_at: "May 24th, 2022",
     labels: ["Design", "Colors"],
-    theme: "blue",
+    theme: "brown",
   },
   {
     id: 4,
@@ -40,11 +40,10 @@ export const NotesContent: NoteTypes[] = [
   {
     id: 5,
     title: "The divergence of colors",
-    content:
-      "Notes Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid eius libero",
+    content: "Notes Lorem ipsum dolor sit amet consectetur adipisicing elit",
     created_at: "May 24th, 2022",
     labels: ["Design", "Colors"],
-    theme: "blue",
+    theme: "green",
   },
 
   {
@@ -54,11 +53,29 @@ export const NotesContent: NoteTypes[] = [
       "Notes Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid eius libero sit amet consectetur adipisicing elit",
     created_at: "September 16th, 2022",
     labels: ["Software"],
-    theme: "blue",
+    theme: "brown",
   },
 
   {
     id: 7,
+    title: "Story Telling",
+    content:
+      "Notes Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid eius libero error neque placeat expedita sed mollitia eveniet omnis maiores vero, quam dolor incidunt.",
+    created_at: "April 2nd, 2022",
+    labels: ["Profile"],
+    theme: "red",
+  },
+  {
+    id: 8,
+    title: "Where two or three are gathered",
+    content:
+      "Notes Lorem ipsum dolor sit amet consectetur adipisicing elit. Notes Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    created_at: "May 11th, 2022",
+    labels: ["Religion", "Spiritual"],
+    theme: "green",
+  },
+  {
+    id: 9,
     title: "Story Telling",
     content:
       "Notes Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid eius libero error neque placeat expedita sed mollitia eveniet omnis maiores vero, quam dolor incidunt, totam dolore exercitationem quasi illum soluta aperiam molestias? Explicabo a consequuntur.",
@@ -66,14 +83,49 @@ export const NotesContent: NoteTypes[] = [
     labels: ["Profile"],
     theme: "blue",
   },
-
   {
-    id: 8,
+    id: 10,
     title: "Where two or three are gathered",
     content:
-      "Notes Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid eius libero",
+      "Notes Lorem ipsum dolor sit amet consectetur adipisicing elit ipsum dolor sit amet consectetur adipisicing elit.",
     created_at: "May 11th, 2022",
     labels: ["Religion", "Spiritual"],
+    theme: "red",
+  },
+  {
+    id: 11,
+    title: "Where two or three are gathered",
+    content:
+      "Notes Lorem ipsum dolor sit amet consectetur adipisicing elit. Notes Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    created_at: "May 11th, 2022",
+    labels: ["Religion", "Spiritual"],
+    theme: "green",
+  },
+  {
+    id: 12,
+    title: "Where two or three are gathered",
+    content:
+      "Notes Lorem ipsum dolor sit amet consectetur adipisicing elit. Notes Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+    created_at: "May 11th, 2022",
+    labels: ["Religion", "Spiritual"],
+    theme: "green",
+  },
+  {
+    id: 13,
+    title: "Where two or three are gathered???",
+    content:
+      "Notes Lorem ipsum dolor sit amet consectetur adipisicing elit ipsum dolor sit amet consectetur adipisicing elit.",
+    created_at: "May 11th, 2022",
+    labels: ["Religion", "Spiritual"],
+    theme: "red",
+  },
+  {
+    id: 14,
+    title: "I'm in love with you!",
+    content:
+      "Notes Lorem ipsum dolor sit amet consectetur adipisicing elit ipsum dolor sit amet consectetur adipisicing elit.",
+    created_at: "May 11th, 2022",
+    labels: ["Love"],
     theme: "blue",
   },
 ];

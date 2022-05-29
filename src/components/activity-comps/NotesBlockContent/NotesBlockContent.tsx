@@ -1,15 +1,19 @@
 import React from "react";
+import { NoteTypes } from "types/NoteTypes";
 import { NoteCard } from "components";
 
 import "./NotesBlockContent.scss";
 
-const NotesBlockContent = () => {
+interface NotesProps {
+  notes: NoteTypes[];
+}
+
+const NotesBlockContent: React.FC<NotesProps> = ({ notes }: NotesProps) => {
   return (
     <div className="notes-block-content mx-auto">
-      <NoteCard />
-      <NoteCard />
-      <NoteCard />
-      <NoteCard />
+      {notes.map((note: any, index: number) => (
+        <NoteCard key={index} note={note} />
+      ))}
     </div>
   );
 };

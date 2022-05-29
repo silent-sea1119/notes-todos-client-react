@@ -1,5 +1,5 @@
 import { selectionTypes } from "types";
-import { CATEGORY_ONE, CATEGORY_TWO, CATEGORY_THREE } from "constant";
+import { CATEGORY_ONE, CATEGORY_TWO } from "constant";
 
 export const selectionData: selectionTypes[] = [
   {
@@ -14,10 +14,10 @@ export const selectionData: selectionTypes[] = [
     isActive: false,
     setActive: () => {},
   },
-  {
-    title: CATEGORY_THREE,
-    counter: 8,
-    isActive: false,
-    setActive: () => {},
-  },
+  //   {
+  //     title: CATEGORY_THREE,
+  //     counter: 8,
+  //     isActive: false,
+  //     setActive: () => {},
+  //   },
 ];

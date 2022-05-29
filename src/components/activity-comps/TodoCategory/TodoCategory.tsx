@@ -6,13 +6,16 @@ import "./TodoCategory.scss";
 
 const TodoCategory = ({ id, title, color }: TodoCategoryTypes) => {
   return (
-    <div className={`todo-category rounded-5 color-${color}-light-bg`}>
+    <div className={`todo-category rounded-5 color-${color}-dark-bg`}>
       {/* CATEGORY TOP */}
       <div
-        className={`category-top rounded-bottom-3 color-${color} color-${color}-light-dark-bg`}
+        className={`category-top rounded-bottom-3 color-white color-${color}-bg`}
       >
         <div className="top-left">
-          <div className={`dot mgr-7 rounded-circle color-${color}-bg`}></div>
+          <div className={`counter mgr-7 rounded-7 border-color-white`}>
+            <div className="count place-center color-white fw-600">10</div>
+          </div>
+
           <div className="text fw-600">{title}</div>
         </div>
 

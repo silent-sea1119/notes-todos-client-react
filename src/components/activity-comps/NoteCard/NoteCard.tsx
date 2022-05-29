@@ -1,13 +1,43 @@
 import React from "react";
+import { NoteTypes } from "types/NoteTypes";
+
 import "./NoteCard.scss";
 
-const NotesCard = () => {
+interface NoteProps {
+  note: NoteTypes;
+}
+
+const NotesCard: React.FC<NoteProps> = ({
+  note: { title, content, created_at, labels, theme },
+}: NoteProps) => {
   return (
-    <div className="note-card-wrapper">
-      <div className="note-card">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab corrupti
-        eum ipsam odit iusto quaerat ex, totam ducimus, laborum distinctio amet
-        quia iure alias perferendis.
+    <div className="note-card-wrapper h-auto position-relative">
+      <div className={`note-card pointer rounded-5 color-${theme}-bg`}>
+        {/* LABELS */}
+        <div className="note-labels mgt-4 mgb-12">
+          {labels.map((label, index) => (
+            <div key={index} className="label rounded-5">
+              {label}
+            </div>
+          ))}
+        </div>
+
+        {/* NOTE TITLE */}
+        <div className="note-title fw-600 color-white">{title}</div>
+
+        {/* NOTE CONTENT */}
+        <div className="note-content mgt-3 color-white">{content}</div>
+
+        <div className="bottom-info position-relative mgt-10">
+          <div className="note-date color-white">
+            <span className="fw-600">Created:</span> {created_at}
+          </div>
+
+          <div className="note-trash rounded-5 pointer">
+            <div className="w-100 h-100 position-relative"></div>
+            <div className="icon-trash place-center"></div>
+          </div>
+        </div>
       </div>
     </div>
   );

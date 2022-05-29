@@ -1,6 +1,83 @@
 @import "styles/variables.scss";
 
 .note-card-wrapper {
+  padding: 0 1.725%;
+  padding-bottom: toRem(12);
+  break-inside: avoid;
+
   .note-card {
+    box-shadow: toRem(1) toRem(1) toRem(5) toRem(1) rgba($color-black, 0.1);
+    @include transition(0.4s);
+    position: relative;
+    padding: toRem(10);
+    padding-bottom: toRem(2);
+    height: auto;
+
+    .note-labels {
+      @include flex-row-start-wrap;
+
+      .label {
+        background: $color-brown-lighter;
+        padding: toRem(4.5) toRem(6.5);
+        margin-right: toRem(5);
+        font-size: toRem(12.5);
+        color: $color-black;
+
+        &:last-of-type {
+          margin-right: 0;
+        }
+      }
+    }
+
+    .note-title {
+      @include font-height(15, 21);
+    }
+
+    .note-content {
+      @include font-height(13.65, 22);
+      @include line-clamp(6);
+      overflow: hidden;
+    }
+
+    .bottom-info {
+      border-top: toRem(1) solid rgba($color-ash-white, 0.5);
+      @include flex-row-between-nowrap;
+      padding: toRem(11) toRem(3);
+
+      .note-date {
+        font-size: toRem(12.75);
+      }
+
+      .note-trash {
+        transition: all 0.35s ease-in-out;
+        opacity: 0;
+        background: lighten($color-red-light, 2%);
+        @include square-shape(30);
+        position: absolute;
+        padding: toRem(2.5);
+        right: toRem(3.5);
+        bottom: toRem(4.5);
+        box-shadow: toRem(1.75) toRem(1.75) toRem(6) rgba($color-black, 0.25);
+
+        .icon-trash {
+          color: darken($color-red, 5%);
+          font-size: toRem(16);
+        }
+
+        &:hover {
+          background: lighten($color-red-light, 4%);
+          transform: scale(0.97);
+          box-shadow: toRem(0.5) toRem(0.5) toRem(3) rgba($color-black, 0.25);
+        }
+      }
+    }
+    &:hover {
+      box-shadow: toRem(1) toRem(1) toRem(4) rgba($color-black, 0.15);
+      transform: scale(1.017);
+
+      .note-trash {
+        opacity: 1;
+      }
+    }
   }
 }

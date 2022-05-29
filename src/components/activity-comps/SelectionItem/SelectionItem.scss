@@ -23,11 +23,12 @@
   }
 
   &-active {
-    border-bottom: toRem(1) solid $color-green;
+    border-bottom: toRem(2) solid $color-green;
     color: $color-green;
     font-weight: 600;
-  }
 
-  &:hover {
+    .selection-text {
+      color: $color-green;
+    }
   }
 }

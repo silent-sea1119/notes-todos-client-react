@@ -1,8 +1,8 @@
 @import "styles/variables.scss";
 
 .notes-block-content {
-  @include flex-row-start-wrap;
   position: relative;
-  width: 101.5%;
-  left: -0.6%;
+  width: 100%;
+  column-count: 4;
+  column-gap: 0;
 }

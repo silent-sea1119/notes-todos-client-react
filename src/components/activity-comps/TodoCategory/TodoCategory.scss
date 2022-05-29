@@ -2,7 +2,7 @@
 
 .todo-category {
   border: toRem(1) solid rgba($color-grey-light, 0.25);
-  background: rgba($color-ash-white, 0.95);
+  background: rgba($color-ash-white, 0.25);
   width: 24.45%;
 
   .category-top {
@@ -12,8 +12,13 @@
     .top-left {
       @include flex-row-start-nowrap;
 
-      .dot {
-        @include square-shape(8);
+      .counter {
+        position: relative;
+        @include square-shape(21);
+
+        .count {
+          font-size: toRem(11.25);
+        }
       }
 
       .text {
@@ -22,8 +27,8 @@
     }
 
     .top-right {
-      border: toRem(1) solid rgba($color-ash-white, 0.85);
-      background: rgba($color-ash-white, 0.75);
+      border: toRem(1) solid rgba($color-ash-white, 0.95);
+      background: $color-ash-white;
       @include square-shape(28);
       @include transition(0.4s);
 

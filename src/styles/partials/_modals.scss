@@ -1,0 +1,312 @@
+// PLACEHOLDER
+%modal-styling {
+  background: $color-white;
+  @include center-placement;
+  box-sizing: border-box;
+  overflow: auto;
+  z-index: 4999;
+  height: auto;
+  width: auto;
+  @include transition(0.5s);
+  animation: zoom-out 0.9s ease-in-out forwards;
+}
+
+.modal-overlay {
+  background: rgba(#111111, 0.675) !important;
+  overflow: auto !important;
+  @include transition(0.5s);
+  @include stretch-area;
+  position: fixed;
+  z-index: 3999;
+}
+
+.modal-cover {
+  @extend %modal-styling;
+  overflow: hidden;
+  padding: 0;
+
+  .modal-cover-body-wrapper {
+    overflow-x: hidden;
+    position: relative;
+    overflow-y: auto;
+    height: auto;
+    width: 100%;
+    padding: 0;
+  }
+
+  .dialog-dismiss {
+    background: $color-ash-white;
+    @include square-shape(30);
+    @include transition(0.4s);
+    position: absolute;
+    border-radius: 50%;
+    right: toRem(20);
+    top: toRem(20);
+    z-index: 999;
+
+    &:hover {
+      background: $color-grey-light;
+    }
+
+    @include breakpoint-down(xs) {
+      top: toRem(16.5);
+      right: toRem(16);
+    }
+
+    .icon {
+      @include center-placement;
+
+      @include breakpoint-down(xs) {
+        font-size: toRem(12.5) !important;
+      }
+    }
+  }
+}
+
+@keyframes animateTop {
+  from {
+    top: toRem(-300);
+    opacity: 0;
+  }
+
+  to {
+    top: toRem(50);
+    opacity: 1;
+  }
+}
+
+.modal-xxs {
+  width: toRem(380) !important;
+
+  @include breakpoint-custom-up-down(450, 650) {
+    width: toRem(430) !important;
+  }
+
+  @include breakpoint-down(sm) {
+    width: 92% !important;
+  }
+}
+
+.modal-xs {
+  width: toRem(400) !important;
+
+  @include breakpoint-custom-up-down(450, 650) {
+    width: toRem(450) !important;
+  }
+
+  @include breakpoint-down(sm) {
+    width: 92% !important;
+  }
+}
+
+.modal-mini {
+  width: toRem(450) !important;
+
+  @include breakpoint-custom-up-down(450, 650) {
+    width: toRem(500) !important;
+  }
+
+  @include breakpoint-down(sm) {
+    width: 92% !important;
+  }
+}
+
+.modal-small {
+  width: toRem(480) !important;
+
+  @include breakpoint-custom-up-down(450, 650) {
+    width: toRem(520) !important;
+  }
+
+  @include breakpoint-down(sm) {
+    width: 92% !important;
+  }
+}
+
+.modal-sm-md-init {
+  width: toRem(500);
+
+  @include breakpoint-down(sm) {
+    width: 92%;
+  }
+}
+
+.modal-sm-md-avg {
+  width: toRem(530);
+
+  @include breakpoint-down(sm) {
+    width: 92%;
+  }
+}
+
+.modal-sm-md {
+  width: toRem(560);
+
+  @include breakpoint-custom-up-down(450, 650) {
+    width: toRem(520);
+  }
+
+  @include breakpoint-down(sm) {
+    width: 92%;
+  }
+}
+
+.modal-md {
+  width: toRem(660);
+
+  @include breakpoint-down(md) {
+    width: toRem(560);
+  }
+
+  @include breakpoint-down(sm) {
+    width: 92%;
+  }
+}
+
+.modal-md-lg {
+  width: toRem(700);
+
+  @include breakpoint-down(md) {
+    width: toRem(580);
+  }
+
+  @include breakpoint-down(sm) {
+    width: 92%;
+  }
+}
+
+.modal-semi-lg {
+  width: toRem(880);
+
+  @include breakpoint-down(md) {
+    width: 90%;
+  }
+
+  @include breakpoint-down(sm) {
+    width: 92%;
+  }
+}
+
+.modal-large {
+  width: toRem(1000);
+
+  @include breakpoint-down(md) {
+    width: 90%;
+  }
+
+  @include breakpoint-down(sm) {
+    width: 92%;
+  }
+}
+
+.modal-move-right {
+  left: unset;
+  right: -18% !important;
+
+  @include breakpoint-down(lg) {
+    left: 50% !important;
+  }
+}
+
+.modal-to-top {
+  top: toRem(50) !important;
+  transform: translateX(-50%) !important;
+  margin-bottom: toRem(40) !important;
+}
+
+// MODAL COVER OVELAY BACKGROUND
+.modal-cover-overlay {
+  background-color: rgba($color-black, 0.6);
+}
+
+.modal-cover-header {
+  padding: toRem(27) toRem(24) toRem(17);
+
+  @include breakpoint-down(md) {
+    padding: toRem(22) toRem(18) toRem(17);
+  }
+
+  @include breakpoint-down(xs) {
+    margin-top: toRem(4);
+    padding: toRem(22) toRem(13) toRem(17) !important;
+  }
+}
+
+.modal-cover-title {
+  font-size: toRem(16);
+  line-height: toRem(21);
+  color: $color-green;
+  font-weight: 700;
+
+  @include breakpoint-down(md) {
+    font-weight: 600;
+  }
+
+  @include breakpoint-down(sm) {
+    font-size: toRem(12.5);
+  }
+}
+
+.modal-cover-meta {
+  @include font-height(12.5, 19);
+  color: $color-ash;
+  margin-top: toRem(3);
+
+  @include breakpoint-down(sm) {
+    @include font-height(12.75, 17);
+  }
+
+  @include breakpoint-down(xs) {
+    @include font-height(12.25, 17);
+  }
+}
+
+.modal-cover-body {
+  padding: toRem(10) toRem(24);
+  min-height: 20vh;
+  height: auto;
+  max-height: 80vh;
+  overflow-y: auto;
+
+  @include breakpoint-down(md) {
+    padding: toRem(10) toRem(18);
+  }
+
+  @include breakpoint-down(xs) {
+    padding: toRem(10) toRem(13);
+  }
+
+  &::-webkit-scrollbar {
+    width: toRem(5);
+  }
+
+  &::-webkit-scrollbar-track {
+    border-radius: toRem(3);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: toRem(3);
+    background: $color-grey-light;
+  }
+}
+
+.modal-cover-footer {
+  padding: toRem(14) toRem(24) toRem(16);
+
+  @include breakpoint-down(md) {
+    padding: toRem(14) toRem(18) toRem(16);
+  }
+
+  @include breakpoint-down(xs) {
+    padding: toRem(14) toRem(13) toRem(16) !important;
+  }
+
+  .btn {
+    font-size: toRem(13) !important;
+
+    @include breakpoint-down(xs) {
+      padding: toRem(11.5) toRem(23) !important;
+      font-size: toRem(10.25) !important;
+    }
+  }
+}

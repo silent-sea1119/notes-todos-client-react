@@ -34,12 +34,13 @@ input[type="number"] {
 // FORM LABEL
 .control-label {
   text-transform: none;
-  font-size: 1em;
+  font-size: toRem(14.5);
   padding-top: 0;
-  margin-bottom: 0;
+  margin-bottom: -5px;
   padding-bottom: toRem(8);
   line-height: toRem(22);
-  color: $color-grey;
+  color: lighten($color-green, 2%);
+  font-weight: 600;
 
   [class*="checkbox"] &,
   [class*="radio"] & {
@@ -159,14 +160,14 @@ input[type="radio"],
     position: absolute;
     left: 0;
     top: -0.1875rem;
-    // background-color: $brand-accent;
+    background-color: $color-green;
     transform: scale(0);
   }
 
   &:after {
     position: relative;
     top: -0.1875rem;
-    // border: 0.125rem solid $border-grey-dark;
+    border: 0.125rem solid $color-grey-dark;
   }
 
   &:checked:before {
@@ -174,13 +175,13 @@ input[type="radio"],
   }
 
   &:checked:after {
-    // border-color: $brand-accent;
+    border-color: $color-green;
   }
 
   &:disabled:after,
   &:disabled:checked:after,
   &:disabled:checked:before {
-    // border-color: $border-grey-dark;
+    border-color: $color-grey-dark;
   }
 }
 
@@ -199,7 +200,7 @@ input[type="checkbox"],
   }
 
   &:disabled {
-    // background-color: $border-grey-light;
+    background-color: $color-grey-light;
     border-color: transparent;
     @include square-shape(19);
     margin-right: 0.25rem;
@@ -211,7 +212,7 @@ input[type="checkbox"],
     @include square-shape(19);
     margin-top: -0.125rem;
     margin-right: 0.4688rem;
-    // border: 0.0625rem solid $border-grey-dark;
+    border: 0.0625rem solid $color-grey-dark;
     border-radius: 0.1875rem;
     transition: all 240ms;
     overflow: hidden;
@@ -224,28 +225,28 @@ input[type="checkbox"],
     left: 0.39rem;
     display: table;
     @include rectangle-shape(6, 12);
-    // border: toRem(2) solid $color-white;
+    border: toRem(2) solid $color-white;
     border-top-width: 0;
     border-left-width: 0;
     transform: rotate(45deg);
   }
 
   &:checked:after {
-    // background-color: $brand-accent;
-    // border-color: $brand-accent;
+    background-color: $color-green;
+    border-color: $color-green;
   }
 
   &:disabled:after {
-    // border-color: $border-grey-dark;
+    border-color: $color-grey-dark;
   }
 
   &:disabled:checked:after {
-    // background-color: $border-grey-light;
+    background-color: $color-grey-light;
     border-color: transparent;
   }
 
   &:disabled:checked:before {
-    // border-color: $border-grey-dark;
+    border-color: $color-grey-dark;
   }
 
   .checkbox-md & {
@@ -306,5 +307,86 @@ label {
     @include breakpoint-down(sm) {
       font-size: 0.75rem;
     }
+  }
+}
+
+/* =================
+LABEL COMPACT STYLING
+==================== */
+@mixin label_compact {
+  position: absolute;
+  top: toRem(-11);
+  left: toRem(24);
+  background: $color-white;
+  padding: toRem(1) toRem(4);
+  text-transform: uppercase;
+  font-size: toRem(12.5);
+  color: $color-black;
+  font-weight: 600;
+  z-index: 9;
+
+  @include breakpoint-down(xs) {
+    left: toRem(8) !important;
+    font-size: toRem(12);
+  }
+}
+
+// INPUT AND LABEL COMPACT STYLING
+.compact-row {
+  position: relative;
+  margin-bottom: toRem(32);
+
+  .label-compact {
+    @include label_compact;
+  }
+
+  .label-sm {
+    top: toRem(-12);
+    left: toRem(10);
+    font-size: toRem(14.5);
+    text-transform: unset !important;
+    letter-spacing: 0.023rem;
+    color: $color-black;
+  }
+
+  input,
+  select {
+    @include font-height(12.75, 16);
+
+    &::placeholder {
+      font-size: toRem(13);
+    }
+  }
+}
+
+.label-row {
+  @include flex-row-between-nowrap;
+
+  .left {
+    width: 60%;
+  }
+
+  .right {
+    width: 38%;
+  }
+}
+
+.add-label-row {
+  @include flex-row-start-nowrap;
+  width: max-content;
+
+  .circle {
+    border: toRem(1) solid $color-green;
+    @include square-shape(22);
+    position: relative;
+
+    .icon {
+      @include center-placement;
+      font-size: toRem(14);
+    }
+  }
+
+  .text {
+    font-size: toRem(14.25);
   }
 }
