@@ -5,8 +5,9 @@ import { createPortal } from "react-dom";
 const modalRoot = document.getElementById("modal-root") as HTMLElement;
 
 interface modalCoverProps {
-  children: React.ReactElement[];
+  children: React.ReactElement | React.ReactElement[];
   showModal: boolean;
+  styles?: string;
   toggleModal: () => void;
 }
 
@@ -17,7 +18,12 @@ interface modalCoverSlotProps {
 
 const Slot = (_: modalCoverSlotProps): any => {};
 
-const ModalCover = ({ children, showModal, toggleModal }: modalCoverProps) => {
+const ModalCover = ({
+  children,
+  showModal,
+  styles = "modal-mini",
+  toggleModal,
+}: modalCoverProps) => {
   const modalElement = document.createElement("div") as HTMLElement;
 
   // ********MODAL SECTION SETUP************ //
@@ -52,7 +58,9 @@ const ModalCover = ({ children, showModal, toggleModal }: modalCoverProps) => {
 
       {/* MODAL COVER COMPONENT */}
 
-      <div className="modal-cover rounded-10 modal-mini box-shadow-effect smooth-transition">
+      <div
+        className={`modal-cover rounded-10 box-shadow-effect smooth-transition ${styles}`}
+      >
         <div className="modal-cover-body-wrapper">
           {/* DISMISS DIALOG  */}
           <div className="dialog-dismiss pointer" onClick={toggleModal}>

@@ -4,7 +4,13 @@ import { TodoCard } from "components";
 
 import "./TodoCategory.scss";
 
-const TodoCategory = ({ id, title, color }: TodoCategoryTypes) => {
+const TodoCategory = ({
+  id,
+  title,
+  color,
+  empty_text,
+  data,
+}: TodoCategoryTypes) => {
   return (
     <div className={`todo-category rounded-5 color-${color}-dark-bg`}>
       {/* CATEGORY TOP */}
@@ -13,7 +19,9 @@ const TodoCategory = ({ id, title, color }: TodoCategoryTypes) => {
       >
         <div className="top-left">
           <div className={`counter mgr-7 rounded-7 border-color-white`}>
-            <div className="count place-center color-white fw-600">10</div>
+            <div className="count place-center color-white fw-600">
+              {data?.length}
+            </div>
           </div>
 
           <div className="text fw-600">{title}</div>
@@ -26,9 +34,11 @@ const TodoCategory = ({ id, title, color }: TodoCategoryTypes) => {
 
       {/* CATEGORY BODY */}
       <div className="category-body">
-        <TodoCard />
-        <TodoCard />
-        <TodoCard />
+        {data?.length ? (
+          data?.map((item, index) => <TodoCard key={index} todo={item} />)
+        ) : (
+          <div className="empty-state">{empty_text}</div>
+        )}
       </div>
     </div>
   );

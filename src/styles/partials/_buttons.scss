@@ -106,3 +106,12 @@ button[disabled] {
     background: darken($color-green, 2%);
   }
 }
+
+.btn-red {
+  background: lighten($color-red, 5%);
+  color: $color-white !important;
+
+  &:hover {
+    background: darken($color-red, 2%);
+  }
+}

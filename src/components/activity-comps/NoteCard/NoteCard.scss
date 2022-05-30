@@ -17,7 +17,6 @@
       @include flex-row-start-wrap;
 
       .label {
-        background: $color-brown-lighter;
         padding: toRem(4.5) toRem(6.5);
         margin-right: toRem(5);
         font-size: toRem(12.5);
@@ -73,7 +72,7 @@
     }
     &:hover {
       box-shadow: toRem(1) toRem(1) toRem(4) rgba($color-black, 0.15);
-      transform: scale(1.017);
+      transform: scale(0.98);
 
       .note-trash {
         opacity: 1;

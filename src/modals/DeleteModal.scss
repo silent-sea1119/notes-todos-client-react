@@ -1,0 +1,26 @@
+@import "styles/variables.scss";
+
+.trash-icon {
+  position: relative;
+  @include flex-column-center;
+
+  img {
+    @include square-shape(60);
+  }
+}
+
+.delete-title {
+  @include font-height(18.5, 28);
+}
+
+.delete-meta {
+  @include font-height(14.5, 23);
+}
+
+.option-bottom {
+  @include flex-row-center-nowrap;
+
+  .btn {
+    padding: toRem(13) toRem(34);
+  }
+}

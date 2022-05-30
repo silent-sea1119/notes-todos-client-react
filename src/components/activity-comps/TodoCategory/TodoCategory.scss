@@ -23,6 +23,7 @@
 
       .text {
         font-size: toRem(13.75);
+        text-transform: capitalize;
       }
     }
 
@@ -44,5 +45,12 @@
 
   .category-body {
     padding: toRem(10) toRem(7);
+
+    .empty-state {
+      background: rgba($color-white, 0.85);
+      @include font-height(14, 22);
+      padding: toRem(30) toRem(5);
+      text-align: center;
+    }
   }
 }
