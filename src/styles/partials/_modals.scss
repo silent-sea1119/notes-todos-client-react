@@ -233,7 +233,8 @@
 }
 
 .modal-cover-title {
-  font-size: toRem(16);
+  font-size: toRem(15.5);
+  letter-spacing: 0.02em;
   line-height: toRem(21);
   color: $color-green;
   font-weight: 700;

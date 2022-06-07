@@ -33,13 +33,13 @@ input[type="number"] {
 
 // FORM LABEL
 .control-label {
-  text-transform: none;
-  font-size: toRem(14.5);
+  text-transform: capitalize;
+  font-size: toRem(14);
   padding-top: 0;
   margin-bottom: -5px;
   padding-bottom: toRem(8);
   line-height: toRem(22);
-  color: lighten($color-green, 2%);
+  color: lighten($color-ash, 4%);
   font-weight: 600;
 
   [class*="checkbox"] &,

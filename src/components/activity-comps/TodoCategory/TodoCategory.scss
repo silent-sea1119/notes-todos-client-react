@@ -30,15 +30,15 @@
     .top-right {
       border: toRem(1) solid rgba($color-ash-white, 0.95);
       background: $color-ash-white;
-      @include square-shape(28);
+      @include square-shape(25);
       @include transition(0.4s);
 
       .icon {
-        font-size: toRem(17);
+        font-size: toRem(16.75);
       }
 
       &:hover {
-        background: $color-white;
+        background: rgba($color-white, 0.85);
       }
     }
   }

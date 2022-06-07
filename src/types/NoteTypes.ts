@@ -7,3 +7,9 @@ export interface NoteTypes {
   labels: labelTypes[];
   theme: string;
 }
+
+export interface NoteSliceType {
+  loading: boolean;
+  error: any;
+  data: NoteTypes[];
+}

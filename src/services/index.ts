@@ -1,1 +1,2 @@
-export { default as getImage } from "./getImage";
+export { default as $serviceUtils } from "./serviceUtils";
+export { default as $serviceApi } from "./serviceApi";

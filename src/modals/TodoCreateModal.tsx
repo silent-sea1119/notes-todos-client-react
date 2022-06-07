@@ -2,13 +2,23 @@ import React from "react";
 import { ModalCover } from "modals";
 import { modalTypes } from "types";
 
-const TodoCreateModal = ({ showModal, toggleModal }: modalTypes) => {
+interface TodoCreateType extends modalTypes {
+  category: string;
+}
+
+const TodoCreateModal = ({
+  showModal,
+  toggleModal,
+  category,
+}: TodoCreateType) => {
   return (
     <ModalCover showModal={showModal} toggleModal={toggleModal}>
       {/* MODAL HEADER */}
       <ModalCover.Slot name="header">
         <div className="modal-cover-header">
-          <div className="modal-cover-title">CREATE TODO</div>
+          <div className="modal-cover-title text-uppercase">
+            {category} Task
+          </div>
         </div>
       </ModalCover.Slot>
 

@@ -1,14 +1,27 @@
 import React from "react";
+import { useAppDispatch, useAppSelector } from "hooks/storeHook";
 import { TodoCategoryTypes, TodoTypes } from "types/TodoTypes";
-import { TodoCategories, TodoData } from "mock-data/Todos";
+
+import { TodoCategories } from "mock-data/Todos";
+import { fetchTodo, getTodo } from "store/todoSlice/sliceGetters";
+
 import { TodoCategory } from "components";
 import { motion } from "framer-motion";
 
 import "./TodoBlock.scss";
 
 const TodoBlock = () => {
+  const dispatch = useAppDispatch();
+  const { data: TodoData } = useAppSelector(getTodo);
+
   const [categories] = React.useState<TodoCategoryTypes[]>(TodoCategories);
-  const [todo] = React.useState<TodoTypes[]>(TodoData);
+  const [todo, setTodo] = React.useState<TodoTypes[]>([]);
+
+  React.useEffect(() => {
+    dispatch(fetchTodo());
+  }, [dispatch]);
+
+  React.useEffect(() => setTodo(TodoData), [TodoData]);
 
   const filterCategoryByTitle = (title: string): TodoTypes[] => {
     return todo.filter((item) => item.category === title);

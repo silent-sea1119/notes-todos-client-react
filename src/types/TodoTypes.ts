@@ -14,3 +14,9 @@ export interface TodoTypes {
   labels: labelTypes[];
   category: "backlog" | "ongoing" | "completed" | "postponed";
 }
+
+export interface TodoSliceType {
+  loading: boolean;
+  error: any;
+  data: TodoTypes[];
+}

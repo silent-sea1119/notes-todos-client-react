@@ -43,6 +43,30 @@
                 }
             ],
             "category": "ongoing"
+        },
+        {
+            "id": 4,
+            "title": "",
+            "content": "Continous integration and deployment using github actions",
+            "labels": [
+                {
+                    "text": "Deployment",
+                    "color": "red"
+                }
+            ],
+            "category": "postponed"
+        },
+        {
+            "id": 5,
+            "title": "",
+            "content": "Continous integration and deployment using github actions",
+            "labels": [
+                {
+                    "text": "Deployment",
+                    "color": "blue"
+                }
+            ],
+            "category": "postponed"
         }
     ],
     "notes": [

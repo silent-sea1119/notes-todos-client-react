@@ -1,17 +1,12 @@
 import React from "react";
 import { useActivePageType, useModalToggle } from "hooks";
-import { TodoCreateModal, NoteCreateModal } from "modals";
+import { NoteCreateModal } from "modals";
 
 import "./TitleHolder.scss";
 
 const TitleHolder = () => {
   const activePageType = useActivePageType(undefined);
-  const [isTodoOpen, setIsTodoOpen] = useModalToggle();
   const [isNoteOpen, setIsNoteOpen] = useModalToggle();
-
-  const triggerModal = () => {
-    activePageType === "todos" ? setIsTodoOpen() : setIsNoteOpen();
-  };
 
   return (
     <>
@@ -23,8 +18,8 @@ const TitleHolder = () => {
           </div>
         </div>
 
-        {["todos", "notes"].includes(activePageType) && (
-          <button className="btn btn-green btn-wrapper" onClick={triggerModal}>
+        {["notes"].includes(activePageType) && (
+          <button className="btn btn-green btn-wrapper" onClick={setIsNoteOpen}>
             <div className="icon icon-plus"></div>
             <div>{activePageType}</div>
           </button>
@@ -32,7 +27,6 @@ const TitleHolder = () => {
       </div>
 
       {/* MODALS */}
-      <TodoCreateModal showModal={isTodoOpen} toggleModal={setIsTodoOpen} />
       <NoteCreateModal showModal={isNoteOpen} toggleModal={setIsNoteOpen} />
     </>
   );
