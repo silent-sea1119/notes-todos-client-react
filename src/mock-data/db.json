@@ -99,6 +99,32 @@
                 }
             ],
             "theme": "blue"
+        },
+        {
+            "id": 3,
+            "title": "The career worth doing",
+            "content": "Notes Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid eius libero sit amet consectetur adipisicing elit, Aliquid eius libero sit amet consectetur adipisicing elit Aliquid eius libero sit amet consectetur adipisicing elit",
+            "created_at": "September 16th, 2022",
+            "labels": [
+                {
+                    "text": "Onboarding",
+                    "color": "blue"
+                }
+            ],
+            "theme": "green"
+        },
+        {
+            "id": 4,
+            "title": "The career worth doing",
+            "content": "Notes Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+            "created_at": "September 16th, 2022",
+            "labels": [
+                {
+                    "text": "Onboarding",
+                    "color": "blue"
+                }
+            ],
+            "theme": "brown"
         }
     ]
 }
