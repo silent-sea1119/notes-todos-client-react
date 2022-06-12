@@ -19,7 +19,11 @@ const NotesBlock = () => {
 
   return (
     <div className="notes-block">
-      {notes.length ? <NotesBlockContent notes={notes} /> : <NotesBlockEmpty />}
+      {notes?.length ? (
+        <NotesBlockContent notes={notes} />
+      ) : (
+        <NotesBlockEmpty />
+      )}
     </div>
   );
 };

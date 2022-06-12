@@ -25,7 +25,7 @@ const TodoCategory = ({
           <div className="top-left">
             <div className={`counter mgr-7 rounded-7 border-color-white`}>
               <div className="count place-center color-white fw-600">
-                {data?.length}
+                {data?.length ?? 0}
               </div>
             </div>
 
