@@ -1,6 +1,6 @@
 import React from "react";
 import { TodoCategoryTypes } from "types/TodoTypes";
-import { useModalToggle } from "hooks";
+import { useToggle } from "hooks";
 import { TodoCreateModal } from "modals";
 import { TodoCard } from "components";
 
@@ -13,7 +13,7 @@ const TodoCategory = ({
   empty_text,
   data,
 }: TodoCategoryTypes) => {
-  const [isTodoOpen, setIsTodoOpen] = useModalToggle();
+  const [isTodoOpen, setIsTodoOpen] = useToggle();
 
   return (
     <>

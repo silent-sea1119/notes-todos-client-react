@@ -2,10 +2,8 @@ import axios from "axios";
 import { API_VERSION, API_BASE_URL } from "env";
 import { $serviceUtils as $utils } from "services";
 
-interface apiType {
-  url: string;
+interface IServiceType {
   makeRequest: () => any;
-  appendToBase: (url: string) => string;
   fetch: (url: string, option: optionType) => Promise<any>;
   push: (url: string, option: optionType) => Promise<any>;
   update: (url: string, option: optionType) => Promise<any>;
@@ -23,12 +21,16 @@ type optionType = {
 };
 
 // SERVICE API CLSS
-class serviceApi implements apiType {
-  url: string = "";
+class serviceApi implements IServiceType {
+  private base_url: string = API_BASE_URL;
+  private base_version: string = API_VERSION;
+
+  // SKELETAL REQUEST TEMPLATE
+  private requestSetup() {}
 
   // INSTANTIATE BASE API URL
   constructor() {
-    axios.defaults.baseURL = `${API_BASE_URL}${API_VERSION}`;
+    axios.defaults.baseURL = `${this.base_url}${this.base_version}`;
     this.injectTokenInterceptor();
   }
 
@@ -39,17 +41,12 @@ class serviceApi implements apiType {
     return this;
   }
 
-  // APEND URL TO BASE API
-  appendToBase(url: string): string {
-    return (this.url += url);
-  }
-
   // GET API REQUEST
   async fetch(
     url: string,
     option: optionType = { resolve: true }
   ): Promise<any> {
-    let api_url = $utils.urlHash(this.appendToBase(url));
+    let api_url = $utils.urlHash(url);
 
     try {
       let response = await axios.get(api_url, this.getHeaders());
@@ -66,7 +63,7 @@ class serviceApi implements apiType {
   ): Promise<any> {
     try {
       let response = await axios.post(
-        this.appendToBase(url),
+        url,
         option.payload,
         this.getHeaders(option.is_attach)
       );
@@ -83,7 +80,7 @@ class serviceApi implements apiType {
   ): Promise<any> {
     try {
       let response = await axios.put(
-        this.appendToBase(url),
+        url,
         option.payload,
         this.getHeaders(option.is_attach)
       );
@@ -99,7 +96,7 @@ class serviceApi implements apiType {
     option: optionType = { payload: null, resolve: true }
   ): Promise<any> {
     try {
-      let response = await axios.delete(this.appendToBase(url), {
+      let response = await axios.delete(url, {
         data: option.payload,
         ...this.getHeaders(),
       });

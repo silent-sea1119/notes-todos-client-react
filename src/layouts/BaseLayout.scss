@@ -16,6 +16,22 @@
     background: $color-white;
     border-radius: toRem(30);
 
+    @include breakpoint-down(lg) {
+      left: 10.8%;
+      width: 76.8%;
+    }
+
+    @include breakpoint-down(md) {
+      border-radius: toRem(25);
+      left: 0;
+      width: 98.5%;
+    }
+
+    @include breakpoint-down(sm) {
+      border-radius: toRem(20);
+      width: 98%;
+    }
+
     .content-build {
       position: relative;
       padding: toRem(25);
@@ -23,6 +39,14 @@
       width: 100%;
       overflow: auto;
       height: 91%;
+
+      @include breakpoint-down(lg) {
+        padding: toRem(20) toRem(15);
+      }
+
+      @include breakpoint-down(md) {
+        padding: toRem(10) toRem(12);
+      }
     }
   }
 }

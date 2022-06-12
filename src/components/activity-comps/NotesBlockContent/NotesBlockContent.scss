@@ -5,4 +5,16 @@
   width: 100%;
   column-count: 4;
   column-gap: 0;
+
+  @include breakpoint-down(lg) {
+    column-count: 3;
+  }
+
+  @include breakpoint-down(sm) {
+    column-count: 2;
+  }
+
+  @include breakpoint-custom-down(400) {
+    column-count: 1;
+  }
 }

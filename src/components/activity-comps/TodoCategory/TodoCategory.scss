@@ -3,11 +3,44 @@
 .todo-category {
   border: toRem(1) solid rgba($color-grey-light, 0.25);
   background: rgba($color-ash-white, 0.25);
-  width: 24.45%;
+  min-width: toRem(250);
+  width: auto;
+  max-width: 24.45%;
+  margin: 0 toRem(3.5);
+
+  &:first-of-type {
+    margin-left: 0;
+  }
+
+  &:last-of-type {
+    margin-right: 0;
+  }
+
+  @include breakpoint-down(lg) {
+    min-width: toRem(225);
+  }
+
+  @include breakpoint-down(sm) {
+    min-width: toRem(210);
+    margin: 0 toRem(2.75);
+  }
+
+  @include breakpoint-custom-down(400) {
+    min-width: toRem(200);
+    margin: 0 toRem(2.5);
+  }
 
   .category-top {
     @include flex-row-between-nowrap;
     padding: toRem(8) toRem(12);
+
+    @include breakpoint-down(lg) {
+      padding: toRem(8);
+    }
+
+    @include breakpoint-down(sm) {
+      padding: toRem(7) toRem(6);
+    }
 
     .top-left {
       @include flex-row-start-nowrap;
@@ -16,14 +49,34 @@
         position: relative;
         @include square-shape(21);
 
+        @include breakpoint-down(xl) {
+          @include square-shape(19);
+        }
+
+        @include breakpoint-down(lg) {
+          @include square-shape(18.5);
+        }
+
         .count {
           font-size: toRem(11.25);
+
+          @include breakpoint-down(xl) {
+            font-size: toRem(11);
+          }
         }
       }
 
       .text {
         font-size: toRem(13.75);
         text-transform: capitalize;
+
+        @include breakpoint-down(xl) {
+          font-size: toRem(13.25);
+        }
+
+        @include breakpoint-down(lg) {
+          font-size: toRem(13);
+        }
       }
     }
 
@@ -33,8 +86,16 @@
       @include square-shape(25);
       @include transition(0.4s);
 
+      @include breakpoint-down(xl) {
+        @include square-shape(24);
+      }
+
       .icon {
         font-size: toRem(16.75);
+
+        @include breakpoint-down(xl) {
+          font-size: toRem(16.25);
+        }
       }
 
       &:hover {
@@ -46,11 +107,28 @@
   .category-body {
     padding: toRem(10) toRem(7);
 
+    @include breakpoint-down(lg) {
+      padding: toRem(7) toRem(5);
+    }
+
+    @include breakpoint-down(sm) {
+      padding: toRem(6) toRem(4);
+    }
+
     .empty-state {
       background: rgba($color-white, 0.85);
       @include font-height(14, 22);
       padding: toRem(30) toRem(5);
       text-align: center;
+
+      @include breakpoint-down(xl) {
+        @include font-height(13, 18.5);
+      }
+
+      @include breakpoint-down(lg) {
+        padding: toRem(25) toRem(5);
+        @include font-height(12.5, 18);
+      }
     }
   }
 }

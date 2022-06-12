@@ -1,6 +1,6 @@
 import React from "react";
 import { TodoTypes } from "types/TodoTypes";
-import { useModalToggle } from "hooks";
+import { useToggle } from "hooks";
 import { DeleteModal } from "modals";
 
 import "./TodoCard.scss";
@@ -10,7 +10,7 @@ interface TodoCardProps {
 }
 
 const TodoCard = ({ todo: { content, labels } }: TodoCardProps) => {
-  const [isDeleteOpen, setDeleteOpen] = useModalToggle();
+  const [isDeleteOpen, setDeleteOpen] = useToggle();
 
   return (
     <>

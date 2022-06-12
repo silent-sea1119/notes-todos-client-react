@@ -1,6 +1,6 @@
 import React from "react";
 import { NoteTypes } from "types/NoteTypes";
-import { useModalToggle } from "hooks";
+import { useToggle } from "hooks";
 import { DeleteModal } from "modals";
 
 import "./NoteCard.scss";
@@ -11,7 +11,7 @@ interface NoteProps {
 const NotesCard: React.FC<NoteProps> = ({
   note: { title, content, created_at, labels, theme },
 }: NoteProps) => {
-  const [isDeleteOpen, setDeleteOpen] = useModalToggle();
+  const [isDeleteOpen, setDeleteOpen] = useToggle();
 
   return (
     <>

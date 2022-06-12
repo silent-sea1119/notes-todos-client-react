@@ -12,6 +12,10 @@ class serviceUtils {
       ? `${url}&timestamp=${this.timestamp}`
       : `${url}?timestamp=${this.timestamp}`;
   }
+
+  stateResolver(state: any, dataset: any): any {
+    Object.entries(dataset).map((item) => (state[item[0]] = item[1]));
+  }
 }
 
 let $serviceUtils = new serviceUtils();

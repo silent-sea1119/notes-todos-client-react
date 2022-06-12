@@ -11,17 +11,37 @@
     border-radius: toRem(30);
     padding: toRem(12);
 
+    @include breakpoint-down(xl) {
+      padding: toRem(9) toRem(10);
+    }
+
     .nav-icon {
       color: rgba($color-brown-light, 0.8);
       @include transition(0.45s);
       margin-right: toRem(15);
       font-size: toRem(18.25);
+
+      @include breakpoint-down(xl) {
+        font-size: toRem(16.5);
+      }
+
+      @include breakpoint-down(md) {
+        font-size: toRem(17);
+      }
     }
 
     .nav-text {
       color: rgba($color-grey-light, 0.95);
       text-transform: capitalize;
       font-size: toRem(14.25);
+
+      @include breakpoint-down(xl) {
+        font-size: toRem(13);
+      }
+
+      @include breakpoint-down(md) {
+        font-size: toRem(14);
+      }
     }
   }
 
@@ -41,10 +61,18 @@
 .active {
   width: 102.75% !important;
 
+  @include breakpoint-down(md) {
+    width: 96% !important;
+  }
+
   .wrapper {
     background: $color-white !important;
     border-radius: toRem(30) 0 0 toRem(30);
     position: relative;
+
+    @include breakpoint-down(md) {
+      border-radius: toRem(30);
+    }
 
     .curve {
       background: $color-white;
@@ -52,6 +80,10 @@
       height: toRem(40);
       width: 10%;
       right: 0;
+
+      @include breakpoint-down(md) {
+        display: none;
+      }
 
       &::before {
         content: "";

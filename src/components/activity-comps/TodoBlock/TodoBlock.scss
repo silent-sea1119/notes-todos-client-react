@@ -3,4 +3,5 @@
 .todo-block {
   @include flex-row-between-nowrap;
   align-items: flex-start;
+  overflow: auto;
 }

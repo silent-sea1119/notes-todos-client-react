@@ -4,9 +4,35 @@
   @include fixed-display-area;
   width: 18%;
 
+  @include breakpoint-down(lg) {
+    width: 22%;
+  }
+
+  @include breakpoint-down(md) {
+    position: fixed;
+    left: -100%;
+    z-index: 9999;
+    width: 0;
+    background: rgba($color-green-light, 0.3);
+    @include transition(0.4s);
+  }
+
   .sidebar-build {
     @include flex-column-start-start;
     @include stretch-area;
+
+    @include breakpoint-down(md) {
+      background: $color-green;
+      width: 50%;
+    }
+
+    @include breakpoint-down(sm) {
+      width: 60%;
+    }
+
+    @include breakpoint-down(xs) {
+      width: 80%;
+    }
 
     .brand-row {
       margin: toRem(5.5) 0 toRem(15);
@@ -21,12 +47,20 @@
         .brand-icon {
           margin-right: toRem(10);
           font-size: toRem(28);
+
+          @include breakpoint-down(xl) {
+            font-size: toRem(25);
+          }
         }
 
         .brand-name {
           font-size: toRem(21);
           position: relative;
           top: toRem(4);
+
+          @include breakpoint-down(xl) {
+            font-size: toRem(20);
+          }
         }
       }
     }
@@ -39,7 +73,19 @@
         font-size: toRem(14.25);
         padding: 0 toRem(25);
         color: rgba($color-grey-light, 0.8);
+
+        @include breakpoint-down(xl) {
+          font-size: toRem(13.25);
+        }
       }
     }
+  }
+}
+
+.toggle-sidebar {
+  @include breakpoint-down(md) {
+    display: unset;
+    width: 100%;
+    left: 0;
   }
 }

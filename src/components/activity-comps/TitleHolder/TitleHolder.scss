@@ -6,16 +6,62 @@
 
   .title {
     @include font-height(26, 36);
+
+    @include breakpoint-down(xl) {
+      @include font-height(22, 30);
+    }
+
+    @include breakpoint-down(lg) {
+      @include font-height(20.5, 28);
+    }
+
+    @include breakpoint-down(sm) {
+      @include font-height(20, 29);
+    }
+
+    @include breakpoint-down(xs) {
+      @include font-height(19.5, 29);
+    }
   }
 
   .meta {
     @include font-height(13.75, 21);
+
+    @include breakpoint-down(xl) {
+      @include font-height(13.25, 19);
+    }
+
+    @include breakpoint-down(lg) {
+      @include font-height(13, 18);
+    }
+
+    @include breakpoint-down(sm) {
+      @include font-height(12.25, 18);
+      padding-right: toRem(15);
+    }
+
+    @include breakpoint-down(xs) {
+      @include font-height(12, 16);
+    }
   }
 
   .btn-wrapper {
+    @include breakpoint-down(lg) {
+      font-size: toRem(11.25);
+    }
+
+    @include breakpoint-down(sm) {
+      padding: toRem(11.5) toRem(16.5);
+      font-size: toRem(11);
+    }
+
     .icon {
       font-size: toRem(20);
       margin-right: toRem(3);
+
+      @include breakpoint-down(lg) {
+        font-size: toRem(17);
+      }
     }
   }
 }

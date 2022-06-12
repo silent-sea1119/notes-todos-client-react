@@ -5,6 +5,20 @@
   padding-bottom: toRem(12);
   break-inside: avoid;
 
+  @include breakpoint-down(xl) {
+    padding: 0 1.5%;
+    padding-bottom: toRem(12);
+  }
+
+  @include breakpoint-down(lg) {
+    padding-bottom: toRem(8);
+  }
+
+  @include breakpoint-custom-down(400) {
+    padding: 0;
+    padding-bottom: toRem(8);
+  }
+
   .note-card {
     box-shadow: toRem(1) toRem(1) toRem(5) toRem(1) rgba($color-black, 0.1);
     @include transition(0.4s);
@@ -12,6 +26,16 @@
     padding: toRem(10);
     padding-bottom: toRem(2);
     height: auto;
+
+    @include breakpoint-down(lg) {
+      padding: toRem(7.5);
+      padding-bottom: toRem(2);
+    }
+
+    @include breakpoint-custom-down(400) {
+      padding: toRem(10);
+      padding-bottom: toRem(2);
+    }
 
     .note-labels {
       @include flex-row-start-wrap;
@@ -22,6 +46,11 @@
         font-size: toRem(12.5);
         color: $color-black;
 
+        @include breakpoint-down(xl) {
+          padding: toRem(4) toRem(6);
+          font-size: toRem(11);
+        }
+
         &:last-of-type {
           margin-right: 0;
         }
@@ -30,12 +59,37 @@
 
     .note-title {
       @include font-height(15, 21);
+
+      @include breakpoint-down(xl) {
+        @include font-height(13, 18);
+      }
+
+      @include breakpoint-down(lg) {
+        @include font-height(12.75, 18);
+      }
+
+      @include breakpoint-down(sm) {
+        @include font-height(13.75, 18);
+        margin-bottom: toRem(10);
+      }
     }
 
     .note-content {
       @include font-height(13.65, 22);
       @include line-clamp(6);
       overflow: hidden;
+
+      @include breakpoint-down(xl) {
+        @include font-height(12.75, 20);
+      }
+
+      @include breakpoint-down(lg) {
+        @include font-height(12.5, 19);
+      }
+
+      @include breakpoint-custom-down(400) {
+        @include font-height(13, 21);
+      }
     }
 
     .bottom-info {
@@ -45,6 +99,14 @@
 
       .note-date {
         font-size: toRem(12.75);
+
+        @include breakpoint-down(xl) {
+          font-size: toRem(11);
+        }
+
+        @include breakpoint-custom-down(400) {
+          font-size: toRem(12);
+        }
       }
 
       .note-trash {

@@ -6,12 +6,33 @@
   position: relative;
   padding: toRem(10);
 
+  @include breakpoint-down(lg) {
+    padding: toRem(9) toRem(8);
+    margin-bottom: toRem(7);
+  }
+
   &:last-of-type {
     margin-bottom: 0;
   }
 
   .card-description {
     @include font-height(14, 20);
+
+    @include breakpoint-down(xl) {
+      @include font-height(13, 18.5);
+    }
+
+    @include breakpoint-down(lg) {
+      @include font-height(12.45, 17.5);
+    }
+
+    @include breakpoint-down(sm) {
+      @include font-height(12.75, 17.5);
+    }
+
+    @include breakpoint-custom-down(400) {
+      @include font-height(12, 17);
+    }
   }
 
   .card-tags {
@@ -26,6 +47,11 @@
 
       &:last-of-type {
         margin-right: 0;
+      }
+
+      @include breakpoint-down(lg) {
+        padding: toRem(3) toRem(8);
+        font-size: toRem(11);
       }
     }
   }

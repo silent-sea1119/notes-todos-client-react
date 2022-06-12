@@ -1,9 +1,9 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { $serviceApi as $api } from "services";
 
-const fetchNotes = createAsyncThunk(
-  "todo/fetchNotes",
+const fetchNote = createAsyncThunk(
+  "note/fetchNote",
   async () => await $api.fetch("/notes")
 );
 
-export { fetchNotes };
+export { fetchNote };

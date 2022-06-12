@@ -1,3 +1,4 @@
+import { $serviceUtils as $utils } from "services";
 import { fetchTodo } from "./sliceActions";
 
 const asyncReducers = {
@@ -15,22 +16,18 @@ const asyncReducers = {
   },
 };
 
-// UTILITY FUNCTION TO EASILY UPDATE THE STATE
-const stateResolver = (state: any, dataset: any): any =>
-  Object.entries(dataset).map((item) => (state[item[0]] = item[1]));
-
 // HANDLE FETCH TODO ACTIONS
 const fetchTodoHandler = {
   pending: (state: any) => {
-    stateResolver(state, { loading: true });
+    $utils.stateResolver(state, { loading: true });
   },
 
   fulfilled: (state: any, { payload }: any) => {
-    stateResolver(state, { loading: false, data: payload });
+    $utils.stateResolver(state, { loading: false, data: payload });
   },
 
   error: (state: any, { error }: any) => {
-    stateResolver(state, { loading: false, data: [], error: error });
+    $utils.stateResolver(state, { loading: false, data: [], error: error });
   },
 };
 

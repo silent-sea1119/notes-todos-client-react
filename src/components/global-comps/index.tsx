@@ -7,3 +7,4 @@ export { default as SideNewProject } from "./SideNewProject/SideNewProject";
 export { default as TopBar } from "./TopBar/TopBar";
 export { default as TopSearch } from "./TopSearch/TopSearch";
 export { default as TopUserInfo } from "./TopUserInfo/TopUserInfo";
+export { default as ProfileBar } from "./ProfileBar/ProfileBar";

@@ -4,12 +4,41 @@
   position: relative;
   width: 33%;
 
+  @include breakpoint-down(lg) {
+    width: 40%;
+  }
+
+  @include breakpoint-down(md) {
+    width: 65%;
+  }
+
+  @include breakpoint-down(sm) {
+    width: 72%;
+  }
+
   .form-control {
     padding-left: toRem(44);
+
+    @include breakpoint-down(lg) {
+      min-height: toRem(43);
+    }
+
+    @include breakpoint-down(sm) {
+      min-height: toRem(38);
+    }
   }
 
   .icon {
     @include center-y;
     left: toRem(20);
+
+    @include breakpoint-down(lg) {
+      font-size: toRem(16.5) !important;
+    }
+
+    @include breakpoint-down(sm) {
+      font-size: toRem(15.5) !important;
+      left: toRem(16);
+    }
   }
 }

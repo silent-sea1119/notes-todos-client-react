@@ -1,11 +1,42 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
+import { useAppSelector, useAppDispatch } from "hooks/storeHook";
+import { getGeneral, toggleSidebar } from "store/generalSlice/sliceGetters";
 import { SideNavItem, SideNewProject } from "components";
 
 import "./SideBar.scss";
 
 const SideBar = () => {
+  const dispatch = useAppDispatch();
+  const location = useLocation();
+
+  const { show_sidebar } = useAppSelector(getGeneral);
+  const [toggle, setToggle] = React.useState<boolean>(show_sidebar);
+
+  React.useEffect((): void => {
+    setToggle(show_sidebar);
+  }, [show_sidebar]);
+
+  React.useEffect((): void => {
+    toggle && dispatch(toggleSidebar());
+    setToggle(false);
+  }, [location, dispatch]);
+
+  const hideSidebar = React.useCallback(
+    (evt: any): void => {
+      if (evt.target.classList.contains("sidebar-build-cover")) {
+        dispatch(toggleSidebar());
+        setToggle(show_sidebar);
+      }
+    },
+    [dispatch, show_sidebar]
+  );
+
   return (
-    <div className="sidebar-build-cover">
+    <div
+      className={`sidebar-build-cover ${toggle && "toggle-sidebar"}`}
+      onClick={hideSidebar}
+    >
       <div className="sidebar-build h-100">
         {/* BRAND NAME SECTION */}
         <div className="brand-row">

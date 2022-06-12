@@ -88,11 +88,7 @@ input[disabled] {
   }
 
   @include breakpoint-down(sm) {
-    font-size: toRem(12);
-  }
-
-  @include breakpoint-down(xs) {
-    font-size: toRem(11);
+    font-size: toRem(13);
   }
 
   &.width_auto {

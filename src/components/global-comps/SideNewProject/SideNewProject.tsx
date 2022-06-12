@@ -1,11 +1,27 @@
 import React from "react";
-import { useModalToggle } from "hooks";
+import { useToggle } from "hooks";
+import { useAppDispatch } from "hooks/storeHook";
+import { toggleSidebar } from "store/generalSlice/sliceGetters";
 import { ProjectCreateModal } from "modals";
 
 import "./SideNewProject.scss";
 
 const SideNewProject = () => {
-  const [isProjectOpen, setIsProjectOpen] = useModalToggle();
+  const dispatch = useAppDispatch();
+  const [isProjectOpen, setIsProjectOpen] = useToggle();
+
+  const toggleProjectModal = React.useCallback(() => {
+    // MOBILE
+    if (window.innerWidth <= 768) {
+      if (isProjectOpen) setIsProjectOpen();
+      else {
+        dispatch(toggleSidebar());
+        setIsProjectOpen();
+      }
+    }
+    // PC
+    else setIsProjectOpen();
+  }, [isProjectOpen, dispatch, setIsProjectOpen]);
 
   return (
     <>
@@ -17,7 +33,10 @@ const SideNewProject = () => {
           </div>
 
           {/* BOTTOM */}
-          <div className="bottom rounded-7 pointer" onClick={setIsProjectOpen}>
+          <div
+            className="bottom rounded-7 pointer"
+            onClick={toggleProjectModal}
+          >
             <div className="add-btn rounded-7 mgr-10">
               <div className="icon-plus place-center"></div>
             </div>
@@ -32,7 +51,7 @@ const SideNewProject = () => {
       {/* MODALS */}
       <ProjectCreateModal
         showModal={isProjectOpen}
-        toggleModal={setIsProjectOpen}
+        toggleModal={toggleProjectModal}
       />
     </>
   );

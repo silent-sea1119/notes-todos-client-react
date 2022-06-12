@@ -5,6 +5,10 @@
   padding: toRem(10) toRem(15);
   @include transition(0.45s);
 
+  @include breakpoint-down(xl) {
+    padding: toRem(7) toRem(12);
+  }
+
   &:first-of-type {
     margin-right: toRem(20);
   }
@@ -14,18 +18,35 @@
     @include square-shape(23);
     font-size: toRem(11.75);
     position: relative;
+
+    @include breakpoint-down(xl) {
+      @include square-shape(22);
+      font-size: toRem(11);
+    }
   }
 
   .selection-text {
     text-transform: capitalize;
     font-size: toRem(14.45);
     color: $color-grey;
+
+    @include breakpoint-down(xl) {
+      font-size: toRem(13.75);
+    }
+
+    @include breakpoint-down(lg) {
+      font-size: toRem(13.5);
+    }
   }
 
   &-active {
     border-bottom: toRem(2) solid $color-green;
     color: $color-green;
     font-weight: 600;
+
+    @include breakpoint-down(xl) {
+      border-bottom: toRem(1) solid $color-green;
+    }
 
     .selection-text {
       color: $color-green;

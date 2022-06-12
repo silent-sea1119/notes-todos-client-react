@@ -5,20 +5,78 @@
   @include transition(0.4s);
   position: relative;
 
-  .user-avatar {
-    font-size: toRem(26);
+  .avatar {
+    position: relative;
+    @include square-shape(32);
+    background: $color-green;
+    margin-right: toRem(7);
+
+    @include breakpoint-down(sm) {
+      margin-right: 0;
+    }
+
+    .avatar-text {
+      @include center-placement;
+      font-size: toRem(13.25);
+      color: $color-white;
+    }
   }
 
   .user-name {
     @include font-height(14.5, 20);
 
-    @include breakpoint-down(lg) {
+    @include breakpoint-down(xl) {
       @include font-height(14, 22);
+    }
+
+    @include breakpoint-down(lg) {
+      @include font-height(13.75, 21);
+    }
+
+    @include breakpoint-down(sm) {
+      display: none;
     }
   }
 
   .icon {
+    @include transition(0.15s);
     position: relative;
     top: 1px;
+
+    @include breakpoint-down(sm) {
+      display: none;
+    }
   }
+}
+
+.menu-wrapper {
+  @include fixed-display-area;
+}
+
+.menu {
+  background: rgba($color-ash-white, 0.6);
+  position: absolute;
+  width: toRem(120);
+  right: toRem(-3);
+  top: toRem(35);
+  display: none;
+  z-index: 1;
+  box-shadow: toRem(1) toRem(1) toRem(3) toRem(1) rgba($color-black, 0.15);
+  transition: display 0.4s ease-in-out;
+
+  .item {
+    @include flex-row-start-nowrap;
+    padding: toRem(7) toRem(10);
+    font-size: toRem(12.75);
+    cursor: pointer;
+    color: $color-black;
+
+    &:hover {
+      background: $color-green-lighter;
+    }
+  }
+}
+
+.show-menu {
+  display: unset;
 }

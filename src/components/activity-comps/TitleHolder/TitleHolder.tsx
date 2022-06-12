@@ -1,12 +1,12 @@
 import React from "react";
-import { useActivePageType, useModalToggle } from "hooks";
+import { useActivePageType, useToggle } from "hooks";
 import { NoteCreateModal } from "modals";
 
 import "./TitleHolder.scss";
 
 const TitleHolder = () => {
   const activePageType = useActivePageType(undefined);
-  const [isNoteOpen, setIsNoteOpen] = useModalToggle();
+  const [isNoteOpen, setIsNoteOpen] = useToggle();
 
   return (
     <>

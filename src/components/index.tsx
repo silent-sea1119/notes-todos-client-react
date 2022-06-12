@@ -6,6 +6,7 @@ export {
   TopBar,
   TopSearch,
   TopUserInfo,
+  ProfileBar,
 } from "./global-comps/";
 
 // ACTIVITY EXPORT

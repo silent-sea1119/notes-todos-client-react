@@ -1,12 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { NotesBlockContent, NotesBlockEmpty } from "components";
 import { NoteTypes } from "types/NoteTypes";
-import { NotesContent } from "mock-data/Notes";
+import { useAppDispatch, useAppSelector } from "hooks/storeHook";
+import { fetchNote, getNote } from "store/noteSlice/sliceGetters";
 
 import "./NotesBlock.scss";
 
 const NotesBlock = () => {
-  const [notes] = React.useState<NoteTypes[]>(NotesContent);
+  const dispatch = useAppDispatch();
+  const { data: NoteData } = useAppSelector(getNote);
+  const [notes, setNotes] = React.useState<NoteTypes[]>([]);
+
+  useEffect(() => {
+    dispatch(fetchNote());
+  }, [dispatch]);
+
+  useEffect(() => setNotes(NoteData), [NoteData]);
 
   return (
     <div className="notes-block">

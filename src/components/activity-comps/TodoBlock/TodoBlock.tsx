@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "hooks/storeHook";
 import { TodoCategoryTypes, TodoTypes } from "types/TodoTypes";
 
@@ -17,11 +17,11 @@ const TodoBlock = () => {
   const [categories] = React.useState<TodoCategoryTypes[]>(TodoCategories);
   const [todo, setTodo] = React.useState<TodoTypes[]>([]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     dispatch(fetchTodo());
   }, [dispatch]);
 
-  React.useEffect(() => setTodo(TodoData), [TodoData]);
+  useEffect(() => setTodo(TodoData), [TodoData]);
 
   const filterCategoryByTitle = (title: string): TodoTypes[] => {
     return todo.filter((item) => item.category === title);

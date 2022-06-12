@@ -1,2 +1,2 @@
-export { fetchNotes } from "./sliceActions";
-export { getNotes } from ".";
+export { fetchNote } from "./sliceActions";
+export { getNote } from ".";

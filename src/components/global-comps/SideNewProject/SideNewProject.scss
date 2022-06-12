@@ -5,6 +5,14 @@
   bottom: toRem(10);
   padding: 0 toRem(10);
 
+  @include breakpoint-down(xl) {
+    padding: 0 toRem(4);
+  }
+
+  @include breakpoint-down(lg) {
+    padding: 0 toRem(6);
+  }
+
   .wrapper {
     width: 101.85%;
     padding: toRem(12);
@@ -13,8 +21,33 @@
     background: rgba(255, 255, 255, 0.1);
     box-shadow: toRem(20) toRem(20) toRem(50) rgba($color-black, 0.65);
 
+    @include breakpoint-down(xl) {
+      padding: toRem(10) toRem(12);
+    }
+
+    @include breakpoint-down(lg) {
+      padding: toRem(10);
+      width: 101%;
+    }
+
+    @include breakpoint-down(md) {
+      width: 80%;
+    }
+
+    @include breakpoint-down(sm) {
+      width: 80%;
+    }
+
     .top {
       @include font-height(12.75, 18.5);
+
+      @include breakpoint-down(xl) {
+        @include font-height(12, 17.5);
+      }
+
+      @include breakpoint-down(lg) {
+        @include font-height(11.5, 18);
+      }
     }
 
     .bottom {
@@ -22,19 +55,43 @@
       @include transition(0.45s);
       padding: toRem(6);
 
+      @include breakpoint-down(xl) {
+        padding: toRem(4);
+      }
+
+      @include breakpoint-down(lg) {
+        padding: toRem(3);
+      }
+
       .add-btn {
         @include square-shape(34);
         background: darken($color-green, 6%);
         position: relative;
 
+        @include breakpoint-down(xl) {
+          @include square-shape(31);
+        }
+
         .icon-plus {
           color: $color-brown-light;
           font-size: toRem(19);
+
+          @include breakpoint-down(xl) {
+            font-size: toRem(17.25);
+          }
         }
       }
 
       .add-text {
         font-size: toRem(13.75);
+
+        @include breakpoint-down(xl) {
+          font-size: toRem(13.25);
+        }
+
+        @include breakpoint-down(lg) {
+          font-size: toRem(12.75);
+        }
       }
 
       &:hover {
