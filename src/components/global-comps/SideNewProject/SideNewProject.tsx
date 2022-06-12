@@ -27,12 +27,6 @@ const SideNewProject = () => {
     <>
       <div className="new-project">
         <div className="wrapper position-relative rounded-10">
-          {/* TOP */}
-          <div className="top mgb-5 color-white">
-            Let's help you organize your project's todos and notes efficiently!
-          </div>
-
-          {/* BOTTOM */}
           <div
             className="bottom rounded-7 pointer"
             onClick={toggleProjectModal}

@@ -41,7 +41,7 @@ const SideBar = () => {
         {/* BRAND NAME SECTION */}
         <div className="brand-row">
           <div className="wrapper">
-            <div className="brand-icon icon-nothy-app color-brown-light"></div>
+            <div className="brand-icon icon-nothy-app color-ash-white"></div>
             <h2 className="brand-name color-white fw-600">Nothy App</h2>
           </div>
         </div>

@@ -59,6 +59,7 @@
 
     .note-title {
       @include font-height(15, 21);
+      margin-bottom: toRem(6);
 
       @include breakpoint-down(xl) {
         @include font-height(13, 18);
@@ -88,7 +89,7 @@
       }
 
       @include breakpoint-custom-down(400) {
-        @include font-height(13, 21);
+        @include font-height(11.75, 20);
       }
     }
 

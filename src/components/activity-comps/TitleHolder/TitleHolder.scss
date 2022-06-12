@@ -20,7 +20,7 @@
     }
 
     @include breakpoint-down(xs) {
-      @include font-height(19.5, 29);
+      @include font-height(19, 29);
     }
   }
 
@@ -51,7 +51,7 @@
     }
 
     @include breakpoint-down(sm) {
-      padding: toRem(11.5) toRem(16.5);
+      padding: toRem(10.5) toRem(12);
       font-size: toRem(11);
     }
 

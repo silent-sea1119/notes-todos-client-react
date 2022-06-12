@@ -25,12 +25,12 @@
       border-radius: toRem(25);
       left: 0;
       width: 98.5%;
+      height: 98.25%;
     }
 
     @include breakpoint-down(sm) {
-      border-radius: 0;
-      width: 100%;
-      height: 100%;
+      border-radius: toRem(20);
+      width: 97%;
     }
 
     .content-build {
@@ -46,7 +46,7 @@
       }
 
       @include breakpoint-down(md) {
-        padding: toRem(10) toRem(12);
+        padding: toRem(10) toRem(6);
       }
     }
   }

@@ -16,7 +16,7 @@
     }
 
     .nav-icon {
-      color: rgba($color-brown-light, 0.8);
+      color: $color-ash-white;
       @include transition(0.45s);
       margin-right: toRem(15);
       font-size: toRem(18.25);

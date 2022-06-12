@@ -13,7 +13,8 @@
     left: -100%;
     z-index: 9999;
     width: 0;
-    background: rgba($color-green-light, 0.3);
+    background: rgba(#000, 0.65);
+    backdrop-filter: blur(1px);
     @include transition(0.4s);
   }
 

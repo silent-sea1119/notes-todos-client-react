@@ -51,10 +51,16 @@
 
 .menu-wrapper {
   @include fixed-display-area;
+
+  @include breakpoint-down(sm) {
+    z-index: 9;
+    @include transition(0.5s);
+    background: rgba(#000, 0.3);
+  }
 }
 
 .menu {
-  background: rgba($color-ash-white, 0.6);
+  background: $color-ash-white;
   position: absolute;
   width: toRem(120);
   right: toRem(-3);
@@ -63,6 +69,21 @@
   z-index: 1;
   box-shadow: toRem(1) toRem(1) toRem(3) toRem(1) rgba($color-black, 0.15);
   transition: display 0.4s ease-in-out;
+
+  @include breakpoint-down(sm) {
+    position: fixed;
+    top: unset;
+    left: 0;
+    bottom: -100%;
+    width: 100%;
+    background: $color-green;
+    padding: toRem(14);
+    display: flex !important;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    @include transition(0.4s);
+    z-index: 99;
+  }
 
   .item {
     @include flex-row-start-nowrap;
@@ -73,10 +94,37 @@
 
     &:hover {
       background: $color-green-lighter;
+
+      @include breakpoint-down(sm) {
+        border-radius: toRem(20);
+        background: darken($color-green, 5%);
+      }
+    }
+
+    @include breakpoint-down(sm) {
+      @include flex-row-center-nowrap;
+      padding: toRem(10) toRem(13);
+      font-size: toRem(12.5);
+      color: $color-white;
+      width: 48%;
+
+      &:first-of-type {
+        background: rgba($color-red-light, 0.25);
+        border-radius: toRem(20);
+      }
+
+      &:last-of-type {
+        background: darken(rgba($color-red, 0.65), 7%);
+        border-radius: toRem(20);
+      }
     }
   }
 }
 
 .show-menu {
   display: unset;
+
+  @include breakpoint-down(sm) {
+    bottom: 0;
+  }
 }
