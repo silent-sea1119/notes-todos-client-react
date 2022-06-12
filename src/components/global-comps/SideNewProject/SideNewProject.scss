@@ -14,6 +14,18 @@
     padding: 0 toRem(6);
   }
 
+  @include breakpoint-down(md) {
+    width: 50%;
+  }
+
+  @include breakpoint-down(sm) {
+    width: 60%;
+  }
+
+  @include breakpoint-down(xs) {
+    width: 80%;
+  }
+
   .wrapper {
     width: 100%;
     backdrop-filter: blur(5px);

@@ -13,9 +13,8 @@
     left: -100%;
     z-index: 9999;
     width: 0;
-    background: rgba(#000, 0.65);
-    backdrop-filter: blur(1px);
     @include transition(0.4s);
+    background: rgba($color-green, 0.3);
   }
 
   .sidebar-build {

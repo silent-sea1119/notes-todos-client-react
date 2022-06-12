@@ -77,7 +77,7 @@
     bottom: -100%;
     width: 100%;
     background: $color-green;
-    padding: toRem(14);
+    padding: toRem(18) toRem(14);
     display: flex !important;
     flex-flow: row nowrap;
     justify-content: space-around;
@@ -103,19 +103,18 @@
 
     @include breakpoint-down(sm) {
       @include flex-row-center-nowrap;
-      padding: toRem(10) toRem(13);
+      border-radius: toRem(15);
+      padding: toRem(11.5);
       font-size: toRem(12.5);
       color: $color-white;
       width: 48%;
 
       &:first-of-type {
         background: rgba($color-red-light, 0.25);
-        border-radius: toRem(20);
       }
 
       &:last-of-type {
         background: darken(rgba($color-red, 0.65), 7%);
-        border-radius: toRem(20);
       }
     }
   }
