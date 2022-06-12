@@ -24,7 +24,7 @@ const TodoBlock = () => {
   useEffect(() => setTodo(TodoData), [TodoData]);
 
   const filterCategoryByTitle = (title: string): TodoTypes[] => {
-    return todo.filter((item) => item.category === title);
+    return todo?.filter((item) => item?.category === title);
   };
 
   return (
