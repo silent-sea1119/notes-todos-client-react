@@ -234,17 +234,13 @@
 
 .modal-cover-title {
   font-size: toRem(15.5);
-  letter-spacing: 0.02em;
+  letter-spacing: 0.015em;
   line-height: toRem(21);
   color: $color-green;
   font-weight: 700;
 
-  @include breakpoint-down(md) {
-    font-weight: 600;
-  }
-
   @include breakpoint-down(sm) {
-    font-size: toRem(12.5);
+    font-size: toRem(13.5);
   }
 }
 
@@ -306,8 +302,8 @@
     font-size: toRem(13) !important;
 
     @include breakpoint-down(xs) {
-      padding: toRem(11.5) toRem(23) !important;
-      font-size: toRem(10.25) !important;
+      padding: toRem(12.5) toRem(23) !important;
+      font-size: toRem(11.45) !important;
     }
   }
 }

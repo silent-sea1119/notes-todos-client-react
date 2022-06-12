@@ -48,11 +48,7 @@ input[type="number"] {
   }
 
   @include breakpoint-down(sm) {
-    font-size: toRem(12) !important;
-  }
-
-  @include breakpoint-down(xs) {
-    font-size: toRem(11) !important;
+    font-size: toRem(12.75) !important;
   }
 }
 

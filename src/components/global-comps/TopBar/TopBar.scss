@@ -18,7 +18,8 @@
   }
 
   @include breakpoint-down(sm) {
-    width: 98%;
+    top: toRem(2);
+    width: 100%;
   }
 
   .wrapper {
@@ -28,6 +29,10 @@
 
     @include breakpoint-down(lg) {
       padding: toRem(9) toRem(1);
+    }
+
+    @include breakpoint-down(sm) {
+      padding: toRem(9) 0;
     }
 
     .menu-block {
