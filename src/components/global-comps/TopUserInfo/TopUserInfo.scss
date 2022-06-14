@@ -60,15 +60,18 @@
 }
 
 .menu {
-  background: $color-ash-white;
+  background: $color-green;
   position: absolute;
-  width: toRem(120);
+  width: toRem(145);
   right: toRem(-3);
-  top: toRem(35);
+  top: -50%;
+  opacity: 0;
   display: none;
   z-index: 1;
-  box-shadow: toRem(1) toRem(1) toRem(3) toRem(1) rgba($color-black, 0.15);
-  transition: display 0.4s ease-in-out;
+  padding: toRem(7) toRem(5);
+  box-shadow: toRem(1) toRem(1) toRem(3) toRem(1) rgba($color-black, 0.25);
+  @include transition(0.4s);
+  transition: display 0.4s ease-in, top 0.4s ease-in;
 
   @include breakpoint-down(sm) {
     position: fixed;
@@ -77,23 +80,35 @@
     bottom: -100%;
     width: 100%;
     background: $color-green;
-    padding: toRem(18) toRem(14);
+    padding: toRem(14) toRem(14);
     display: flex !important;
     flex-flow: row nowrap;
     justify-content: space-around;
     @include transition(0.4s);
     z-index: 99;
+    height: toRem(72) !important;
   }
 
   .item {
     @include flex-row-start-nowrap;
     padding: toRem(7) toRem(10);
-    font-size: toRem(12.75);
+    border-radius: toRem(5);
     cursor: pointer;
-    color: $color-black;
+    color: $color-white;
+
+    .icon {
+      font-size: toRem(15);
+      margin-right: toRem(5);
+      font-weight: 600;
+    }
+
+    .text {
+      font-size: toRem(12.75);
+      margin-left: toRem(5);
+    }
 
     &:hover {
-      background: $color-green-lighter;
+      background: darken($color-green, 5%);
 
       @include breakpoint-down(sm) {
         border-radius: toRem(20);
@@ -103,9 +118,9 @@
 
     @include breakpoint-down(sm) {
       @include flex-row-center-nowrap;
-      border-radius: toRem(15);
-      padding: toRem(11.5);
-      font-size: toRem(12.5);
+      border-radius: toRem(20);
+      padding: toRem(11);
+      font-size: toRem(12);
       color: $color-white;
       width: 48%;
 
@@ -122,8 +137,11 @@
 
 .show-menu {
   display: unset;
+  opacity: 1;
+  top: toRem(37);
 
   @include breakpoint-down(sm) {
     bottom: 0;
+    top: calc(100vh - toRem(72));
   }
 }

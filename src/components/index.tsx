@@ -1,3 +1,6 @@
+// AUTH EXPORTS
+export { AuthSideBanner, AuthLogin, AuthSignup } from "./auth-comps";
+
 // GLOBAL EXPORT
 export {
   SideBar,

@@ -33,8 +33,14 @@ const TopUserInfo = () => {
         ></div>
 
         <div className={`menu h-auto rounded-5 ${toggle && "show-menu"}`}>
-          <div className="item">Update Prolile</div>
-          <div className="item">Log Out</div>
+          <div className="item">
+            <div className="icon icon-user-outline"></div>
+            <div className="text">Update Prolile</div>
+          </div>
+          <div className="item">
+            <div className="icon icon-log-out"></div>
+            <div className="text">Log Out</div>
+          </div>
         </div>
       </div>
 
