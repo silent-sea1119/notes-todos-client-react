@@ -3,7 +3,13 @@ import { Routes, Route, Navigate } from "react-router-dom";
 
 // IMPORT ROUTE PAGES LAZILY
 import { BaseLayout, AuthLayout, LoadingLayout } from "layouts";
-import { ActivityArea, Login, Signup } from "pages";
+import {
+  ActivityArea,
+  Login,
+  Signup,
+  RequestPassword,
+  ResetPassword,
+} from "pages";
 
 export default function PageRoutes() {
   return (
@@ -22,6 +28,8 @@ export default function PageRoutes() {
         <Route element={<AuthLayout />}>
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/request-password" element={<RequestPassword />} />
+          <Route path="/reset-password" element={<ResetPassword />} />
         </Route>
       </Routes>
     </React.Suspense>

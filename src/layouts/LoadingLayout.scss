@@ -2,7 +2,6 @@
 
 .loading-layout {
   @include fixed-display-area;
-  background: $color-green;
 
   .building-blocks-cover {
     @include center-placement;
@@ -18,7 +17,7 @@
     .building-blocks div:after {
       -webkit-animation: building-blocks 2.1s ease infinite backwards;
       animation: building-blocks 2.1s ease infinite backwards;
-      background: $color-white;
+      background: $color-green;
       content: "";
       display: block;
       height: 20px;

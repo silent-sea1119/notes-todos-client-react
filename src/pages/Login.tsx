@@ -1,20 +1,13 @@
 import React from "react";
-import { AuthSideBanner, AuthLogin } from "components";
-import "layouts/AuthLayout.scss";
+import { AuthWrapper, AuthLogin } from "components";
 
 const Login = () => {
   return (
-    <div className="auth-layout">
-      {/* LEFT LAYOUT */}
-      <div className="left-layout h-100">
-        <AuthSideBanner />
-      </div>
-
-      {/* RIGHT LAYOUT */}
-      <div className="right-layout h-100">
+    <>
+      <AuthWrapper message="Login to your account">
         <AuthLogin />
-      </div>
-    </div>
+      </AuthWrapper>
+    </>
   );
 };
 

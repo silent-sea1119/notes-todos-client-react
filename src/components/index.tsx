@@ -1,5 +1,11 @@
 // AUTH EXPORTS
-export { AuthSideBanner, AuthLogin, AuthSignup } from "./auth-comps";
+export {
+  AuthWrapper,
+  AuthLogin,
+  AuthSignup,
+  AuthRequestPassword,
+  AuthResetPassword,
+} from "./auth-comps";
 
 // GLOBAL EXPORT
 export {

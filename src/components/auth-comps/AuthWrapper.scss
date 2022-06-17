@@ -1,0 +1,60 @@
+@import "styles/variables.scss";
+
+.auth-wrapper {
+  height: 100vh;
+  position: absolute;
+  @include flex-column-center;
+
+  .auth-container {
+    position: relative;
+    width: 27%;
+    height: auto;
+
+    @include breakpoint-down(lg) {
+      width: 50%;
+    }
+
+    @include breakpoint-down(sm) {
+      width: 75%;
+    }
+
+    @include breakpoint-down(xs) {
+      width: 90%;
+    }
+
+    .brand-name {
+      @include flex-row-center-nowrap;
+      margin-bottom: toRem(40);
+
+      @include breakpoint-down(sm) {
+        margin-bottom: toRem(30);
+      }
+
+      .logo {
+        font-size: toRem(40);
+
+        @include breakpoint-down(sm) {
+          font-size: toRem(35);
+        }
+      }
+
+      .name {
+        font-size: toRem(26);
+
+        @include breakpoint-down(sm) {
+          font-size: toRem(22);
+        }
+      }
+    }
+
+    .page-text {
+      @include font-height(16, 19);
+      margin-bottom: toRem(20);
+
+      @include breakpoint-down(sm) {
+        @include font-height(14.5, 19);
+        margin-bottom: toRem(15);
+      }
+    }
+  }
+}

@@ -98,6 +98,26 @@ button[disabled] {
   @include font-height(11, 15);
 }
 
+.btn-link {
+  cursor: pointer;
+  font-size: 1em;
+  // display: inline-block;
+  text-decoration: underline;
+  color: $color-green;
+
+  &:hover,
+  &:focus {
+    color: $color-green-light !important;
+    text-decoration: none;
+  }
+
+  &:active,
+  &[disabled] {
+    color: $color-grey-dark;
+    outline: none;
+  }
+}
+
 .btn-green {
   background: lighten($color-green, 5%);
   color: $color-white !important;
