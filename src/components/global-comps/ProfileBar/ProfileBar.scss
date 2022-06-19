@@ -1,1 +1,157 @@
 @import "styles/variables.scss";
+
+.profile-wrapper {
+  @include fixed-display-area;
+  @include transition(0.4s);
+  left: 100%;
+
+  .profile-overlay {
+    @include background-cover;
+    background: rgba($color-green, 0.45);
+  }
+
+  .profile-bar {
+    @include center-y;
+    right: toRem(9.5);
+    width: 30%;
+    height: 98%;
+    border-radius: 0 toRem(30) toRem(30) 0;
+    background: $color-white;
+    padding: toRem(25);
+    @include transition(0.45s);
+    @include flex-column-center;
+
+    @include breakpoint-down(xl) {
+      width: 40%;
+    }
+
+    @include breakpoint-down(lg) {
+      width: 43%;
+    }
+
+    @include breakpoint-down(md) {
+      width: 55%;
+    }
+
+    @include breakpoint-down(sm) {
+      width: 70%;
+    }
+
+    @include breakpoint-down(xs) {
+      padding: toRem(15);
+      width: 80%;
+    }
+
+    .close-trigger {
+      @include square-shape(35);
+      background: $color-green;
+      @include transition(0.3s);
+      position: absolute;
+      top: toRem(22);
+      right: toRem(20);
+
+      &:hover {
+        background: darken($color-green, 5%);
+      }
+
+      .icon-close {
+        font-size: toRem(15);
+      }
+    }
+
+    .profile-photo {
+      position: relative;
+      @include square-shape(180);
+      background: $color-green;
+
+      @include breakpoint-down(lg) {
+        @include square-shape(160);
+      }
+
+      @include breakpoint-down(sm) {
+        @include square-shape(130);
+      }
+
+      .profile-text {
+        font-size: toRem(60);
+
+        @include breakpoint-down(lg) {
+          font-size: toRem(50);
+        }
+
+        @include breakpoint-down(sm) {
+          font-size: toRem(40);
+        }
+      }
+    }
+
+    .profile-name {
+      @include font-height(20, 32);
+
+      @include breakpoint-down(lg) {
+        @include font-height(18.5, 30);
+      }
+
+      @include breakpoint-down(sm) {
+        @include font-height(16, 28);
+      }
+    }
+
+    .profile-email {
+      @include font-height(15.5, 19);
+
+      @include breakpoint-down(lg) {
+        @include font-height(14.5, 19);
+      }
+
+      @include breakpoint-down(sm) {
+        @include font-height(13.5, 19);
+      }
+    }
+
+    .activities {
+      .activity {
+        @include flex-row-center-nowrap;
+        @include font-height(15.5, 19);
+        margin-bottom: toRem(10);
+
+        @include breakpoint-down(lg) {
+          @include font-height(14.75, 19);
+        }
+
+        @include breakpoint-down(sm) {
+          @include font-height(14.25, 19);
+          margin-bottom: toRem(6);
+        }
+
+        .title {
+          margin-right: toRem(5);
+          color: darken($color-green, 3%);
+        }
+
+        .value {
+          margin-left: toRem(5);
+          font-weight: 600;
+        }
+      }
+    }
+
+    .form-area {
+      .title-text {
+        @include font-height(20, 32);
+
+        @include breakpoint-down(lg) {
+          @include font-height(19, 30);
+        }
+
+        @include breakpoint-down(sm) {
+          @include font-height(16, 25);
+        }
+      }
+    }
+  }
+}
+
+.show-profile {
+  left: 0;
+}

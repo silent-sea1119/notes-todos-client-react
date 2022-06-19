@@ -6,6 +6,12 @@ import "./TopUserInfo.scss";
 
 const TopUserInfo = () => {
   const [toggle, setToggle] = useToggle();
+  const [profileToggle, setProfileToggle] = useToggle();
+
+  const showProfileBar = () => {
+    setToggle();
+    setProfileToggle();
+  };
 
   return (
     <>
@@ -33,7 +39,7 @@ const TopUserInfo = () => {
         ></div>
 
         <div className={`menu h-auto rounded-5 ${toggle && "show-menu"}`}>
-          <div className="item">
+          <div className="item" onClick={showProfileBar}>
             <div className="icon icon-user-outline"></div>
             <div className="text">Update Prolile</div>
           </div>
@@ -45,7 +51,10 @@ const TopUserInfo = () => {
       </div>
 
       {/* SHOW PROFILE BAR */}
-      {false && <ProfileBar />}
+      <ProfileBar
+        toggleProfile={profileToggle}
+        closeToggle={setProfileToggle}
+      />
     </>
   );
 };
