@@ -7,8 +7,10 @@ const useAlert = (): [AuthAlertType, any] => {
     status: "error",
   });
 
-  const setAlert = (message: string, status: string): void =>
+  const setAlert = (message: string, status: string) => {
     setAlertState({ message, status });
+    setTimeout(() => setAlertState({ message: null, status: "error" }), 4000);
+  };
 
   return [alertState, setAlert];
 };
