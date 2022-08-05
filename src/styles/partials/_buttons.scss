@@ -44,8 +44,8 @@ button[disabled] {
   cursor: not-allowed;
   user-select: none;
   pointer-events: none;
-  color: $color-black !important;
-  background: darken($color-grey, 3%) !important;
+  color: $color-white !important;
+  background: lighten($color-green, 3%) !important;
 }
 
 .btn {
@@ -107,13 +107,13 @@ button[disabled] {
 
   &:hover,
   &:focus {
-    color: $color-green-light !important;
+    color: lighten($color-green, 5%) !important;
     text-decoration: none;
   }
 
   &:active,
   &[disabled] {
-    color: $color-grey-dark;
+    color: $color-ash;
     outline: none;
   }
 }

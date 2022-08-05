@@ -1,6 +1,7 @@
 // AUTH EXPORTS
 export {
   AuthWrapper,
+  AuthAlert,
   AuthLogin,
   AuthSignup,
   AuthRequestPassword,

@@ -58,3 +58,19 @@
     }
   }
 }
+
+.auth-alert {
+  @include font-height(14, 19);
+  @include transition(0.4s);
+  padding: toRem(12);
+
+  &-success {
+    border: toRem(1) solid darken($color-green-dark, 10%);
+    background: $color-green-lighter;
+  }
+
+  &-error {
+    border: toRem(1) solid darken($color-red-dark, 5%);
+    background: $color-red-lighter;
+  }
+}

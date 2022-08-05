@@ -12,7 +12,7 @@ const initialState: NoteSliceType = {
 };
 
 export const noteSlice = createSlice({
-  name: "todo",
+  name: "note",
   initialState,
   reducers: {},
   ...asyncReducers,
