@@ -1,8 +1,8 @@
 import React from "react";
-import { AuthAlertType } from "types/UserTypes";
+import { AuthAlertTypes } from "types/UserTypes";
 
-const useAlert = (): [AuthAlertType, any] => {
-  const [alertState, setAlertState] = React.useState<AuthAlertType>({
+const useAlert = (): [AuthAlertTypes, any] => {
+  const [alertState, setAlertState] = React.useState<AuthAlertTypes>({
     message: null,
     status: "error",
   });

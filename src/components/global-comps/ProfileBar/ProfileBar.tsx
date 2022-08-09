@@ -1,4 +1,6 @@
 import React from "react";
+import { useAuth, useInitials } from "hooks";
+
 import "./ProfileBar.scss";
 
 interface IProfileBar {
@@ -7,6 +9,14 @@ interface IProfileBar {
 }
 
 const ProfileBar = ({ toggleProfile, closeToggle }: IProfileBar) => {
+  const authUser = useAuth();
+  const [nameInitial, setNameInitial] = useInitials();
+
+  React.useEffect(
+    () => setNameInitial(authUser.fullname),
+    [authUser, setNameInitial]
+  );
+
   return (
     <div
       className={`profile-wrapper index-1 ${toggleProfile && "show-profile"}`}
@@ -29,31 +39,33 @@ const ProfileBar = ({ toggleProfile, closeToggle }: IProfileBar) => {
 
         {/* PROFILE PHOTO */}
         <div className="profile-photo overflow-hidden rounded-circle">
-          <div className="profile-text place-center color-white">EE</div>
+          <div className="profile-text place-center color-white">
+            {nameInitial}
+          </div>
         </div>
 
         {/* PROFILE NAME */}
         <div className="profile-name mgt-20 fw-600 color-black">
-          EFEMENA ELVIS
+          {authUser.fullname}
         </div>
 
-        <div className="profile-email color-ash">menaelvisjones@gmail.com</div>
+        <div className="profile-email color-ash">{authUser.email}</div>
 
         {/* ACTIVITIES */}
         <div className="activities mgt-20">
           <div className="activity">
             <div className="title">Projects created:</div>
-            <div className="value">5</div>
+            <div className="value">0</div>
           </div>
 
           <div className="activity">
             <div className="title">Total notes taken:</div>
-            <div className="value">25</div>
+            <div className="value">0</div>
           </div>
 
           <div className="activity">
             <div className="title">Total todos logged:</div>
-            <div className="value">35</div>
+            <div className="value">0</div>
           </div>
         </div>
 

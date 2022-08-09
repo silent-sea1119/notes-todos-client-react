@@ -3,7 +3,6 @@ import { API_VERSION, API_BASE_URL } from "env";
 import { $serviceUtils as $utils } from "services";
 
 interface IServiceType {
-  makeRequest: () => any;
   fetch: (url: string, option: optionType) => Promise<any>;
   push: (url: string, option: optionType) => Promise<any>;
   update: (url: string, option: optionType) => Promise<any>;
@@ -34,13 +33,6 @@ class serviceApi implements IServiceType {
     this.injectTokenInterceptor();
   }
 
-  // MIGHT BE DEPRECIATED
-  makeRequest(): serviceApi {
-    axios.defaults.baseURL = `${API_BASE_URL}${API_VERSION}`;
-    this.injectTokenInterceptor();
-    return this;
-  }
-
   // GET API REQUEST
   async fetch(
     url: string,
@@ -59,15 +51,12 @@ class serviceApi implements IServiceType {
   // POST API REQUEST
   async push(
     url: string,
-    option: optionType = { payload: null, resolve: true, is_attach: false }
+    { payload = {}, resolve = true, is_attach = false }: optionType
   ): Promise<any> {
     try {
-      let response = await axios.post(
-        url,
-        option.payload,
-        this.getHeaders(option.is_attach)
-      );
-      return option.resolve ? response.data : response;
+      let response = await axios.post(url, payload, this.getHeaders(is_attach));
+
+      return resolve ? response.data : response;
     } catch (err) {
       return this.handleErrors(err);
     }
@@ -109,22 +98,26 @@ class serviceApi implements IServiceType {
 
   // HANDLE API REQUEST ERRORS
   async handleErrors(err: any): Promise<any> {
-    return err.response?.data;
+    return await err.response?.data;
   }
 
   // SETUP REQUEST
   getHeaders(attach = false): any {
+    // @ts-ignore
+    let userPayload = JSON.parse(localStorage.getItem("NothyAuthPayload"));
+    let token = userPayload ? userPayload.token : null;
+
     return attach
       ? {
           headers: {
             "Content-Type": "multipart/form-data",
-            Authorization: `Bearer ${localStorage.getItem("gradelyAuthToken")}`,
+            Authorization: `Bearer ${token}`,
           },
         }
       : {
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${localStorage.getItem("gradelyAuthToken")}`,
+            Authorization: `Bearer ${token}`,
           },
         };
   }
@@ -134,23 +127,21 @@ class serviceApi implements IServiceType {
     axios.interceptors.request.use((config) => config);
 
     axios.interceptors.response.use(
-      async (response) => {
-        return await response;
-      },
+      async (response) => await response,
 
       // ERROR RESPONSE
       async (error) => {
-        const originalConfig = error.config;
+        // const originalConfig = error.config;
 
-        if (error.response) {
-          if (error.response.status === 401 && !originalConfig._retry) {
-            originalConfig._retry = true;
+        // if (error.response) {
+        //   if (error.response.status === 401 && !originalConfig._retry) {
+        //     originalConfig._retry = true;
 
-            // GENERATE NEW TOKEN
-            // store.dispatch("auth/generateTokenSet");
-            return axios(originalConfig);
-          }
-        }
+        //     // GENERATE NEW TOKEN
+        //     // store.dispatch("auth/generateTokenSet");
+        //     return axios(originalConfig);
+        //   }
+        // }
 
         return Promise.reject(error);
       }

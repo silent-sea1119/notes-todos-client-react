@@ -9,6 +9,8 @@ export const store = configureStore({
     todo: todoSlice,
     note: noteSlice,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({ serializableCheck: false }),
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself

@@ -1,9 +1,9 @@
 import React from "react";
-import { AuthAlertType } from "types/UserTypes";
+import { AuthAlertTypes } from "types/UserTypes";
 import "./AuthWrapper.scss";
 
 type AlertType = {
-  alert: AuthAlertType;
+  alert: AuthAlertTypes;
 };
 
 const AuthAlert = ({ alert: { message, status } }: AlertType) => {

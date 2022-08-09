@@ -1,17 +1,9 @@
-import React from "react";
+import { useAppSelector } from "hooks/storeHook";
+import { getGeneral } from "store/generalSlice/sliceGetters";
 
 const useAuth = (): any => {
-  const [payload, setPayload] = React.useState<Object | string>();
-
-  const getUserPayload = React.useCallback(() => {
-      // @ts-ignore
-      setPayload(JSON.parse(localStorage.getItem('NothyAuthPayload')));
-  }
-  , []);
-
-  React.useEffect(() => getUserPayload(), [getUserPayload])
-
-  return payload;
+  const { auth_user } = useAppSelector(getGeneral);
+  return auth_user;
 };
 
 export default useAuth;

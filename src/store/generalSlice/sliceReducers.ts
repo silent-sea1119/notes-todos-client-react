@@ -1,27 +1,38 @@
+import axios from "axios";
 import { $serviceUtils as $utils } from "services";
-import { loginUser } from "./sliceActions";
+import { signupUser, loginUser, logoutUser } from "./sliceActions";
 
 const asyncReducers = {
   extraReducers: (builder: any) => {
-    builder
-      .addCase(loginUser.fulfilled, (state: any, action: any) =>
-        loginHandler.fulfilled(state, action)
-      )
-      .addCase(loginUser.rejected, (state: any, action: any) =>
-        loginHandler.error(state, action)
-      );
+    // SIGNUP REDUCER
+    builder.addCase(signupUser.fulfilled, (state: any, { payload }: any) =>
+      authHandler.fulfilled(state, payload)
+    );
+
+    // LOGIN REDUCER
+    builder.addCase(loginUser.fulfilled, (state: any, { payload }: any) =>
+      authHandler.fulfilled(state, payload)
+    );
+
+    // LOGOUT REDUCER
+    builder.addCase(logoutUser.fulfilled, (state: any, { payload }: any) => {
+      if (payload.code === 200) {
+        $utils.stateResolver(state, { auth_user: "" });
+        localStorage.clear();
+        window.location.href = "/login";
+      }
+    });
   },
 };
 
-// HANDLE USER LOGIN ACTIONS
-const loginHandler = {
-  fulfilled: (state: any, { payload }: any) => {
-    console.log("PAYLOAD", payload);
-    $utils.stateResolver(state, { loading: false, data: payload });
-  },
-
-  error: (state: any, { error }: any) => {
-    $utils.stateResolver(state, { loading: false, data: [], error: error });
+// HANDLE FETCH TODO ACTIONS
+const authHandler = {
+  fulfilled: (state: any, payload: any) => {
+    if (payload.code === 200) {
+      axios.defaults.headers.common["Authorization"] = payload.data.token;
+      $utils.stateResolver(state, { auth_user: payload.data });
+      localStorage.setItem("NothyAuthPayload", JSON.stringify(payload.data));
+    }
   },
 };
 

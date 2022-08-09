@@ -1,8 +1,11 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, Navigate } from "react-router-dom";
+import { useAuth } from "hooks";
 
 const AuthLayout = () => {
-  return <Outlet />;
+  const authUser = useAuth();
+
+  return <>{authUser?.token ? <Navigate to="/" replace /> : <Outlet />}</>;
 };
 
 export default AuthLayout;

@@ -1,10 +1,16 @@
 import React from "react";
-import { useToggle } from "hooks";
+import { useToggle, useAuth, useInitials } from "hooks";
 import { ProfileBar } from "components";
+import { useAppDispatch } from "hooks/storeHook";
+import { logoutUser } from "store/generalSlice/sliceGetters";
 
 import "./TopUserInfo.scss";
 
 const TopUserInfo = () => {
+  const dispatch = useAppDispatch();
+
+  const authUser = useAuth();
+  const [nameInitial, setNameInitial] = useInitials();
   const [toggle, setToggle] = useToggle();
   const [profileToggle, setProfileToggle] = useToggle();
 
@@ -13,16 +19,29 @@ const TopUserInfo = () => {
     setProfileToggle();
   };
 
+  React.useEffect(
+    () => setNameInitial(authUser.fullname),
+    [authUser, setNameInitial]
+  );
+
+  const handleUserLogout = async () => {
+    try {
+      await dispatch(logoutUser()).unwrap();
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <>
       <div className="position-relative">
         <div className="user-profile color-grey pointer" onClick={setToggle}>
           <div className="avatar rounded-circle">
-            <div className="avatar-text fw-600">RJ</div>
+            <div className="avatar-text fw-600">{nameInitial}</div>
           </div>
 
           <div className="user-name fw-600 mgr-10 text-capitalize">
-            Richy Jones
+            {authUser.fullname}
           </div>
 
           <div
@@ -43,7 +62,8 @@ const TopUserInfo = () => {
             <div className="icon icon-user-outline"></div>
             <div className="text">Update Prolile</div>
           </div>
-          <div className="item">
+
+          <div className="item" onClick={handleUserLogout}>
             <div className="icon icon-log-out"></div>
             <div className="text">Log Out</div>
           </div>

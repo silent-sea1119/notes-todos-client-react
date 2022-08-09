@@ -2,7 +2,12 @@ import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 
 // IMPORT ROUTE PAGES LAZILY
-import { BaseLayout, AuthLayout, LoadingLayout, ProtectedLayout } from "layouts";
+import {
+  BaseLayout,
+  AuthLayout,
+  LoadingLayout,
+  ProtectedLayout,
+} from "layouts";
 import {
   ActivityArea,
   Login,
@@ -16,7 +21,7 @@ export default function PageRoutes() {
     <React.Suspense fallback={<LoadingLayout />}>
       <Routes>
         {/* AUTHENTICATED ROUTES */}
-        <Route element={<ProtectedLayout />}> 
+        <Route element={<ProtectedLayout />}>
           <Route path="/" element={<BaseLayout />}>
             <Route index element={<Navigate to="/today" replace />} />
             <Route path="today" element={<ActivityArea />} />
@@ -31,7 +36,7 @@ export default function PageRoutes() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/request-password" element={<RequestPassword />} />
-          <Route path="/reset-password" element={<ResetPassword />} />
+          <Route path="/reset-password/:token" element={<ResetPassword />} />
         </Route>
       </Routes>
     </React.Suspense>

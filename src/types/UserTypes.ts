@@ -1,10 +1,11 @@
-export interface UserTypes {
+export interface AuthUserTypes {
   fullName?: string;
   email?: string;
   imageUrl?: string | null;
+  token: string;
 }
 
-export interface AuthAlertType {
+export interface AuthAlertTypes {
   message: string | null;
   status: string;
 }
