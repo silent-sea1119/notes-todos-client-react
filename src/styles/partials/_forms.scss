@@ -84,7 +84,7 @@ input[disabled] {
   }
 
   @include breakpoint-down(sm) {
-    font-size: toRem(13);
+    font-size: toRem(13.5);
   }
 
   &.width_auto {
@@ -353,13 +353,37 @@ LABEL COMPACT STYLING
 
 .label-row {
   @include flex-row-between-nowrap;
+  align-items: flex-end;
 
   .left {
-    width: 60%;
+    width: 55%;
+    margin-right: 1.5%;
   }
 
   .right {
-    width: 38%;
+    margin-right: 1%;
+    flex: 1;
+  }
+
+  .remove-item {
+    position: relative;
+    top: toRem(-0.45);
+    @include square-shape(43.5);
+
+    .icon {
+      @include center-placement;
+      font-size: toRem(16);
+      color: $color-red;
+    }
+
+    &:hover {
+      background: $color-red;
+      border: none;
+
+      .icon {
+        color: $color-white;
+      }
+    }
   }
 }
 

@@ -12,6 +12,7 @@
     margin-right: toRem(7);
 
     @include breakpoint-down(sm) {
+      @include square-shape(34);
       margin-right: 0;
     }
 
@@ -19,6 +20,14 @@
       @include center-placement;
       font-size: toRem(13.25);
       color: $color-white;
+    }
+
+    .avatar-img {
+      @include background-cover;
+      @include center-placement;
+      border-radius: inherit;
+      margin: auto;
+      z-index: 1;
     }
   }
 

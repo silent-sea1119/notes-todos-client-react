@@ -9,6 +9,9 @@ import {
   ProtectedLayout,
 } from "layouts";
 import {
+  DashboardArea,
+  ProjectsArea,
+  UsersArea,
   ActivityArea,
   Login,
   Signup,
@@ -22,12 +25,12 @@ export default function PageRoutes() {
       <Routes>
         {/* AUTHENTICATED ROUTES */}
         <Route element={<ProtectedLayout />}>
-          <Route path="/" element={<BaseLayout />}>
-            <Route index element={<Navigate to="/today" replace />} />
-            <Route path="today" element={<ActivityArea />} />
-            <Route path="upcoming" element={<ActivityArea />} />
-            <Route path="yesterday" element={<ActivityArea />} />
-            <Route path="project/:project" element={<ActivityArea />} />
+          <Route element={<BaseLayout />}>
+            <Route index element={<Navigate to="/dashboard" replace />} />
+            <Route path="dashboard" element={<DashboardArea />} />
+            <Route path="my-projects" element={<ProjectsArea />} />
+            <Route path="users" element={<UsersArea />} />
+            <Route path="project/:project_id" element={<ActivityArea />} />
           </Route>
         </Route>
 

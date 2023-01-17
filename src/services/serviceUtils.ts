@@ -1,6 +1,9 @@
+const { EventEmitter } = require("fbemitter");
+
 class serviceUtils {
   asset_dir = "assets";
   timestamp = new Date().getTime();
+  emitter = new EventEmitter();
 
   getImage(src: string) {
     console.log(`${this.asset_dir}/${src}`);

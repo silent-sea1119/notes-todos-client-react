@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "hooks/storeHook";
 import { TodoCategoryTypes, TodoTypes } from "types/TodoTypes";
 
@@ -12,19 +13,20 @@ import "./TodoBlock.scss";
 
 const TodoBlock = () => {
   const dispatch = useAppDispatch();
-  const { data: TodoData } = useAppSelector(getTodo);
+  const params = useParams();
+  const { todos: TodoData } = useAppSelector(getTodo);
 
   const [categories] = React.useState<TodoCategoryTypes[]>(TodoCategories);
   const [todo, setTodo] = React.useState<TodoTypes[]>([]);
 
   useEffect(() => {
-    dispatch(fetchTodo());
-  }, [dispatch]);
+    dispatch(fetchTodo({ id: params.project_id }));
+  }, [dispatch, params.project_id]);
 
   useEffect(() => setTodo(TodoData), [TodoData]);
 
   const filterCategoryByTitle = (title: string): TodoTypes[] => {
-    return todo.length ? todo?.filter((item) => item?.category === title) : [];
+    return todo?.length ? todo?.filter((item) => item?.category === title) : [];
   };
 
   return (

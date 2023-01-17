@@ -65,15 +65,11 @@ class serviceApi implements IServiceType {
   // UPDATE API REQUEST
   async update(
     url: string,
-    option: optionType = { payload: null, resolve: true, is_attach: false }
+    { payload = {}, resolve = true, is_attach = false }: optionType
   ): Promise<any> {
     try {
-      let response = await axios.put(
-        url,
-        option.payload,
-        this.getHeaders(option.is_attach)
-      );
-      return option.resolve ? response.data : response;
+      let response = await axios.put(url, payload, this.getHeaders(is_attach));
+      return resolve ? response.data : response;
     } catch (err) {
       return this.handleErrors(err);
     }
@@ -82,7 +78,7 @@ class serviceApi implements IServiceType {
   // DELETE API REQUEST
   async remove(
     url: string,
-    option: optionType = { payload: null, resolve: true }
+    option: optionType = { payload: {}, resolve: true }
   ): Promise<any> {
     try {
       let response = await axios.delete(url, {
@@ -131,17 +127,18 @@ class serviceApi implements IServiceType {
 
       // ERROR RESPONSE
       async (error) => {
-        // const originalConfig = error.config;
+        const originalConfig = error.config;
 
-        // if (error.response) {
-        //   if (error.response.status === 401 && !originalConfig._retry) {
-        //     originalConfig._retry = true;
+        if (error.response) {
+          if (error.response.status === 403 && !originalConfig._retry) {
+            originalConfig._retry = true;
 
-        //     // GENERATE NEW TOKEN
-        //     // store.dispatch("auth/generateTokenSet");
-        //     return axios(originalConfig);
-        //   }
-        // }
+            localStorage.clear();
+            window.location.href = "/login";
+
+            return axios(originalConfig);
+          }
+        }
 
         return Promise.reject(error);
       }

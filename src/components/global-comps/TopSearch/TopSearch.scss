@@ -1,44 +1,33 @@
 @import "styles/variables.scss";
 
 .app-filter {
-  position: relative;
-  width: 33%;
-
-  @include breakpoint-down(lg) {
-    width: 40%;
-  }
-
-  @include breakpoint-down(md) {
-    width: 65%;
-  }
-
-  @include breakpoint-down(sm) {
-    width: 72%;
-  }
+  width: 100%;
 
   .form-control {
-    padding-left: toRem(44);
+    padding-left: toRem(15);
+    min-height: toRem(56);
 
     @include breakpoint-down(lg) {
-      min-height: toRem(43);
+      min-height: toRem(52);
     }
 
     @include breakpoint-down(sm) {
-      min-height: toRem(38);
+      font-size: toRem(14);
+      width: 100%;
     }
   }
 
   .icon {
+    font-size: toRem(20) !important;
     @include center-y;
-    left: toRem(20);
+    right: toRem(12);
 
     @include breakpoint-down(lg) {
-      font-size: toRem(16.5) !important;
+      font-size: toRem(17) !important;
     }
 
     @include breakpoint-down(sm) {
-      font-size: toRem(15.5) !important;
-      left: toRem(16);
+      font-size: toRem(17.5) !important;
     }
   }
 }

@@ -1,0 +1,24 @@
+@import "styles/variables.scss";
+
+.empty-state {
+  @include flex-column-center;
+  padding: toRem(30) toRem(30) toRem(15);
+
+  img {
+    @include rectangle-shape(160, 140);
+
+    @include breakpoint-down(md) {
+      @include rectangle-shape(110, 90);
+    }
+  }
+
+  .title-text {
+    color: #565656;
+    font-weight: 600;
+    @include font-height(15, 19);
+  }
+
+  .meta-text {
+    @include font-height(14, 18);
+  }
+}

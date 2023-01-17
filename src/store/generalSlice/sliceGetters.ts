@@ -1,8 +1,8 @@
-export { getGeneral, toggleSidebar } from ".";
+export { getGeneral, toggleSidebar, changeUserRole, removeUser } from ".";
 export {
-  signupUser,
-  loginUser,
-  requestUserPassword,
-  resetUserPassword,
-  logoutUser,
+  fetchDashboardSummary,
+  fetchAllUsers,
+  fetchSingleUser,
+  updateUserRole,
+  deleteUser,
 } from "./sliceActions";

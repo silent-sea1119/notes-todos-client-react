@@ -4,13 +4,13 @@ import { CATEGORY_ONE, CATEGORY_TWO } from "constant";
 export const selectionData: selectionTypes[] = [
   {
     title: CATEGORY_ONE,
-    counter: 5,
+    counter: 0,
     isActive: true,
     setActive: () => {},
   },
   {
     title: CATEGORY_TWO,
-    counter: 10,
+    counter: 0,
     isActive: false,
     setActive: () => {},
   },

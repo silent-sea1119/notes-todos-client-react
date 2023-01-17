@@ -11,11 +11,16 @@ interface NotesProps {
 const NotesBlockContent: React.FC<NotesProps> = ({ notes }: NotesProps) => {
   return (
     <div className="notes-block-content mx-auto">
-      {notes.map((note: any, index: number) => (
-        <NoteCard key={index} note={note} />
-      ))}
+      {notes?.length &&
+        notes?.map((note: any, index: number) => (
+          <NoteCard key={index} note={note} />
+        ))}
     </div>
   );
+};
+
+NotesBlockContent.defaultProps = {
+  notes: [],
 };
 
 export default NotesBlockContent;

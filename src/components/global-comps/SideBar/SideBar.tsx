@@ -1,36 +1,45 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import { useAppSelector, useAppDispatch } from "hooks/storeHook";
-import { getGeneral, toggleSidebar } from "store/generalSlice/sliceGetters";
+import { useAppDispatch } from "hooks/storeHook";
+import { useAuth } from "hooks";
+import { fetchMyProjects } from "store/projectSlice/sliceGetters";
 import { SideNavItem, SideNewProject } from "components";
+import { $serviceUtils as $utils } from "services";
 
 import "./SideBar.scss";
 
 const SideBar = () => {
   const dispatch = useAppDispatch();
   const location = useLocation();
+  const authUser = useAuth();
 
-  const { show_sidebar } = useAppSelector(getGeneral);
-  const [toggle, setToggle] = React.useState<boolean>(show_sidebar);
+  const [toggle, setToggle] = React.useState<boolean>(false);
+  const [projects, setProjects] = React.useState<any>([]);
 
-  React.useEffect((): void => {
-    setToggle(show_sidebar);
-  }, [show_sidebar]);
+  /* A callback function that is used to fetch projects from the database. */
+  const fetchProjects = React.useCallback(async () => {
+    let result = await dispatch(fetchMyProjects({ page: 1 })).unwrap();
+    setProjects(result.data);
+  }, [dispatch]);
 
-  React.useEffect((): void => {
-    toggle && dispatch(toggleSidebar());
-    setToggle(false);
-  }, [location, dispatch]);
+  const hideSidebar = (evt: any): void => {
+    if (evt.target.classList.contains("sidebar-build-cover")) setToggle(false);
+  };
 
-  const hideSidebar = React.useCallback(
-    (evt: any): void => {
-      if (evt.target.classList.contains("sidebar-build-cover")) {
-        dispatch(toggleSidebar());
-        setToggle(show_sidebar);
-      }
-    },
-    [dispatch, show_sidebar]
-  );
+  React.useEffect(() => {
+    fetchProjects();
+  }, [fetchProjects]);
+
+  React.useEffect(() => {
+    if (window.innerWidth <= 768) setToggle(false);
+  }, [location]);
+
+  /* Listening for the event "showSidebar" and "hideSidebar"  */
+  React.useEffect(() => {
+    $utils.emitter.addListener("showSidebar", () => setToggle(true));
+    $utils.emitter.addListener("hideSidebar", () => setToggle(false));
+    $utils.emitter.addListener("loadProjectSidebar", () => fetchProjects());
+  }, [fetchProjects]);
 
   return (
     <div
@@ -45,41 +54,43 @@ const SideBar = () => {
             <h2 className="brand-name color-white fw-600">Nothy</h2>
           </div>
         </div>
-
         {/* NAV ITEMS AREA */}
         <div className="nav-item-area w-100">
-          <div className="nav-category fw-600">Calendar Filters</div>
+          <div className="nav-category fw-600">Main Menu</div>
 
-          <SideNavItem title="Today" icon="star f-size-19-5" link="/today" />
-          <SideNavItem title="Upcoming" icon="notes" link="/upcoming" />
           <SideNavItem
-            title="Yesterday"
-            icon="today fw-700 f-size-17-5"
-            link="/yesterday"
+            title="Dashboard"
+            icon="app f-size-19-5"
+            link="/dashboard"
           />
-        </div>
 
+          <SideNavItem title="Projects" icon="notes" link="/my-projects" />
+
+          {authUser.role === "admin" && (
+            <SideNavItem
+              title="Users"
+              icon="group-users fw-700 f-size-19"
+              link="/users"
+            />
+          )}
+        </div>
         {/* PROJECT ITEMS AREA */}
         <div className="nav-item-area w-100">
-          <div className="nav-category fw-600">Projects</div>
+          <>
+            <div className="nav-category fw-600">Projects</div>
 
-          <SideNavItem
-            title="Project One"
-            icon="business"
-            link="/project/project-one"
-          />
-          <SideNavItem
-            title="Project Two"
-            icon="business"
-            link="/project/project-two"
-          />
-          <SideNavItem
-            title="Project Three"
-            icon="business"
-            link="/project/project-three"
-          />
+            {projects?.map((project: any, index: any) => {
+              return (
+                <SideNavItem
+                  title={project.title}
+                  icon="assignment"
+                  key={index}
+                  link={`/project/${project.id}?title=${project.title}`}
+                />
+              );
+            })}
+          </>
         </div>
-
         {/* CREATE PROJECT */}
         <SideNewProject />
       </div>

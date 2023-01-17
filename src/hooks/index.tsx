@@ -5,3 +5,5 @@ export { default as useAuth } from "./useAuth";
 export { default as useAlert } from "./useAlert";
 export { default as useBtnClick } from "./useBtnClick";
 export { default as useInitials } from "./useInitials";
+export { default as useClickOutside } from "./useClickOutside";
+export { default as useDebounce } from "./useDebounce";

@@ -1,2 +1,2 @@
-export { fetchNote } from "./sliceActions";
-export { getNote } from ".";
+export { getNote, removeFromNote } from ".";
+export { fetchNote, createNote, updateNote, deleteNote } from "./sliceActions";

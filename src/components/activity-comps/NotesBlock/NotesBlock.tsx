@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { NotesBlockContent, NotesBlockEmpty } from "components";
 import { NoteTypes } from "types/NoteTypes";
 import { useAppDispatch, useAppSelector } from "hooks/storeHook";
@@ -8,14 +9,17 @@ import "./NotesBlock.scss";
 
 const NotesBlock = () => {
   const dispatch = useAppDispatch();
-  const { data: NoteData } = useAppSelector(getNote);
+  const params = useParams();
+  const { notes: NoteData } = useAppSelector(getNote);
   const [notes, setNotes] = React.useState<NoteTypes[]>([]);
 
   useEffect(() => {
-    dispatch(fetchNote());
-  }, [dispatch]);
+    dispatch(fetchNote({ id: params.project_id }));
+  }, [dispatch, params.project_id]);
 
-  useEffect(() => setNotes(NoteData), [NoteData]);
+  useEffect(() => {
+    setNotes(NoteData);
+  }, [NoteData]);
 
   return (
     <div className="notes-block">

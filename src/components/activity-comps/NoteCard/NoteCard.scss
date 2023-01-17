@@ -110,35 +110,63 @@
         }
       }
 
-      .note-trash {
-        transition: all 0.35s ease-in-out;
-        opacity: 0;
-        background: lighten($color-red-light, 2%);
-        @include square-shape(30);
-        position: absolute;
-        padding: toRem(2.5);
-        right: toRem(3.5);
-        bottom: toRem(4.5);
-        box-shadow: toRem(1.75) toRem(1.75) toRem(6) rgba($color-black, 0.25);
+      .wrapper {
+        @include flex-row-end-nowrap;
 
-        .icon-trash {
-          color: darken($color-red, 5%);
-          font-size: toRem(16);
+        .action-box {
+          box-shadow: toRem(1.75) toRem(1.75) toRem(6) rgba($color-black, 0.25);
+          transition: all 0.35s ease-in-out;
+          @include square-shape(30);
+          padding: toRem(2.5);
+          position: absolute;
+          bottom: toRem(4.5);
+          opacity: 0;
+
+          .icon {
+            font-size: toRem(16);
+            @include center-placement;
+          }
+
+          &:hover {
+            box-shadow: toRem(0.5) toRem(0.5) toRem(3) rgba($color-black, 0.25);
+            transform: scale(0.97);
+          }
         }
 
-        &:hover {
-          background: lighten($color-red-light, 4%);
-          transform: scale(0.97);
-          box-shadow: toRem(0.5) toRem(0.5) toRem(3) rgba($color-black, 0.25);
+        .note-trash {
+          background: lighten($color-red-light, 2%);
+          right: toRem(3.5);
+
+          .icon-trash {
+            color: darken($color-red, 5%);
+          }
+
+          &:hover {
+            background: lighten($color-red-light, 4%);
+          }
+        }
+
+        .note-edit {
+          background: lighten($color-green-light, 2%);
+          right: toRem(37);
+
+          .icon-show {
+            color: darken($color-green, 5%);
+          }
+
+          &:hover {
+            background: lighten($color-green-light, 4%);
+          }
         }
       }
     }
+
     &:hover {
       box-shadow: toRem(1) toRem(1) toRem(4) rgba($color-black, 0.15);
       transform: scale(0.98);
 
-      .note-trash {
-        opacity: 1;
+      .action-box {
+        opacity: 1 !important;
       }
     }
   }

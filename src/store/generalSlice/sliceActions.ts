@@ -1,53 +1,53 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { $serviceApi as $api } from "services";
 
-type AuthType = {
-  firstName: string;
-  lastName: string;
-  email: string;
-  password: string;
-  token: string | undefined;
+type GeneralType = {
+  id?: string;
+  page: number;
+  search?: string;
+  role?: string;
+  fullName?: string;
+  image?: any;
 };
 
-// HANDLE USER SIGNUP REQUEST
-const signupUser = createAsyncThunk(
-  "general/signupUser",
-  async (
-    payload: Pick<AuthType, "firstName" | "lastName" | "email" | "password">
-  ) => await $api.push("/auth/signup", { payload })
+const fetchDashboardSummary = createAsyncThunk(
+  "general/fetchDashboardSummary",
+  async () => await $api.fetch(`/user/dashboard-summary`)
 );
 
-// HANDLE USER LOGIN REQUEST
-const loginUser = createAsyncThunk(
-  "general/loginUser",
-  async (payload: Pick<AuthType, "email" | "password">) =>
-    await $api.push("/auth/login", { payload })
+/* Creating a thunk that will be used to fetch all users. */
+const fetchAllUsers = createAsyncThunk(
+  "general/fetchAllUsers",
+  async (payload: Pick<GeneralType, "page" | "search">) =>
+    await $api.fetch(`/user?page=${payload.page}&search=${payload.search}`)
 );
 
-// HANDLE USER PASSWORD REQUEST
-const requestUserPassword = createAsyncThunk(
-  "general/requestUserPassword",
-  async (payload: Pick<AuthType, "email">) =>
-    await $api.push("/auth/request-password", { payload })
+const fetchSingleUser = createAsyncThunk(
+  "general/fetchSingleUser",
+  async (payload: any = null) =>
+    await $api.fetch(`/user/single/${payload ? payload : ""}`)
 );
 
-// HANDLE USER PASSWORD RESET
-const resetUserPassword = createAsyncThunk(
-  "general/resetUserPassword",
-  async (payload: Pick<AuthType, "password" | "token">) =>
-    await $api.push("/auth/reset-password", { payload })
+/* Creating a thunk that will be used to update the role of a user. */
+const updateUserRole = createAsyncThunk(
+  "project/updateUserRole",
+  async (payloadData: Pick<GeneralType, "id" | "role">) => {
+    let payload = { role: payloadData.role };
+    return await $api.update(`/user/role/${payloadData.id}`, { payload });
+  }
 );
 
-// HANDLE USER LOGOUT RESET
-const logoutUser = createAsyncThunk(
-  "general/logoutUser",
-  async () => await $api.push("/auth/logout", {})
+/* Creating a thunk that will be used to delete a user. */
+const deleteUser = createAsyncThunk(
+  "project/deleteRole",
+  async (payload: Pick<GeneralType, "id">) =>
+    await $api.remove(`/user/${payload.id}`)
 );
 
 export {
-  signupUser,
-  loginUser,
-  requestUserPassword,
-  resetUserPassword,
-  logoutUser,
+  fetchDashboardSummary,
+  fetchAllUsers,
+  fetchSingleUser,
+  updateUserRole,
+  deleteUser,
 };

@@ -6,3 +6,9 @@ export const TODO_CATEGORY_ONE: string = "backlog";
 export const TODO_CATEGORY_TWO: string = "ongoing";
 export const TODO_CATEGORY_THREE: string = "completed";
 export const TODO_CATEGORY_FOUR: string = "postponed";
+
+export const PAGE_TITLE: string[] = [
+  "Dashboard Area",
+  "Created Projects",
+  "Users Dashboard",
+];

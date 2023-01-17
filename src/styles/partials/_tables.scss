@@ -1,0 +1,282 @@
+.table-wrapper {
+  padding: 0 toRem(30) 0;
+  overflow: auto;
+  width: 100%;
+
+  &::-webkit-scrollbar {
+    height: toRem(5);
+  }
+
+  &::-webkit-scrollbar-track {
+    border-radius: toRem(5);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: toRem(5);
+    background: $color-grey-light;
+  }
+
+  @include breakpoint-down(lg) {
+    padding: 0 toRem(17) toRem(30);
+  }
+
+  @include breakpoint-down(sm) {
+    padding: 0 toRem(12) toRem(26);
+  }
+}
+
+.table {
+  @include font-height(13.5, 18);
+  border-spacing: toRem(10);
+  color: $color-black;
+  overflow: auto;
+  width: 100%;
+
+  @include breakpoint-down(md) {
+    min-width: max-content;
+    @include font-height(13, 17);
+  }
+
+  thead {
+    background-color: $color-ash-white;
+    font-weight: bold;
+  }
+
+  tbody {
+    border-top: 0 !important;
+  }
+
+  tr {
+    border: none;
+    transition: all 0.3s ease-in-out;
+    border-bottom: toRem(1) solid darken($color-ash-white, 3%);
+
+    &:hover {
+      background: rgba($color-green-lighter, 0.5);
+    }
+  }
+
+  th,
+  td {
+    padding: 20px 13px;
+  }
+
+  .icon-more {
+    @include transition(0.4s);
+    font-size: toRem(16);
+    color: $color-black;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: toRem(6);
+
+    &:hover {
+      background-color: rgba($color-grey-light, 0.75);
+    }
+  }
+
+  .table-dropdown {
+    background-color: $color-white;
+    border-radius: 4px;
+    position: absolute;
+    overflow: hidden;
+    min-width: 120px;
+    z-index: 99;
+    right: 45px;
+    box-shadow: 0px 4px 8px rgba(39, 40, 51, 0.12);
+    padding: toRem(4) toRem(6);
+
+    @include breakpoint-down(lg) {
+      right: 20px;
+    }
+
+    @include breakpoint-down(md) {
+      position: fixed !important;
+      height: auto;
+      z-index: 6999;
+      bottom: 0 !important;
+      top: unset !important;
+      left: 0 !important;
+      right: 0 !important;
+      width: 100% !important;
+      border-radius: toRem(10) toRem(10) 0 0 !important;
+      //   animation: panel-slide-up 0.55s ease-in-out;
+      padding: toRem(15) 0 toRem(20);
+      box-shadow: 0 0 0 100000px rgba($color-black, 0.5);
+    }
+
+    .item {
+      @include flex-row-start-nowrap;
+      @include font-height(13, 22);
+      @include transition(0.4s);
+      position: relative;
+      padding: 8px 11px;
+      color: $color-ash;
+      cursor: pointer;
+
+      @include breakpoint-down(lg) {
+        @include font-height(12.5, 19);
+        padding: 7px 15px;
+      }
+
+      @include breakpoint-down(md) {
+        @include font-height(13, 18);
+        padding: toRem(12) toRem(16);
+        text-align: left;
+        letter-spacing: 0.025em;
+      }
+
+      .icon {
+        position: relative;
+        font-size: 16.5px;
+        margin-right: 10px;
+
+        @include breakpoint-down(md) {
+          font-size: 20px;
+          margin-right: 15px;
+        }
+      }
+
+      &:hover {
+        background: rgba($color-green-lighter, 0.65);
+      }
+    }
+  }
+}
+
+.project-table {
+  .project-one {
+    width: 25%;
+
+    @include breakpoint-down(sm) {
+      width: 130px !important;
+    }
+  }
+
+  .project-two {
+    width: 20%;
+
+    @include breakpoint-down(sm) {
+      width: 170px !important;
+    }
+  }
+
+  .project-three {
+    width: 15%;
+
+    @include breakpoint-down(sm) {
+      width: 130px !important;
+    }
+  }
+
+  .project-four {
+    width: 12%;
+
+    @include breakpoint-down(sm) {
+      width: 50px !important;
+    }
+  }
+
+  .project-five {
+    width: 12%;
+
+    @include breakpoint-down(sm) {
+      width: 50px !important;
+    }
+  }
+
+  .project-six {
+    width: 10%;
+
+    @include breakpoint-down(sm) {
+      width: 30px !important;
+    }
+  }
+}
+
+.user-table {
+  .user-one {
+    width: 10%;
+
+    @include breakpoint-down(sm) {
+      width: 115px !important;
+    }
+  }
+
+  .user-two {
+    width: 25%;
+
+    @include breakpoint-down(sm) {
+      width: 220px !important;
+    }
+  }
+
+  .user-three {
+    width: 12%;
+
+    @include breakpoint-down(sm) {
+      width: 90px !important;
+    }
+  }
+
+  .user-four {
+    width: 10%;
+
+    @include breakpoint-down(sm) {
+      width: 50px !important;
+    }
+  }
+
+  .user-five {
+    width: 10%;
+
+    @include breakpoint-down(sm) {
+      width: 50px !important;
+    }
+  }
+
+  .user-six {
+    width: 10%;
+
+    @include breakpoint-down(sm) {
+      width: 50px !important;
+    }
+  }
+
+  .user-seven {
+    width: 10%;
+
+    @include breakpoint-down(sm) {
+      width: 40px !important;
+    }
+  }
+}
+
+.user-info {
+  @include flex-row-start-nowrap;
+
+  .user-image {
+    position: relative;
+    @include square-shape(36);
+
+    .text {
+      @include center-placement;
+      font-size: toRem(13);
+    }
+
+    .avatar-img {
+      @include background-cover;
+      @include center-placement;
+      border-radius: inherit;
+      margin: auto;
+      z-index: 1;
+    }
+  }
+
+  .name {
+    @include font-height(14, 18);
+  }
+
+  .email {
+    @include font-height(13, 17);
+  }
+}

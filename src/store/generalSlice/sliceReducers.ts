@@ -1,39 +1,52 @@
-import axios from "axios";
 import { $serviceUtils as $utils } from "services";
-import { signupUser, loginUser, logoutUser } from "./sliceActions";
+import { fetchAllUsers } from "./sliceActions";
 
 const asyncReducers = {
   extraReducers: (builder: any) => {
-    // SIGNUP REDUCER
-    builder.addCase(signupUser.fulfilled, (state: any, { payload }: any) =>
-      authHandler.fulfilled(state, payload)
-    );
-
-    // LOGIN REDUCER
-    builder.addCase(loginUser.fulfilled, (state: any, { payload }: any) =>
-      authHandler.fulfilled(state, payload)
-    );
-
-    // LOGOUT REDUCER
-    builder.addCase(logoutUser.fulfilled, (state: any, { payload }: any) => {
-      if (payload.code === 200) {
-        $utils.stateResolver(state, { auth_user: "" });
-        localStorage.clear();
-        window.location.href = "/login";
-      }
-    });
+    builder
+      .addCase(fetchAllUsers.pending, (state: any) =>
+        userStateHandler(state, {})
+      )
+      .addCase(fetchAllUsers.fulfilled, (state: any, { payload }: any) => {
+        if (payload.data.length)
+          userStateHandler(state, {
+            loading: false,
+            data: payload?.data,
+            pagination: payload?.pagination,
+          });
+        else
+          userStateHandler(state, {
+            loading: false,
+            empty: true,
+          });
+      });
   },
 };
 
-// HANDLE FETCH TODO ACTIONS
-const authHandler = {
-  fulfilled: (state: any, payload: any) => {
-    if (payload.code === 200) {
-      axios.defaults.headers.common["Authorization"] = payload.data.token;
-      $utils.stateResolver(state, { auth_user: payload.data });
-      localStorage.setItem("NothyAuthPayload", JSON.stringify(payload.data));
-    }
-  },
+/**
+ * It takes a state object and an object with the following properties: loading, empty, data,
+ * pagination. It then uses the stateResolver function to update the state object with the values of
+ * the properties of the object passed in
+ * @param {any} state - The state object
+ * @param {any}  - `state` - the state object
+ */
+const userStateHandler = (
+  state: any,
+  {
+    loading = true,
+    empty = false,
+    data = [],
+    pagination = { pages: 1, page: 1 },
+  }: any
+) => {
+  $utils.stateResolver(state, {
+    users: {
+      loading,
+      empty,
+      data,
+      pagination,
+    },
+  });
 };
 
 export { asyncReducers };

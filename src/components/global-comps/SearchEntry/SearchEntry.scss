@@ -1,0 +1,67 @@
+@import "styles/variables.scss";
+
+.search-entry {
+  @include flex-row-between-wrap;
+  padding: toRem(30);
+
+  @include breakpoint-down(lg) {
+    padding: toRem(20) toRem(17) toRem(30);
+  }
+
+  @include breakpoint-down(sm) {
+    padding: toRem(15) toRem(12) toRem(23);
+  }
+
+  .search-column {
+    .form-control {
+      padding: toRem(17) toRem(16);
+      width: toRem(250);
+    }
+
+    @include breakpoint-down(sm) {
+      .form-control {
+        font-size: toRem(13);
+        padding: toRem(15) toRem(16);
+        min-height: toRem(50.65);
+
+        @include breakpoint-down(xs) {
+          width: 100%;
+        }
+      }
+
+      @include breakpoint-down(xs) {
+        margin-bottom: toRem(10);
+        width: 100%;
+      }
+    }
+
+    .icon {
+      @include center-y;
+      right: toRem(15);
+      font-size: toRem(19);
+
+      @include breakpoint-down(sm) {
+        font-size: toRem(17);
+      }
+    }
+  }
+
+  .create-column {
+    .btn {
+      position: relative;
+      @include flex-row-around-nowrap;
+      padding: toRem(16.5) toRem(30);
+      font-size: toRem(12);
+
+      @include breakpoint-down(sm) {
+        padding: toRem(16) toRem(28);
+        font-size: toRem(11);
+      }
+
+      @include breakpoint-down(xs) {
+        padding: toRem(14) toRem(25);
+        font-size: toRem(10.5);
+      }
+    }
+  }
+}

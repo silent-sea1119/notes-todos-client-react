@@ -1,0 +1,32 @@
+@import "styles/variables.scss";
+
+.overview-block {
+  border: toRem(1) solid lighten($color-grey-light, 8%);
+  padding: toRem(20) toRem(25);
+  height: toRem(260);
+  width: 49.35%;
+
+  @include breakpoint-down(md) {
+    width: 100%;
+
+    &:last-of-type {
+      margin-top: toRem(15);
+    }
+  }
+
+  @include breakpoint-down(sm) {
+    padding: toRem(15);
+  }
+
+  .title-row {
+    @include font-height(15, 16);
+    margin-bottom: toRem(14);
+    padding: toRem(7) 0;
+    text-align: left;
+
+    @include breakpoint-down(sm) {
+      @include font-height(13.75, 15);
+      margin-bottom: toRem(8);
+    }
+  }
+}

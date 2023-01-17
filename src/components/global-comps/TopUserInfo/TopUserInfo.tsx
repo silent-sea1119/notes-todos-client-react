@@ -2,7 +2,7 @@ import React from "react";
 import { useToggle, useAuth, useInitials } from "hooks";
 import { ProfileBar } from "components";
 import { useAppDispatch } from "hooks/storeHook";
-import { logoutUser } from "store/generalSlice/sliceGetters";
+import { logoutUser } from "store/authSlice/sliceGetters";
 
 import "./TopUserInfo.scss";
 
@@ -37,7 +37,15 @@ const TopUserInfo = () => {
       <div className="position-relative">
         <div className="user-profile color-grey pointer" onClick={setToggle}>
           <div className="avatar rounded-circle">
-            <div className="avatar-text fw-600">{nameInitial}</div>
+            {authUser?.picture?.url ? (
+              <img
+                src={authUser?.picture?.url}
+                className="avatar-img"
+                alt={authUser.fullname}
+              />
+            ) : (
+              <div className="avatar-text fw-600">{nameInitial}</div>
+            )}
           </div>
 
           <div className="user-name fw-600 mgr-10 text-capitalize">

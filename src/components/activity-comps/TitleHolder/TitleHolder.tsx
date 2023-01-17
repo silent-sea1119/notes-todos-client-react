@@ -1,5 +1,6 @@
 import React from "react";
 import { useActivePageType, useToggle } from "hooks";
+import { TopSearch } from "components";
 import { NoteCreateModal } from "modals";
 
 import "./TitleHolder.scss";
@@ -12,22 +13,25 @@ const TitleHolder = () => {
     <>
       <div className="title-holder">
         <div className="left-wrapper">
-          <div className="title fw-600 color-black">Today Activities</div>
-          <div className="meta color-grey">
-            View all activities going on today across projects
-          </div>
+          <TopSearch />
         </div>
 
         {["notes"].includes(activePageType) && (
-          <button className="btn btn-green btn-wrapper" onClick={setIsNoteOpen}>
+          <button
+            className="btn btn-green btn-wrapper box-shadow-effect"
+            onClick={setIsNoteOpen}
+          >
             <div className="icon icon-plus"></div>
-            <div>{activePageType}</div>
           </button>
         )}
       </div>
 
       {/* MODALS */}
-      <NoteCreateModal showModal={isNoteOpen} toggleModal={setIsNoteOpen} />
+      <NoteCreateModal
+        showModal={isNoteOpen}
+        toggleModal={setIsNoteOpen}
+        type="create"
+      />
     </>
   );
 };

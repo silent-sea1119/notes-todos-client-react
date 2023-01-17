@@ -66,7 +66,7 @@
   }
 
   .wrapper {
-    background: $color-white !important;
+    background: $color-ash-white !important;
     border-radius: toRem(30) 0 0 toRem(30);
     position: relative;
 
@@ -75,7 +75,7 @@
     }
 
     .curve {
-      background: $color-white;
+      background: $color-ash-white;
       position: absolute;
       height: toRem(40);
       width: 10%;

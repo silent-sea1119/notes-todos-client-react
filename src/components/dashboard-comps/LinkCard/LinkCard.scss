@@ -1,0 +1,58 @@
+@import "styles/variables.scss";
+
+.link-card {
+  border: 1px solid darken($color-ash-white, 3%);
+  background: $color-ash-white;
+  width: 24%;
+  height: auto;
+  padding: 18px 24px;
+  border-radius: 4px;
+  @include transition(0.3s);
+  margin-right: toRem(20);
+
+  &:last-of-type {
+    margin-right: 0;
+  }
+
+  &:hover {
+    border-color: $color-green-dark;
+    background: lighten($color-green-lighter, 7%);
+  }
+
+  @include breakpoint-down(sm) {
+    margin-right: toRem(10);
+    margin-bottom: toRem(10);
+    width: toRem(180);
+    padding: 14px;
+  }
+
+  @include breakpoint-down(xs) {
+    margin-right: 0;
+    margin-bottom: toRem(8);
+    width: 100%;
+    padding: 13px;
+  }
+
+  .top {
+    @include font-height(14.5, 21);
+
+    @include breakpoint-down(sm) {
+      @include font-height(13, 19);
+    }
+  }
+
+  .bottom {
+    @include font-height(13, 18);
+
+    @include breakpoint-down(sm) {
+      @include font-height(12, 18);
+    }
+
+    span {
+      font-size: toRem(13);
+      position: relative;
+      left: toRem(5);
+      top: toRem(2.5);
+    }
+  }
+}

@@ -4,64 +4,25 @@
   @include flex-row-between-nowrap;
   margin: toRem(18) 0 toRem(23);
 
-  .title {
-    @include font-height(26, 36);
-
-    @include breakpoint-down(xl) {
-      @include font-height(22, 30);
-    }
-
-    @include breakpoint-down(lg) {
-      @include font-height(20.5, 28);
-    }
+  .left-wrapper {
+    width: toRem(270);
 
     @include breakpoint-down(sm) {
-      @include font-height(20, 29);
-    }
-
-    @include breakpoint-down(xs) {
-      @include font-height(19, 29);
-    }
-  }
-
-  .meta {
-    @include font-height(13.75, 21);
-
-    @include breakpoint-down(xl) {
-      @include font-height(13.25, 19);
-    }
-
-    @include breakpoint-down(lg) {
-      @include font-height(13, 18);
-    }
-
-    @include breakpoint-down(sm) {
-      @include font-height(12.25, 18);
-      padding-right: toRem(15);
-    }
-
-    @include breakpoint-down(xs) {
-      @include font-height(12, 16);
+      width: 100%;
     }
   }
 
   .btn-wrapper {
-    @include breakpoint-down(lg) {
-      font-size: toRem(11.25);
-    }
-
-    @include breakpoint-down(sm) {
-      padding: toRem(10.5) toRem(12);
-      font-size: toRem(11);
-    }
+    background: lighten($color-green, 12%);
+    @include square-shape(60);
+    border-radius: 50%;
+    position: fixed;
+    bottom: toRem(40);
+    right: toRem(30);
+    z-index: 99;
 
     .icon {
-      font-size: toRem(20);
-      margin-right: toRem(3);
-
-      @include breakpoint-down(lg) {
-        font-size: toRem(17);
-      }
+      font-size: toRem(24);
     }
   }
 }

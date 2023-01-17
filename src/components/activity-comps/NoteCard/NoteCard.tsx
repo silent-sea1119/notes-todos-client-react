@@ -1,7 +1,9 @@
 import React from "react";
 import { NoteTypes } from "types/NoteTypes";
 import { useToggle } from "hooks";
-import { DeleteModal } from "modals";
+import { NoteCreateModal, DeleteModal } from "modals";
+import { format } from "date-fns";
+import { motion } from "framer-motion";
 
 import "./NoteCard.scss";
 interface NoteProps {
@@ -9,13 +11,18 @@ interface NoteProps {
 }
 
 const NotesCard: React.FC<NoteProps> = ({
-  note: { title, content, created_at, labels, theme },
+  note: { id, title, content, createdAt, labels, theme },
 }: NoteProps) => {
   const [isDeleteOpen, setDeleteOpen] = useToggle();
+  const [isNoteOpen, setIsNoteOpen] = useToggle();
 
   return (
     <>
-      <div className="note-card-wrapper h-auto position-relative">
+      <motion.div
+        initial={{ y: -10 }}
+        animate={{ y: 0 }}
+        className="note-card-wrapper h-auto position-relative smooth-animation"
+      >
         <div className={`note-card pointer rounded-5 color-${theme}-bg`}>
           {/* LABELS */}
           <div className="note-labels mgt-4 mgb-12">
@@ -24,7 +31,7 @@ const NotesCard: React.FC<NoteProps> = ({
                 key={index}
                 className={`label rounded-5 color-${label.color}-light-bg`}
               >
-                {label.text}
+                {label.title}
               </div>
             ))}
           </div>
@@ -37,25 +44,42 @@ const NotesCard: React.FC<NoteProps> = ({
 
           <div className="bottom-info position-relative mgt-10">
             <div className="note-date color-white">
-              <span className="fw-600">Created:</span> {created_at}
+              <span className="fw-600">Created:</span>{" "}
+              {format(new Date(createdAt), "do MMM, yyyy")}
             </div>
 
-            <div
-              className="note-trash rounded-5 pointer"
-              onClick={setDeleteOpen}
-            >
-              <div className="w-100 h-100 position-relative"></div>
-              <div className="icon-trash place-center"></div>
+            <div className="wrapper">
+              <div
+                className="action-box note-edit rounded-5 pointer"
+                onClick={setIsNoteOpen}
+              >
+                <div className="icon icon-show"></div>
+              </div>
+
+              <div
+                className="action-box note-trash rounded-5 pointer"
+                onClick={setDeleteOpen}
+              >
+                <div className="icon icon-trash"></div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* MODALS */}
+      <NoteCreateModal
+        showModal={isNoteOpen}
+        toggleModal={setIsNoteOpen}
+        type="update"
+        note={{ id, title, content, createdAt, labels, theme }}
+      />
+
       <DeleteModal
         showModal={isDeleteOpen}
         toggleModal={setDeleteOpen}
         title="Note"
+        id={id}
       />
     </>
   );

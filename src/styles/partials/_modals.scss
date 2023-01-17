@@ -4,7 +4,7 @@
   @include center-placement;
   box-sizing: border-box;
   overflow: auto;
-  z-index: 4999;
+  z-index: 8999;
   height: auto;
   width: auto;
   @include transition(0.5s);
@@ -17,7 +17,7 @@
   @include transition(0.5s);
   @include stretch-area;
   position: fixed;
-  z-index: 3999;
+  z-index: 7999;
 }
 
 .modal-cover {
@@ -260,7 +260,7 @@
 
 .modal-cover-body {
   padding: toRem(10) toRem(24);
-  min-height: 20vh;
+  min-height: 12vh;
   height: auto;
   max-height: 80vh;
   overflow-y: auto;

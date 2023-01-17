@@ -1,0 +1,38 @@
+@import "styles/variables.scss";
+
+.item-list {
+  @include flex-row-between-nowrap;
+  @include font-height(14.75, 19);
+  margin-bottom: toRem(5);
+  padding: toRem(10) 0;
+  color: $color-grey;
+
+  @include breakpoint-down(sm) {
+    @include font-height(13.75, 18);
+    padding: toRem(8) 0;
+  }
+
+  .title-text {
+    @include flex-row-start-nowrap;
+
+    .indicator {
+      @include square-shape(8);
+      background: $color-green;
+      margin-right: toRem(20);
+      border-radius: 50%;
+
+      @include breakpoint-down(sm) {
+        @include square-shape(7);
+        margin-right: toRem(15);
+      }
+    }
+
+    .text {
+      color: $color-black;
+    }
+  }
+
+  .value-text {
+    font-weight: 700;
+  }
+}

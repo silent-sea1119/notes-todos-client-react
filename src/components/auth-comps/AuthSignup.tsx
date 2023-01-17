@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { useAppDispatch } from "hooks/storeHook";
 import { useAlert, useBtnClick } from "hooks";
-import { signupUser } from "store/generalSlice/sliceGetters";
+import { signupUser } from "store/authSlice/sliceGetters";
 import { AuthAlert } from "components";
 
 const AuthSignup = () => {

@@ -10,6 +10,9 @@
 /*Mixin Style*/
 @import "./partials/mixins";
 
+/*Layout Style*/
+@import "./partials/layouts";
+
 /*Utilities Style*/
 @import "./partials/utilities";
 
@@ -21,6 +24,9 @@
 
 /* FORM STYLE */
 @import "./partials/forms";
+
+/* TABLE STYLE */
+@import "./partials/tables";
 
 /* MODAL STYLE */
 @import "./partials/modals";

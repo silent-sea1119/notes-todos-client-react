@@ -26,7 +26,7 @@
   .wrapper {
     border-bottom: toRem(1) solid $color-grey-light;
     @include flex-row-between-wrap;
-    padding: toRem(11) toRem(2);
+    padding: toRem(14) toRem(2);
 
     @include breakpoint-down(lg) {
       padding: toRem(9) toRem(1);
@@ -61,6 +61,17 @@
         &-three {
           top: 100%;
         }
+      }
+    }
+
+    .title-text {
+      position: relative;
+      top: toRem(4);
+      font-size: toRem(15);
+      @include transition(0.4s);
+
+      @include breakpoint-down(sm) {
+        top: 0;
       }
     }
   }

@@ -40,7 +40,7 @@ export const TodoData: TodoTypes[] = [
     id: 1,
     title: "",
     content: "Design a user flow for new user onboarding",
-    labels: [{ text: "Onboarding", color: "red" }],
+    labels: [{ title: "Onboarding", color: "red" }],
     category: "backlog",
   },
   {
@@ -48,8 +48,8 @@ export const TodoData: TodoTypes[] = [
     title: "",
     content: "Implement new tour flow for admin users",
     labels: [
-      { text: "User", color: "red" },
-      { text: "Onboarding", color: "blue" },
+      { title: "User", color: "red" },
+      { title: "Onboarding", color: "blue" },
     ],
     category: "backlog",
   },
@@ -58,8 +58,8 @@ export const TodoData: TodoTypes[] = [
     title: "",
     content: "Integration of user analytics to show user growth",
     labels: [
-      { text: "User", color: "red" },
-      { text: "Growth", color: "green" },
+      { title: "User", color: "red" },
+      { title: "Growth", color: "green" },
     ],
     category: "ongoing",
   },

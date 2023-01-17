@@ -1,2 +1,2 @@
-export { fetchTodo } from "./sliceActions";
-export { getTodo } from ".";
+export { fetchTodo, createTodo, updateTodo, deleteTodo } from "./sliceActions";
+export { getTodo, removeFromTodo } from ".";

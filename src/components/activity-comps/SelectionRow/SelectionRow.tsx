@@ -1,14 +1,28 @@
 import React from "react";
 import { useSearchParams } from "react-router-dom";
-import { selectionTypes } from "types";
-import { selectionData } from "mock-data";
 import { useActivePageType } from "hooks";
+// import { useAppSelector } from "hooks/storeHook";
+// import { getNote } from "store/noteSlice/sliceGetters";
 import { SelectionItem } from "components";
+import { CATEGORY_ONE, CATEGORY_TWO } from "constant";
 
 import "./SelectionRow.scss";
 
 const SelectionRow = () => {
-  const [selectons] = React.useState<selectionTypes[]>(selectionData);
+  // const { notes: NoteData } = useAppSelector(getNote);
+
+  const [todoSelection] = React.useState({
+    title: CATEGORY_ONE,
+    isActive: true,
+    setActive: () => {},
+  });
+
+  const [noteSelection] = React.useState({
+    title: CATEGORY_TWO,
+    isActive: false,
+    setActive: () => {},
+  });
+
   const [searchParams, setSearchParams] = useSearchParams();
   const pageType = useActivePageType(undefined);
 
@@ -23,15 +37,17 @@ const SelectionRow = () => {
 
   return (
     <div className="selection-row mgb-30">
-      {selectons.map((selection) => (
-        <SelectionItem
-          key={selection.title}
-          title={selection.title}
-          counter={selection.counter}
-          isActive={pageType === selection.title}
-          setActive={setActive}
-        />
-      ))}
+      <SelectionItem
+        title={todoSelection.title}
+        isActive={pageType === todoSelection.title}
+        setActive={setActive}
+      />
+
+      <SelectionItem
+        title={noteSelection.title}
+        isActive={pageType === noteSelection.title}
+        setActive={setActive}
+      />
     </div>
   );
 };

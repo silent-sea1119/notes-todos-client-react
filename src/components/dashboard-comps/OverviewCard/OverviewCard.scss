@@ -1,0 +1,55 @@
+@import "styles/variables.scss";
+
+.overview-card {
+  border: toRem(1) solid lighten($color-grey-light, 8%);
+  @include flex-row-between-nowrap;
+  align-items: flex-start;
+  @include transition(0.3s);
+  padding: toRem(27) toRem(23);
+  box-sizing: border-box;
+  height: toRem(100);
+  width: 31.5%;
+
+  @include breakpoint-down(xl) {
+    margin-right: 16px;
+    min-width: 235px;
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+
+  @include breakpoint-down(sm) {
+    padding: toRem(18) toRem(14);
+    height: toRem(86);
+    margin-right: 7px;
+    min-width: 185px;
+  }
+
+  .top {
+    @include font-height(18, 22);
+    letter-spacing: 0.02em;
+
+    @include breakpoint-down(lg) {
+      @include font-height(16, 20);
+    }
+  }
+
+  .bottom {
+    @include font-height(12, 20);
+    letter-spacing: 0.02em;
+    text-align: left;
+
+    @include breakpoint-down(lg) {
+      @include font-height(11.75, 19);
+    }
+  }
+
+  .icon {
+    font-size: toRem(24);
+
+    @include breakpoint-down(sm) {
+      font-size: toRem(22);
+    }
+  }
+}

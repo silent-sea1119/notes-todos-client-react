@@ -41,7 +41,7 @@
 
       .wrapper {
         border-bottom: toRem(0.5) solid rgba($color-brown-light, 0.65);
-        padding: toRem(24) toRem(5) toRem(14);
+        padding: toRem(16) toRem(5) toRem(18);
         @include flex-row-start-nowrap;
 
         .brand-icon {

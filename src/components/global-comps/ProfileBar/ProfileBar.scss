@@ -72,6 +72,14 @@
         @include square-shape(130);
       }
 
+      .avatar-img {
+        @include background-cover;
+        @include center-placement;
+        border-radius: inherit;
+        margin: auto;
+        z-index: 1;
+      }
+
       .profile-text {
         font-size: toRem(60);
 

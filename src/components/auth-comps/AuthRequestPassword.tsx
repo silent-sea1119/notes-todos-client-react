@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useAppDispatch } from "hooks/storeHook";
 import { useAlert, useBtnClick } from "hooks";
-import { requestUserPassword } from "store/generalSlice/sliceGetters";
+import { requestUserPassword } from "store/authSlice/sliceGetters";
 import { AuthAlert } from "components";
 
 const AuthRequestPassword = () => {

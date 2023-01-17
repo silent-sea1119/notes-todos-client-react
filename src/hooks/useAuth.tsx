@@ -1,8 +1,14 @@
+// import React from "react";
 import { useAppSelector } from "hooks/storeHook";
-import { getGeneral } from "store/generalSlice/sliceGetters";
+import { getAuth } from "store/authSlice/sliceGetters";
 
 const useAuth = (): any => {
-  const { auth_user } = useAppSelector(getGeneral);
+  const { auth_user } = useAppSelector(getAuth);
+
+  // React.useEffect(() => {
+
+  // }, [auth_user])
+
   return auth_user;
 };
 

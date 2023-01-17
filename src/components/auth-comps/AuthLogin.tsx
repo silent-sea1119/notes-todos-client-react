@@ -1,12 +1,13 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useAppDispatch } from "hooks/storeHook";
+import { loginUser } from "store/authSlice/sliceGetters";
 import { useAlert, useBtnClick } from "hooks";
-import { loginUser } from "store/generalSlice/sliceGetters";
 import { AuthAlert } from "components";
 
 const AuthLogin = () => {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   const btnRef = React.useRef<HTMLButtonElement>(null);
 
   const [email, setEmail] = React.useState<string>("");
@@ -32,7 +33,7 @@ const AuthLogin = () => {
 
       if (response.code === 200) {
         setAlert(response.message, response.status);
-        setTimeout(() => (window.location.href = "/"), 1000);
+        setTimeout(() => navigate("/dashboard"), 1000);
       } else {
         setAlert(response.error, response.status);
       }

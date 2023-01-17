@@ -1,4 +1,11 @@
 import React from "react";
+import { useAppDispatch } from "hooks/storeHook";
+import { $serviceUtils as $utlis } from "services";
+import { useBtnClick } from "hooks";
+import { deleteProject } from "store/projectSlice/sliceGetters";
+import { deleteUser, removeUser } from "store/generalSlice/sliceGetters";
+import { deleteNote, removeFromNote } from "store/noteSlice/sliceGetters";
+import { deleteTodo, removeFromTodo } from "store/todoSlice/sliceGetters";
 import { ModalCover } from "modals";
 import { modalTypes } from "types";
 
@@ -6,10 +13,49 @@ import "./DeleteModal.scss";
 
 interface DeleteModalProps extends modalTypes {
   title: string;
+  id?: any;
 }
 
-const DeleteModal = ({ showModal, toggleModal, title }: DeleteModalProps) => {
+const DeleteModal = ({
+  showModal,
+  toggleModal,
+  title,
+  id,
+}: DeleteModalProps) => {
   const deleteIcon = require("assets/trashIcon.png");
+  const dispatch = useAppDispatch();
+  const btnRef = React.useRef<HTMLButtonElement>(null);
+  const handleClick = useBtnClick(btnRef.current);
+
+  const deleteAction = () => {
+    if (title === "Project") return deleteProject({ id });
+    if (title === "User") return deleteUser({ id });
+    if (title === "Note") return deleteNote({ id });
+    if (title === "Todo") return deleteTodo({ id });
+  };
+
+  const deleteItem = async () => {
+    try {
+      //@ts-ignore
+      let response = await dispatch(deleteAction()).unwrap();
+
+      if (response.code === 200) {
+        // handleClick("Delete", false);
+        title === "Project" && $utlis.emitter.emit("loadProjectSidebar");
+        title === "User" && dispatch(removeUser(id));
+        title === "Note" && dispatch(removeFromNote(id));
+        title === "Todo" && dispatch(removeFromTodo(id));
+
+        setTimeout(() => toggleModal(), 500);
+      } else {
+        handleClick("Failed", false);
+        setTimeout(() => handleClick("Delete", false), 1200);
+      }
+    } catch (err) {
+      handleClick("Delete", false);
+      console.log(err);
+    }
+  };
 
   return (
     <ModalCover
@@ -44,7 +90,13 @@ const DeleteModal = ({ showModal, toggleModal, title }: DeleteModalProps) => {
               CANCEL
             </button>
 
-            <button className="btn btn-red mgl-10">DELETE</button>
+            <button
+              className="btn btn-red mgl-10"
+              onClick={deleteItem}
+              ref={btnRef}
+            >
+              DELETE
+            </button>
           </div>
         </div>
       </ModalCover.Slot>

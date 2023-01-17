@@ -1,0 +1,19 @@
+// FULL WIDTH PAGE BACKGROUND
+.full-width-page {
+  border: toRem(1) solid lighten($color-grey-light, 10%);
+  background: $color-white;
+  border-radius: toRem(4);
+  margin-top: toRem(15);
+  margin-bottom: toRem(30);
+  position: relative;
+  box-sizing: border-box;
+
+  .count-row {
+    @include font-height(15, 16);
+    margin-bottom: toRem(32);
+
+    @include breakpoint-down(sm) {
+      @include font-height(14, 15);
+    }
+  }
+}

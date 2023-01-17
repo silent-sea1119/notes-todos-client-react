@@ -56,6 +56,8 @@ const TodoCategory = ({
         showModal={isTodoOpen}
         toggleModal={setIsTodoOpen}
         category={title}
+        type="create"
+        todo={data}
       />
     </>
   );

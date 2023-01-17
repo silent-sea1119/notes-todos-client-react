@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
 import { useAppDispatch } from "hooks/storeHook";
 import { useAlert, useBtnClick } from "hooks";
-import { resetUserPassword } from "store/generalSlice/sliceGetters";
+import { resetUserPassword } from "store/authSlice/sliceGetters";
 import { AuthAlert } from "components";
 
 const AuthResetPassword = () => {

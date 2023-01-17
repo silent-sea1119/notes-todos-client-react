@@ -9,7 +9,7 @@ interface TodoCardProps {
   todo: TodoTypes;
 }
 
-const TodoCard = ({ todo: { content, labels } }: TodoCardProps) => {
+const TodoCard = ({ todo: { id, content, labels } }: TodoCardProps) => {
   const [isDeleteOpen, setDeleteOpen] = useToggle();
 
   return (
@@ -28,7 +28,7 @@ const TodoCard = ({ todo: { content, labels } }: TodoCardProps) => {
               key={index}
               className={`tag color-${label.color}-light-bg color-${label.color}`}
             >
-              {label.text}
+              {label.title}
             </div>
           ))}
         </div>
@@ -46,6 +46,7 @@ const TodoCard = ({ todo: { content, labels } }: TodoCardProps) => {
         showModal={isDeleteOpen}
         toggleModal={setDeleteOpen}
         title="Todo"
+        id={id}
       />
     </>
   );

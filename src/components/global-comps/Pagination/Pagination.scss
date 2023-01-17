@@ -1,0 +1,118 @@
+@import "styles/variables.scss";
+
+.pagination-row {
+  padding: 0 toRem(30) toRem(35);
+  @include flex-row-between-wrap;
+
+  @include breakpoint-down(sm) {
+    @include flex-column-center;
+    padding: 0 toRem(15) toRem(30);
+  }
+
+  .left {
+    @include flex-row-start-nowrap;
+    padding-right: 30px;
+
+    @include breakpoint-down(sm) {
+      @include flex-row-between-nowrap;
+      padding-right: 0;
+      width: 100%;
+    }
+
+    .pagination-text {
+      @include font-height(13.5, 24);
+
+      @include breakpoint-down(sm) {
+        @include font-height(12.75, 22);
+      }
+    }
+  }
+
+  .right {
+    position: relative;
+    @include flex-row-end-nowrap;
+
+    @include breakpoint-custom-down(827) {
+      margin-top: 15px;
+      margin-bottom: 15px !important;
+    }
+
+    @include breakpoint-custom-down(578) {
+      margin-top: 0px;
+    }
+
+    @include breakpoint-custom-down(565) {
+      margin-top: 15px;
+      margin-bottom: 20px !important;
+    }
+
+    .nav {
+      padding: toRem(7);
+      min-width: toRem(24);
+      border-radius: toRem(4);
+      cursor: pointer;
+      color: $color-grey-dark;
+      @include transition(0.4s);
+
+      @include breakpoint-down(sm) {
+        padding: toRem(6);
+        min-width: toRem(22);
+      }
+
+      .icon {
+        font-size: toRem(18.5);
+        font-weight: 600;
+
+        @include breakpoint-down(sm) {
+          font-size: toRem(17.75);
+        }
+      }
+
+      .nav-text {
+        @include font-height(13.75, 24);
+        position: relative;
+        top: -0.5px;
+      }
+
+      &.disabled {
+        cursor: not-allowed;
+        color: $color-grey;
+        pointer-events: none;
+      }
+
+      &:hover {
+        background: rgba($color-green-lighter, 0.7);
+
+        &.disabled {
+          background: unset;
+        }
+      }
+    }
+
+    .paging {
+      @include flex-row-center-nowrap;
+      @include font-height(14, 25);
+      color: $color-black;
+
+      .page-input {
+        @include rectangle-shape(42, 21);
+        padding: toRem(15) toRem(8);
+      }
+
+      .page-btn {
+        @include rectangle-shape(30, 26);
+        @include font-height(12.75, 15);
+        padding: toRem(15) toRem(20);
+      }
+    }
+
+    .error-text {
+      position: absolute;
+      left: toRem(12);
+      top: toRem(44);
+      @include font-height(12, 16);
+      color: $color-red;
+      font-weight: 600;
+    }
+  }
+}

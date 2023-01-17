@@ -1,0 +1,15 @@
+@import "styles/variables.scss";
+
+.alert-wrapper {
+  position: absolute;
+  top: toRem(20);
+  right: toRem(20);
+  z-index: 8999;
+
+  .alert-card {
+    padding: toRem(15) toRem(20);
+    @include font-height(13, 18);
+    background: $color-white;
+    position: relative;
+  }
+}

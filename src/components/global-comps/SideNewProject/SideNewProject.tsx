@@ -1,13 +1,11 @@
 import React from "react";
 import { useToggle } from "hooks";
-import { useAppDispatch } from "hooks/storeHook";
-import { toggleSidebar } from "store/generalSlice/sliceGetters";
+import { $serviceUtils as $utils } from "services";
 import { ProjectCreateModal } from "modals";
 
 import "./SideNewProject.scss";
 
 const SideNewProject = () => {
-  const dispatch = useAppDispatch();
   const [isProjectOpen, setIsProjectOpen] = useToggle();
 
   const toggleProjectModal = React.useCallback(() => {
@@ -15,13 +13,13 @@ const SideNewProject = () => {
     if (window.innerWidth <= 768) {
       if (isProjectOpen) setIsProjectOpen();
       else {
-        dispatch(toggleSidebar());
+        $utils.emitter.emit("hideSidebar");
         setIsProjectOpen();
       }
     }
     // PC
     else setIsProjectOpen();
-  }, [isProjectOpen, dispatch, setIsProjectOpen]);
+  }, [isProjectOpen, setIsProjectOpen]);
 
   return (
     <>
